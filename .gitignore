@@ -1,0 +1,29 @@
+# Virtuelle Python-Umgebungen
+.venv/
+venv/
+
+# Python
+__pycache__/
+*.py[cod]
+
+# Tests
+.pytest_cache/
+.coverage
+htmlcov/
+
+# Umgebungsvariablen
+.env
+.env.*
+!.env.example
+
+# Entwicklungsumgebungen
+.vscode/
+.idea/
+
+# Betriebssystem
+.DS_Store
+Thumbs.db
+
+# Temporäre Dateien
+*.log
+*.tmp

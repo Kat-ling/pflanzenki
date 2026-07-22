@@ -1,0 +1,105 @@
+[
+  {
+    "id": "906942d86e85",
+    "name": "Robuste Freilandtomate",
+    "category": "Tomate",
+    "description": "Diese robuste Sorte ist freilandgeeignet und kann problemlos ohne Regenschutz angebaut werden.",
+    "raw_fields": {
+      "Sorte": "Robuste Freilandtomate",
+      "Kategorie": "Tomate",
+      "Regenschutz": "",
+      "Beschreibung": "Diese robuste Sorte ist freilandgeeignet und kann problemlos ohne Regenschutz angebaut werden."
+    },
+    "evidence": [
+      {
+        "feature": "outdoor_uncovered",
+        "value": "yes",
+        "source": "description",
+        "quote": "robuste sorte ist freilandgeeignet und kann problemlos ohne regenschutz angebaut werden.",
+        "field_name": null,
+        "confidence": 0.95
+      },
+      {
+        "feature": "outdoor_uncovered",
+        "value": "yes",
+        "source": "description",
+        "quote": "diese robuste sorte ist freilandgeeignet und kann problemlos ohne regenschutz angebaut werden.",
+        "field_name": null,
+        "confidence": 0.95
+      }
+    ]
+  },
+  {
+    "id": "01cd9c9440ef",
+    "name": "Geschützte Fleischtomate",
+    "category": "Tomate",
+    "description": "Benötigt einen warmen, geschützten Standort. Regenschutz ist empfohlen.",
+    "raw_fields": {
+      "Sorte": "Geschützte Fleischtomate",
+      "Kategorie": "Tomate",
+      "Regenschutz": "",
+      "Beschreibung": "Benötigt einen warmen, geschützten Standort. Regenschutz ist empfohlen."
+    },
+    "evidence": [
+      {
+        "feature": "outdoor_uncovered",
+        "value": "no",
+        "source": "description",
+        "quote": "benötigt einen warmen, geschützten standort. regenschutz ist empfohlen.",
+        "field_name": null,
+        "confidence": 0.9
+      }
+    ]
+  },
+  {
+    "id": "ae8e1eb7403f",
+    "name": "Unklare Cocktailtomate",
+    "category": "Tomate",
+    "description": "Süße Cocktailtomate mit hohem Ertrag.",
+    "raw_fields": {
+      "Sorte": "Unklare Cocktailtomate",
+      "Kategorie": "Tomate",
+      "Regenschutz": "",
+      "Beschreibung": "Süße Cocktailtomate mit hohem Ertrag."
+    },
+    "evidence": []
+  },
+  {
+    "id": "64201e973e94",
+    "name": "Widerspruchstomate",
+    "category": "Tomate",
+    "description": "Trotz des gesetzten Feldes kann diese Sorte im ungeschützten Freiland problemlos wachsen.",
+    "raw_fields": {
+      "Sorte": "Widerspruchstomate",
+      "Kategorie": "Tomate",
+      "Regenschutz": "ja",
+      "Beschreibung": "Trotz des gesetzten Feldes kann diese Sorte im ungeschützten Freiland problemlos wachsen."
+    },
+    "evidence": [
+      {
+        "feature": "outdoor_uncovered",
+        "value": "yes",
+        "source": "description",
+        "quote": "trotz des gesetzten feldes kann diese sorte im ungeschützten freiland problemlos wachsen.",
+        "field_name": null,
+        "confidence": 0.95
+      },
+      {
+        "feature": "outdoor_uncovered",
+        "value": "yes",
+        "source": "description",
+        "quote": "des gesetzten feldes kann diese sorte im ungeschützten freiland problemlos wachsen.",
+        "field_name": null,
+        "confidence": 0.95
+      },
+      {
+        "feature": "outdoor_uncovered",
+        "value": "no",
+        "source": "structured_field",
+        "quote": "ja",
+        "field_name": "Regenschutz",
+        "confidence": 0.85
+      }
+    ]
+  }
+]
