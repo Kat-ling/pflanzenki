@@ -2,6 +2,7 @@ from __future__ import annotations
 
 from enum import Enum
 from typing import Any
+
 from pydantic import BaseModel, Field
 
 
@@ -15,6 +16,13 @@ class SourceType(str, Enum):
     DESCRIPTION = "description"
     STRUCTURED_FIELD = "structured_field"
     DERIVED = "derived"
+
+
+class ConfidenceLevel(str, Enum):
+    HIGH = "high"
+    MEDIUM = "medium"
+    LOW = "low"
+    UNKNOWN = "unknown"
 
 
 class Evidence(BaseModel):
@@ -38,10 +46,18 @@ class Plant(BaseModel):
 class Recommendation(BaseModel):
     plant_id: str
     plant_name: str
+    description: str = ""
     verdict: TruthValue
     score: float
-    reasons: list[Evidence]
+
+    # Belege, auf denen die Entscheidung beruht
+    reasons: list[Evidence] = Field(default_factory=list)
+
+    # Belege, die der Entscheidung widersprechen
     conflicts: list[Evidence] = Field(default_factory=list)
+
+    # Verständliche Ableitung aus dem internen Score
+    confidence: ConfidenceLevel = ConfidenceLevel.UNKNOWN
 
 
 class AdviceResult(BaseModel):
