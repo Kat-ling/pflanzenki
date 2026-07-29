@@ -1,10 +1,12 @@
 # Virtuelle Python-Umgebungen
 .venv/
+.venv-*/
 venv/
 
 # Python
 __pycache__/
 *.py[cod]
+*.egg-info/
 
 # Tests
 .pytest_cache/
@@ -27,3 +29,5 @@ Thumbs.db
 # Temporäre Dateien
 *.log
 *.tmp
+tmp*
+pip-*/
