@@ -1,8 +1,12 @@
 from __future__ import annotations
 
+import re
+import unicodedata
+
 from app.ai.query_models import (
     ParsedQuery,
     PlantRequirement,
+    QueryIntent,
     RequirementImportance,
     RequirementValue,
 )
@@ -15,6 +19,7 @@ from app.models.domain import (
     SourceType,
     TruthValue,
 )
+from app.feature_catalog import FEATURE_DESCRIPTIONS
 
 
 SOURCE_PRIORITY = {
@@ -22,6 +27,9 @@ SOURCE_PRIORITY = {
     SourceType.STRUCTURED_FIELD: 2,
     SourceType.DERIVED: 1,
 }
+
+MAX_RECOMMENDATIONS = 3
+MAX_CATALOG_ITEMS = 6
 
 
 def confidence_from_result(
@@ -70,7 +78,9 @@ def resolve_feature(plant: Plant, feature: str) -> Recommendation:
         return Recommendation(
             plant_id=plant.id,
             plant_name=plant.name,
+            plant_category=plant.category or "",
             description=plant.description,
+            image_filenames=plant.image_filenames,
             verdict=TruthValue.UNKNOWN,
             score=0,
             reasons=[],
@@ -129,7 +139,9 @@ def resolve_feature(plant: Plant, feature: str) -> Recommendation:
     return Recommendation(
         plant_id=plant.id,
         plant_name=plant.name,
+        plant_category=plant.category or "",
         description=plant.description,
+        image_filenames=plant.image_filenames,
         verdict=winner.value,
         score=score,
         reasons=[winner],
@@ -257,7 +269,9 @@ def evaluate_plant(
         Recommendation(
             plant_id=plant.id,
             plant_name=plant.name,
+            plant_category=plant.category or "",
             description=plant.description,
+            image_filenames=plant.image_filenames,
             verdict=verdict,
             score=total_score,
             reasons=reasons,
@@ -282,6 +296,10 @@ def advise_requirements(
             or (plant.category or "").strip().casefold() == category
         )
     ]
+
+    if query.plant_names:
+        named = find_named_plants(candidates, query.plant_names)
+        candidates = named
 
     evaluated = [
         evaluate_plant(
@@ -345,7 +363,7 @@ def advise_requirements(
         reverse=True,
     )
 
-    selected = positive[:3]
+    selected = positive[:MAX_RECOMMENDATIONS]
 
     if selected:
         names = ", ".join(
@@ -357,12 +375,23 @@ def advise_requirements(
             "Nach den vorhandenen Angaben passen am besten: "
             f"{names}."
         )
-    else:
-        answer = (
-            "In den vorhandenen Pflanzendaten gibt es keine "
-            "eindeutig passende Empfehlung. Fehlende Angaben "
-            "werden nicht als ungeeignet bewertet."
+    elif unknown:
+        missing = ", ".join(
+            FEATURE_DESCRIPTIONS[requirement.feature]
+            for requirement in query.requirements
+            if requirement.importance == RequirementImportance.REQUIRED
         )
+        scope = (
+            f"der Kategorie {query.category}"
+            if query.category
+            else "den infrage kommenden Pflanzen"
+        )
+        answer = (
+            f"Woas I ned. Bei {scope} fehlen im Katalog eindeutige "
+            f"Angaben zu: {missing or 'den gewünschten Eigenschaften'}."
+        )
+    else:
+        answer = "Woas I ned."
 
     intent = ",".join(
         requirement.feature.value
@@ -371,10 +400,147 @@ def advise_requirements(
 
     return AdviceResult(
         question=query.original_question,
-        intent=intent or "unknown",
+        intent=intent or query.intent.value,
         recommendations=selected,
         unknown=unknown,
         excluded=excluded,
+        answer=answer,
+    )
+
+
+def normalize_name(value: str) -> str:
+    decomposed = unicodedata.normalize("NFKD", value.casefold())
+    without_marks = "".join(
+        char
+        for char in decomposed
+        if not unicodedata.combining(char)
+    )
+    return re.sub(r"[^a-z0-9]+", " ", without_marks).strip()
+
+
+def find_named_plants(
+    plants: list[Plant],
+    requested_names: list[str],
+) -> list[Plant]:
+    normalized = [(plant, normalize_name(plant.name)) for plant in plants]
+    selected: list[Plant] = []
+
+    for requested_name in requested_names:
+        wanted = normalize_name(requested_name)
+        if not wanted:
+            continue
+
+        exact = [plant for plant, name in normalized if name == wanted]
+        matches = exact or [
+            plant
+            for plant, name in normalized
+            if wanted in name or name in wanted
+        ]
+
+        for plant in matches:
+            if plant not in selected:
+                selected.append(plant)
+
+    return selected
+
+
+def advise_named_information(
+    plants: list[Plant],
+    query: ParsedQuery,
+) -> AdviceResult:
+    found = find_named_plants(plants, query.plant_names)
+
+    if not found:
+        return AdviceResult(
+            question=query.original_question,
+            intent=query.intent.value,
+            recommendations=[],
+            unknown=[],
+            excluded=[],
+            answer="Woas I ned.",
+        )
+
+    recommendations = [
+        Recommendation(
+            plant_id=plant.id,
+            plant_name=plant.name,
+            plant_category=plant.category or "",
+            description=plant.description,
+            image_filenames=plant.image_filenames,
+            verdict=TruthValue.YES,
+            score=0,
+            reasons=[],
+            conflicts=[],
+            confidence=ConfidenceLevel.MEDIUM,
+        )
+        for plant in found[:3]
+    ]
+    names = ", ".join(item.plant_name for item in recommendations)
+    if query.intent == QueryIntent.COMPARISON:
+        answer = f"Dazu sind Angaben für den Vergleich vorhanden: {names}."
+    else:
+        answer = f"Dazu sind folgende Angaben im Pflanzenkatalog vorhanden: {names}."
+
+    return AdviceResult(
+        question=query.original_question,
+        intent=query.intent.value,
+        recommendations=recommendations,
+        unknown=[],
+        excluded=[],
+        answer=answer,
+    )
+
+
+def advise_category_catalog(
+    plants: list[Plant],
+    query: ParsedQuery,
+) -> AdviceResult:
+    category = query.category.strip().casefold()
+    found = [
+        plant
+        for plant in plants
+        if (plant.category or "").strip().casefold() == category
+    ]
+
+    if not found:
+        return AdviceResult(
+            question=query.original_question,
+            intent=QueryIntent.CATALOG.value,
+            recommendations=[],
+            unknown=[],
+            excluded=[],
+            answer="Woas I ned.",
+        )
+
+    visible = found[:MAX_CATALOG_ITEMS]
+    recommendations = [
+        Recommendation(
+            plant_id=plant.id,
+            plant_name=plant.name,
+            plant_category=plant.category or "",
+            description=plant.description,
+            image_filenames=plant.image_filenames,
+            verdict=TruthValue.YES,
+            score=0,
+            reasons=[],
+            conflicts=[],
+            confidence=ConfidenceLevel.HIGH,
+        )
+        for plant in visible
+    ]
+    answer = (
+        f"Im Pflanzenkatalog sind {len(found)} Einträge der Kategorie "
+        f"{query.category} vorhanden."
+    )
+    if len(found) > len(visible):
+        answer += f" Angezeigt werden die ersten {len(visible)}."
+
+    return AdviceResult(
+        question=query.original_question,
+        intent=QueryIntent.CATALOG.value,
+        recommendations=recommendations,
+        unknown=[],
+        excluded=[],
         answer=answer,
     )
 
@@ -399,6 +565,21 @@ def advise(
             answer=query.follow_up_question,
         )
 
+    if (
+        query.intent in {QueryIntent.INFORMATION, QueryIntent.COMPARISON}
+        and query.plant_names
+        and not query.requirements
+    ):
+        return advise_named_information(plants, query)
+
+    if (
+        query.intent == QueryIntent.CATALOG
+        and query.category
+        and not query.requirements
+        and not query.plant_names
+    ):
+        return advise_category_catalog(plants, query)
+
     if not query.requirements:
         return AdviceResult(
             question=query.original_question,
@@ -406,10 +587,7 @@ def advise(
             recommendations=[],
             unknown=[],
             excluded=[],
-            answer=(
-                "Aus der Frage konnten keine auswertbaren "
-                "Anforderungen abgeleitet werden."
-            ),
+            answer="Woas I ned.",
         )
 
     return advise_requirements(

@@ -1,0 +1,146 @@
+[
+  {
+    "id": "outdoor_uncovered",
+    "description": "draußen im ungeschützten Freiland, ohne Dach oder Regenschutz"
+  },
+  {
+    "id": "balcony",
+    "description": "für Balkon, Terrasse, Topf oder Kübel geeignet"
+  },
+  {
+    "id": "greenhouse",
+    "description": "für Gewächshaus, Folientunnel oder geschützten Anbau"
+  },
+  {
+    "id": "sweet",
+    "description": "süßer Geschmack"
+  },
+  {
+    "id": "aromatic",
+    "description": "aromatischer oder intensiver Geschmack"
+  },
+  {
+    "id": "mild",
+    "description": "milder, nicht scharfer Geschmack"
+  },
+  {
+    "id": "spicy",
+    "description": "scharf oder als Chili/Peperoni mit Schärfe gewünscht"
+  },
+  {
+    "id": "easy_care",
+    "description": "pflegeleicht, unkompliziert oder für Anfänger geeignet"
+  },
+  {
+    "id": "early",
+    "description": "frühe Reife oder Ernte"
+  },
+  {
+    "id": "late",
+    "description": "späte Reife oder Ernte"
+  },
+  {
+    "id": "sauce",
+    "description": "für Soße, Passata oder Einkochen geeignet"
+  },
+  {
+    "id": "fresh_eating",
+    "description": "für Frischverzehr, Rohkost oder zum Naschen"
+  },
+  {
+    "id": "drying",
+    "description": "zum Trocknen geeignet"
+  },
+  {
+    "id": "robust",
+    "description": "robust, resistent oder widerstandsfähig"
+  },
+  {
+    "id": "high_yield",
+    "description": "ertragreich oder hoher Ertrag"
+  },
+  {
+    "id": "small_fruit",
+    "description": "kleine Früchte, Snack- oder Cocktailgröße"
+  },
+  {
+    "id": "compact",
+    "description": "kompakt, kleinbleibend oder buschig"
+  },
+  {
+    "id": "tall",
+    "description": "hoch oder hochwachsend"
+  },
+  {
+    "id": "climbing",
+    "description": "rankend, kletternd oder Stangenform"
+  },
+  {
+    "id": "no_pruning",
+    "description": "muss nicht ausgegeizt werden"
+  },
+  {
+    "id": "warm_location",
+    "description": "benötigt oder bevorzugt einen warmen Standort"
+  },
+  {
+    "id": "drought_tolerant",
+    "description": "trockenheitsverträglich oder geringer Wasserbedarf"
+  },
+  {
+    "id": "sunny",
+    "description": "sonniger Standort"
+  },
+  {
+    "id": "partial_shade",
+    "description": "halbschattiger Standort"
+  },
+  {
+    "id": "storable",
+    "description": "lagerfähig oder gut haltbar"
+  },
+  {
+    "id": "overwinterable",
+    "description": "überwinterbar oder mehrjährig kultivierbar"
+  },
+  {
+    "id": "winter_hardy",
+    "description": "winterhart im Freien"
+  },
+  {
+    "id": "red",
+    "description": "rote Früchte oder essbare Pflanzenteile"
+  },
+  {
+    "id": "yellow",
+    "description": "gelbe oder goldgelbe Früchte oder essbare Pflanzenteile"
+  },
+  {
+    "id": "orange",
+    "description": "orange Früchte oder essbare Pflanzenteile"
+  },
+  {
+    "id": "green",
+    "description": "grüne Früchte oder essbare Pflanzenteile"
+  },
+  {
+    "id": "purple",
+    "description": "violette, lila oder purpurne Früchte oder essbare Pflanzenteile"
+  },
+  {
+    "id": "black",
+    "description": "schwarze oder sehr dunkle Früchte oder essbare Pflanzenteile"
+  },
+  {
+    "id": "white",
+    "description": "weiße Früchte oder essbare Pflanzenteile"
+  },
+  {
+    "id": "pink",
+    "description": "rosa oder pinke Früchte oder essbare Pflanzenteile"
+  },
+  {
+    "id": "pear_shaped",
+    "description": "birnenförmige oder birnenähnliche Früchte"
+  }
+]

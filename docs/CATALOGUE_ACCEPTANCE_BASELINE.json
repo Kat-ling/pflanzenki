@@ -1,0 +1,401 @@
+{
+  "catalogue_revision": "e60452959a96817c6ab4edd8febf62ea3869ad8c5c7970c53102d475787e5619",
+  "results": [
+    {
+      "case": "01",
+      "question": "Welche Tomate hat große Früchte und eignet sich für Freiland?",
+      "plant": "Rote Zora",
+      "expected": "yes",
+      "before": "yes",
+      "quote": "für den Freilandanbau geeignet",
+      "reason": "Große Früchte und Freiland sind ausdrücklich beschrieben."
+    },
+    {
+      "case": "01",
+      "question": "Welche Tomate hat große Früchte und eignet sich für Freiland?",
+      "plant": "Matina",
+      "expected": "unknown",
+      "before": "unknown",
+      "quote": "für das Freiland geeignet",
+      "reason": "Normale Salattomate belegt keine großen Früchte."
+    },
+    {
+      "case": "02",
+      "question": "Kann ich diese Tomate ohne Regenschutz anbauen?",
+      "plant": "Justens Zuckertomate",
+      "expected": "no",
+      "before": "unknown",
+      "quote": "Regenschutz erforderlich",
+      "reason": "Erforderlicher Schutz widerlegt ohne Schutz."
+    },
+    {
+      "case": "02",
+      "question": "Kann ich diese Tomate ohne Regenschutz anbauen?",
+      "plant": "Rote Zora",
+      "expected": "unknown",
+      "before": "unknown",
+      "quote": "für den Freilandanbau geeignet",
+      "reason": "Freiland allein sagt nichts über Regenschutz."
+    },
+    {
+      "case": "03",
+      "question": "Ich suche kleine gelbe Früchte.",
+      "plant": "Golden Currant",
+      "expected": "yes",
+      "before": "yes",
+      "quote": "kleiner, gelber Früchte",
+      "reason": "Beide Eigenschaften stehen im selben Satz."
+    },
+    {
+      "case": "04",
+      "question": "Kleine orange Früchte, für Freiland.",
+      "plant": "Orange Wildtomate",
+      "expected": "yes",
+      "before": "yes",
+      "quote": "Die kleinen orangen Früchte",
+      "reason": "Auch Freilandeignung ist genannt, mit Schreibfehler Feilandkultur."
+    },
+    {
+      "case": "05",
+      "question": "Welche Sorte muss ich nicht ausgeizen?",
+      "plant": "Small Egg",
+      "expected": "yes",
+      "before": "yes",
+      "quote": "Die Pflanze nicht ausgeizen",
+      "reason": "Klare Pflegeanweisung."
+    },
+    {
+      "case": "05",
+      "question": "Welche Sorte muss ich nicht ausgeizen?",
+      "plant": "Justens Zuckertomate",
+      "expected": "yes",
+      "before": "yes",
+      "quote": "muß nicht ausgegeizt werden",
+      "reason": "Ausdrückliche Negation darf erhalten bleiben."
+    },
+    {
+      "case": "05",
+      "question": "Welche Sorte muss ich nicht ausgeizen?",
+      "plant": "Golden Currant",
+      "expected": "unknown",
+      "before": "unknown",
+      "quote": "nur mäßig ausgegeizt",
+      "reason": "Mäßiges Ausgeizen ist keine uneingeschränkte Aussage über Verzicht."
+    },
+    {
+      "case": "06",
+      "question": "Welche davon schmecken süß?",
+      "plant": "Zuckertomate",
+      "expected": "yes",
+      "before": "yes",
+      "quote": "sehr süß",
+      "reason": "Direkte Geschmacksangabe."
+    },
+    {
+      "case": "06",
+      "question": "Welche davon schmecken süß?",
+      "plant": "Justens Zuckertomate",
+      "expected": "yes",
+      "before": "unknown",
+      "quote": "angenehm süße",
+      "reason": "Negationen zu Pflege ändern den Geschmack nicht."
+    },
+    {
+      "case": "06",
+      "question": "Welche davon schmecken süß?",
+      "plant": "Sweet Chocolate",
+      "expected": "yes",
+      "before": "yes",
+      "quote": "ein sehr süßer Gemüsepaprika",
+      "reason": "Süßer enthält die Adjektivendung er."
+    },
+    {
+      "case": "07",
+      "question": "Ich möchte ausdrücklich nicht süß.",
+      "plant": "Chocolate Cherry Hot",
+      "expected": "yes",
+      "before": "unknown",
+      "quote": "nicht mehr süß sondern scharf",
+      "reason": "Korrektur der ursprünglichen Eigenschaft ist ausdrücklich."
+    },
+    {
+      "case": "07",
+      "question": "Ich möchte ausdrücklich nicht süß.",
+      "plant": "Zuckertomate",
+      "expected": "no",
+      "before": "no",
+      "quote": "sehr süß",
+      "reason": "Süß ist ein Gegenbeleg."
+    },
+    {
+      "case": "08",
+      "question": "Welche Paprika ist nicht scharf?",
+      "plant": "Roter Augsburger",
+      "expected": "yes",
+      "before": "unknown",
+      "quote": "ohne Schärfe",
+      "reason": "Explizit schärfefrei."
+    },
+    {
+      "case": "08",
+      "question": "Welche Paprika ist nicht scharf?",
+      "plant": "Lady Lou",
+      "expected": "yes",
+      "before": "unknown",
+      "quote": "Spitzpaprika ohne Schärfe",
+      "reason": "Explizit schärfefrei."
+    },
+    {
+      "case": "08",
+      "question": "Welche Paprika ist nicht scharf?",
+      "plant": "Chocolate Cherry Hot",
+      "expected": "no",
+      "before": "unknown",
+      "quote": "sondern scharf",
+      "reason": "Beschreibung widerspricht dem importierten Schärfegrad 0."
+    },
+    {
+      "case": "08",
+      "question": "Welche Paprika ist nicht scharf?",
+      "plant": "King of the North",
+      "expected": "unknown",
+      "before": "unknown",
+      "quote": "Sehr knackig und saftig",
+      "reason": "Kein Beleg für Schärfefreiheit; Namen/Typ reichen nicht."
+    },
+    {
+      "case": "09",
+      "question": "Ich suche scharfe Paprika.",
+      "plant": "Sibirischer Hauspaprika",
+      "expected": "yes",
+      "before": "unknown",
+      "quote": "ein scharfer Haupaprika",
+      "reason": "Scharfer ist eine ausdrückliche Geschmacksangabe."
+    },
+    {
+      "case": "09",
+      "question": "Ich suche scharfe Paprika.",
+      "plant": "Mustafa",
+      "expected": "yes",
+      "before": "unknown",
+      "quote": "mit leichter Schärfe",
+      "reason": "Leichte Schärfe ist Schärfe, keine unbekannte Negation."
+    },
+    {
+      "case": "10",
+      "question": "Welche Pflanze eignet sich für den Topf?",
+      "plant": "Small Egg",
+      "expected": "yes",
+      "before": "unknown",
+      "quote": "Ampel- oder Topfkultur",
+      "reason": "Topfkultur ausdrücklich."
+    },
+    {
+      "case": "10",
+      "question": "Welche Pflanze eignet sich für den Topf?",
+      "plant": "Huberts Beste",
+      "expected": "yes",
+      "before": "unknown",
+      "quote": "Bestens für Töpfe",
+      "reason": "Plural Töpfe belegt Eignung."
+    },
+    {
+      "case": "10",
+      "question": "Welche Pflanze eignet sich für den Topf?",
+      "plant": "Basilico a foglia larga",
+      "expected": "yes",
+      "before": "unknown",
+      "quote": "Eignet sich gut für Kästen und Töpfe",
+      "reason": "Anbaugefäße ausdrücklich."
+    },
+    {
+      "case": "11",
+      "question": "Garantiert höchstens 80 cm hoch?",
+      "plant": "Snackpaprika Carina",
+      "expected": "unknown",
+      "before": "unknown",
+      "quote": "nur etwa 40 cm hoch",
+      "reason": "Ungefähre Höhe wird nicht zur garantierten Obergrenze."
+    },
+    {
+      "case": "11",
+      "question": "Garantiert höchstens 80 cm hoch?",
+      "plant": "Huberts Beste",
+      "expected": "unknown",
+      "before": "unknown",
+      "quote": "nur etwa 40 cm hoch",
+      "reason": "Ungefähre Beschreibung reicht nicht für die Garantie."
+    },
+    {
+      "case": "12",
+      "question": "Sind die Früchte sicher über 200 g schwer?",
+      "plant": "Französisches Ochsenherz (Coeur de boef)",
+      "expected": "unknown",
+      "before": "unknown",
+      "quote": "ca. 500-800g",
+      "reason": "Ungefähres Gewicht ist keine garantierte Mindestmasse jeder Frucht."
+    },
+    {
+      "case": "13",
+      "question": "Welche Gurke eignet sich zum Einlegen?",
+      "plant": "Lemon (Zitronengurke)",
+      "expected": "yes",
+      "before": "yes",
+      "quote": "oder zum Einlegen",
+      "reason": "Verwendung ausdrücklich angegeben."
+    },
+    {
+      "case": "13",
+      "question": "Welche Gurke eignet sich zum Einlegen?",
+      "plant": "Vorgebirgstraube",
+      "expected": "yes",
+      "before": "unknown",
+      "quote": "geerntet und eingelegt werden",
+      "reason": "Verwendungsverb ist ebenfalls ein Beleg."
+    },
+    {
+      "case": "13",
+      "question": "Welche Gurke eignet sich zum Einlegen?",
+      "plant": "Tanja",
+      "expected": "unknown",
+      "before": "unknown",
+      "quote": "eine bitterfreie schlanke",
+      "reason": "Bitterfrei ist kein Beleg zum Einlegen."
+    },
+    {
+      "case": "14",
+      "question": "Welche Gurke geht im Freiland?",
+      "plant": "La Diva",
+      "expected": "yes",
+      "before": "unknown",
+      "quote": "auch im Freiland kultiviert werden",
+      "reason": "Ausdrückliche Anbaumöglichkeit."
+    },
+    {
+      "case": "14",
+      "question": "Welche Gurke geht im Freiland?",
+      "plant": "Qualitas",
+      "expected": "yes",
+      "before": "unknown",
+      "quote": "auch im Freiland angebaut werden",
+      "reason": "Ausdrückliche Anbaumöglichkeit."
+    },
+    {
+      "case": "14",
+      "question": "Welche Gurke geht im Freiland?",
+      "plant": "Chinesische Schlange",
+      "expected": "yes",
+      "before": "unknown",
+      "quote": "Nur für das Freiland geeignet",
+      "reason": "Nur schränkt auf Freiland ein, widerlegt es nicht."
+    },
+    {
+      "case": "14",
+      "question": "Welche Gurke geht im Freiland?",
+      "plant": "Tanja",
+      "expected": "unknown",
+      "before": "unknown",
+      "quote": "Anbau mit Regenschutz",
+      "reason": "Geschützter Anbau belegt keine Freilandeignung, widerlegt sie aber auch nicht."
+    },
+    {
+      "case": "15",
+      "question": "Welche Zucchini hat gelbe Früchte?",
+      "plant": "Gold Rush",
+      "expected": "yes",
+      "before": "yes",
+      "quote": "gelbe Zucchini",
+      "reason": "Farbe ausdrücklich; spätere Ernte ändert sie nicht."
+    },
+    {
+      "case": "16",
+      "question": "Hat dieses Basilikum weiße Früchte?",
+      "plant": "Kleines Buschbasilikum",
+      "expected": "unknown",
+      "before": "yes",
+      "quote": "mit weißen Blüten",
+      "reason": "Importiertes Fruchtfarbe=weiß stammt erkennbar von Blüten, nicht Früchten."
+    },
+    {
+      "case": "17",
+      "question": "Ist dieses Basilikum winterhart?",
+      "plant": "Everleaf Lemon",
+      "expected": "no",
+      "before": "unknown",
+      "quote": "Die Pflanzen sind nicht winterhart",
+      "reason": "Expliziter Gegenbeleg, unabhängig von Überwinterung im Haus."
+    },
+    {
+      "case": "17",
+      "question": "Ist dieses Basilikum winterhart?",
+      "plant": "Kaprao",
+      "expected": "unknown",
+      "before": "unknown",
+      "quote": "bei 15 Grad",
+      "reason": "Überwinterung im Warmen beweist keine Winterhärte."
+    },
+    {
+      "case": "18",
+      "question": "Süß und ohne Schärfe, bitte.",
+      "plant": "Roter Augsburger",
+      "expected": "yes",
+      "before": "unknown",
+      "quote": "ohne Schärfe,süß",
+      "reason": "Beide Teilbedingungen ausdrücklich."
+    },
+    {
+      "case": "18",
+      "question": "Süß und ohne Schärfe, bitte.",
+      "plant": "Chocolate Cherry Hot",
+      "expected": "no",
+      "before": "unknown",
+      "quote": "nicht mehr süß sondern scharf",
+      "reason": "Beide Teilbedingungen widersprochen."
+    },
+    {
+      "case": "19",
+      "question": "Gelb und klein oder rot und groß.",
+      "plant": "Golden Currant",
+      "expected": "yes",
+      "before": "yes",
+      "quote": "kleiner, gelber Früchte",
+      "reason": "Der vollständige erste ODER-Zweig genügt."
+    },
+    {
+      "case": "19",
+      "question": "Gelb und klein oder rot und groß.",
+      "plant": "Zuckertomate",
+      "expected": "unknown",
+      "before": "unknown",
+      "quote": "Tischtennisballgroße",
+      "reason": "Keine erfundene qualitative Größenklasse aus dem Vergleich ableiten."
+    },
+    {
+      "case": "20",
+      "question": "Welche hat eine dünne Schale?",
+      "plant": "Justens Zuckertomate",
+      "expected": "yes",
+      "before": "unknown",
+      "quote": "mit dünner Schale",
+      "reason": "Neue Eigenschaft ist direkt belegt."
+    },
+    {
+      "case": "20",
+      "question": "Welche hat eine dünne Schale?",
+      "plant": "Minipaprika Merino",
+      "expected": "yes",
+      "before": "unknown",
+      "quote": "dünnschaligen Früchten",
+      "reason": "Dasselbe Merkmal als Adjektiv."
+    },
+    {
+      "case": "20",
+      "question": "Welche hat eine dünne Schale?",
+      "plant": "Matina",
+      "expected": "unknown",
+      "before": "unknown",
+      "quote": "ausgeprägtes Aroma",
+      "reason": "Aroma verrät keine Schalendicke."
+    }
+  ]
+}

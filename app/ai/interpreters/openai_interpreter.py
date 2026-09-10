@@ -8,113 +8,74 @@ from openai import OpenAI
 from pydantic import ValidationError
 
 from app.ai.query_interpreter import QueryInterpreterError
-from app.ai.query_models import ParsedQuery, PlantFeature
+from app.ai.query_models import ParsedQuery, QueryIntent
+from app.feature_catalog import FEATURE_DESCRIPTIONS, PlantFeature
+from app.repository import load_categories
 
 
 SYSTEM_INSTRUCTIONS = """
 Du bist der Query Interpreter eines Pflanzenberaters.
 
-Deine einzige Aufgabe ist, eine deutschsprachige Kundenfrage in
-strukturierte Anforderungen zu übersetzen.
+Übersetze freie deutschsprachige Kundenfragen ausschließlich in das
+vorgegebene strukturierte Format. Du empfiehlst selbst keine Pflanzen,
+erfindest keine Eigenschaften und greifst nicht auf konkrete Pflanzendaten zu.
 
-Du empfiehlst selbst keine Pflanzen.
-Du erfindest keine Pflanzeneigenschaften.
-Du greifst nicht auf Pflanzendaten zu.
-
-Bekannte Merkmale:
-
-- outdoor_uncovered:
-  Anbau draußen ohne Dach oder ohne Regenschutz. Dazu gehören auch
-  Aussagen wie: Regen trifft direkt auf die Pflanze, ungeschütztes
-  Freiland oder kein Dach vorhanden.
-
-- balcony:
-  Geeignet für Balkon, Terrasse, Kübel oder Topf.
-
-- greenhouse:
-  Gewächshaus, Folientunnel, unter Dach oder geschützter Anbau.
-
-- sweet:
-  Süßer Geschmack.
-
-- aromatic:
-  Aromatischer oder besonders intensiver Geschmack.
-
-- easy_care:
-  Pflegeleicht, unkompliziert oder für Anfänger geeignet.
-
-- early:
-  Frühe Reife oder frühe Ernte.
-
-- sauce_tomato:
-  Gewünscht für Soße, Einkochen, Passata oder Verarbeitung.
-
-- robust:
-  Robuste, widerstandsfähige oder tolerante Pflanze.
-
-- small_fruit:
-  Kleine Früchte, Cocktailtomaten oder Snacktomaten.
-
-- warm_location:
-  Warmer Standort oder besonders wärmebedürftig.
-
-- drought_tolerant:
-  Trockenheitsverträglich oder geringer Wasserbedarf.
-
-- winter_hardy:
-  Winterhart oder mehrjährig im Freien überwinterbar.
+Intents:
+- recommendation: Der Kunde sucht geeignete Pflanzen oder Sorten.
+- information: Der Kunde fragt nach einer ausdrücklich genannten Sorte.
+- comparison: Der Kunde möchte ausdrücklich genannte Sorten vergleichen.
+- catalog: Der Kunde fragt, welche Pflanzen oder Sorten einer Kategorie im
+  Katalog vorhanden sind, ohne weitere Eignungskriterien zu nennen.
 
 Regeln:
-
-1. Unterscheide Pflichtanforderungen von Präferenzen.
-
-2. Ein ausdrücklicher Standort ist normalerweise required.
-   Beispiel:
-   "für meinen Balkon" bedeutet balcony=yes und required.
-
-3. Geschmackswünsche sind normalerweise preferred.
-   Beispiel:
-   "gerne süß" bedeutet sweet=yes und preferred.
-
-4. Verneinungen müssen als value=no erfasst werden.
-   Beispiel:
-   "nicht scharf" darf nicht zu einer positiven Anforderung werden.
-
-5. Erfinde keine Information, die nicht aus der Frage hervorgeht.
-
-6. Stelle nur dann eine Rückfrage, wenn ohne diese Information keine
-   sinnvolle Pflanzenauswahl möglich wäre.
-
-7. Formuliere höchstens eine Rückfrage.
-
-8. Eine allgemeine Frage wie
-   "Welche Tomate empfiehlst du?"
-   benötigt eine Rückfrage zum vorgesehenen Standort.
-
-9. Eine konkrete Frage wie
-   "Welche Tomate geht draußen ohne Dach?"
-   benötigt keine Rückfrage.
-
-10. Wünsche, die keinem bekannten Merkmal entsprechen, kommen in
-    unsupported_requests.
-
-11. category enthält nur die erkennbare Pflanzenkategorie.
-    Wenn keine Kategorie erkennbar ist, bleibt category leer.
-
-12. Antworte ausschließlich im vorgegebenen strukturierten Format.
+1. Verwende als category genau eine passende Singularform aus der Liste der
+   verfügbaren Kategorien. Bleibe leer, wenn keine Kategorie genannt oder
+   sicher ableitbar ist. Eine leere Kategorie erlaubt eine katalogweite Suche.
+2. plant_names enthält nur ausdrücklich genannte Sorten- oder Pflanzennamen.
+   Kategorien wie Tomate oder Gurke sind keine plant_names.
+3. Standort- und Platzgrenzen sind normalerweise required. Geschmack,
+   Farbe, Ertrag und ähnliche Wünsche sind normalerweise preferred.
+4. Verneinungen werden mit value=no erfasst. "Nicht scharf" ist spicy=no;
+   es ist nicht automatisch mild=yes.
+5. Leite nur Anforderungen ab, die in der Frage tatsächlich enthalten sind.
+6. Eine Rückfrage ist nur nötig, wenn eine Empfehlung ohne sie beliebig wäre.
+   Wenn bereits mindestens ein brauchbares Kriterium genannt ist, frage nicht
+   vorsorglich nach weiteren Wünschen.
+7. Formuliere höchstens eine kurze Rückfrage.
+8. Nicht abbildbare Wünsche kommen in unsupported_requests.
+9. Fragen wie "Welche Zucchini-Sorten gibt es?" oder "Habt ihr Auberginen?"
+   erhalten intent=catalog, die passende category und keine erfundenen
+   requirements.
+10. reason darf niemals leer sein.
+11. Antworte ausschließlich im vorgegebenen strukturierten Format.
 """.strip()
+
+
+def build_instructions(categories: list[str]) -> str:
+    category_text = ", ".join(categories) if categories else "keine geladen"
+    features = "\n".join(
+        f"- {feature.value}: {FEATURE_DESCRIPTIONS[feature]}"
+        for feature in PlantFeature
+    )
+    return (
+        f"{SYSTEM_INSTRUCTIONS}\n\n"
+        f"Verfügbare Kategorien:\n{category_text}\n\n"
+        f"Bekannte Merkmale:\n{features}"
+    )
 
 
 QUERY_SCHEMA: dict[str, Any] = {
     "type": "object",
     "additionalProperties": False,
     "properties": {
-        "category": {
+        "intent": {
             "type": "string",
-            "description": (
-                "Pflanzenkategorie oder leerer String, "
-                "wenn keine Kategorie erkannt wurde."
-            ),
+            "enum": [intent.value for intent in QueryIntent],
+        },
+        "category": {"type": "string"},
+        "plant_names": {
+            "type": "array",
+            "items": {"type": "string"},
         },
         "requirements": {
             "type": "array",
@@ -124,28 +85,17 @@ QUERY_SCHEMA: dict[str, Any] = {
                 "properties": {
                     "feature": {
                         "type": "string",
-                        "enum": [
-                            feature.value
-                            for feature in PlantFeature
-                        ],
+                        "enum": [feature.value for feature in PlantFeature],
                     },
                     "value": {
                         "type": "string",
-                        "enum": [
-                            "yes",
-                            "no",
-                        ],
+                        "enum": ["yes", "no"],
                     },
                     "importance": {
                         "type": "string",
-                        "enum": [
-                            "required",
-                            "preferred",
-                        ],
+                        "enum": ["required", "preferred"],
                     },
-                    "reason": {
-                        "type": "string",
-                    },
+                    "reason": {"type": "string"},
                 },
                 "required": [
                     "feature",
@@ -155,18 +105,16 @@ QUERY_SCHEMA: dict[str, Any] = {
                 ],
             },
         },
-        "follow_up_question": {
-            "type": "string",
-        },
+        "follow_up_question": {"type": "string"},
         "unsupported_requests": {
             "type": "array",
-            "items": {
-                "type": "string",
-            },
+            "items": {"type": "string"},
         },
     },
     "required": [
+        "intent",
         "category",
+        "plant_names",
         "requirements",
         "follow_up_question",
         "unsupported_requests",
@@ -179,6 +127,7 @@ class OpenAIQueryInterpreter:
         self,
         client: OpenAI | None = None,
         model: str | None = None,
+        categories: list[str] | None = None,
     ) -> None:
         if client is None and not os.getenv("OPENAI_API_KEY"):
             raise QueryInterpreterError(
@@ -187,26 +136,23 @@ class OpenAIQueryInterpreter:
                 "in der lokalen .env-Datei ab."
             )
 
-        self.client = client or OpenAI()
-
+        self.client = client or OpenAI(timeout=30.0, max_retries=0)
         self.model = (
             model
             or os.getenv("OPENAI_QUERY_MODEL")
             or "gpt-5-mini"
         )
+        self.categories = categories if categories is not None else load_categories()
 
     def interpret(self, question: str) -> ParsedQuery:
         cleaned_question = question.strip()
-
         if not cleaned_question:
-            raise ValueError(
-                "Die Kundenfrage darf nicht leer sein."
-            )
+            raise ValueError("Die Kundenfrage darf nicht leer sein.")
 
         try:
             response = self.client.responses.create(
                 model=self.model,
-                instructions=SYSTEM_INSTRUCTIONS,
+                instructions=build_instructions(self.categories),
                 input=cleaned_question,
                 text={
                     "format": {
@@ -239,7 +185,6 @@ class OpenAIQueryInterpreter:
             ) from exc
 
         raw_result["original_question"] = cleaned_question
-
         try:
             return ParsedQuery.model_validate(raw_result)
         except ValidationError as exc:

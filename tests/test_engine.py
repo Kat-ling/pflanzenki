@@ -5,6 +5,7 @@ from app.ai.query_models import (
     PlantRequirement,
     RequirementImportance,
     RequirementValue,
+    QueryIntent,
 )
 from app.importer.csv_importer import row_to_plant
 from app.models.domain import ConfidenceLevel, SourceType, TruthValue
@@ -197,4 +198,95 @@ def test_query_without_requirements_returns_unknown():
     result = advise([], query())
 
     assert result.intent == "unknown"
-    assert "keine auswertbaren Anforderungen" in result.answer
+    assert result.answer == "Woas I ned."
+
+
+def test_information_query_finds_named_plant():
+    plant = outdoor_plant(
+        "Marketmore",
+        "Robuste Gurke für das Freiland.",
+        category="Gurke",
+    )
+    parsed = ParsedQuery(
+        original_question="Was weißt du über Marketmore?",
+        intent=QueryIntent.INFORMATION,
+        plant_names=["Marketmore"],
+    )
+
+    result = advise([plant], parsed)
+
+    assert result.intent == "information"
+    assert result.recommendations[0].plant_name == "Marketmore"
+    assert result.recommendations[0].plant_category == "Gurke"
+
+
+def test_unknown_named_plant_uses_dialect_fallback():
+    parsed = ParsedQuery(
+        original_question="Was weißt du über Fantasiepflanze?",
+        intent=QueryIntent.INFORMATION,
+        plant_names=["Fantasiepflanze"],
+    )
+
+    result = advise([], parsed)
+
+    assert result.answer == "Woas I ned."
+
+
+def test_category_catalog_lists_existing_entries():
+    plants = [
+        outdoor_plant("Gold Rush", "Gelbe Früchte.", "Zucchini"),
+        outdoor_plant("Black Beauty", "Grüne Früchte.", "Zucchini"),
+    ]
+    parsed = ParsedQuery(
+        original_question="Welche Zucchini-Sorten gibt es?",
+        intent=QueryIntent.CATALOG,
+        category="Zucchini",
+    )
+
+    result = advise(plants, parsed)
+
+    assert result.intent == "catalog"
+    assert len(result.recommendations) == 2
+    assert "2 Einträge" in result.answer
+
+
+def test_required_unknown_explains_the_data_gap():
+    plant = outdoor_plant("Gold Rush", "Gelbe Zucchini.", "Zucchini")
+    parsed = query(requirement(), category="Zucchini")
+
+    result = advise([plant], parsed)
+
+    assert result.answer.startswith("Woas I ned.")
+    assert "fehlen im Katalog" in result.answer
+
+
+def test_plain_recommendation_is_not_mistaken_for_catalog_listing():
+    plant = outdoor_plant("A", "Leckere Sorte.", "Tomate")
+    parsed = ParsedQuery(
+        original_question="Wie heißt die unbekannte Tomate?",
+        intent=QueryIntent.RECOMMENDATION,
+        category="Tomate",
+        unsupported_requests=["unbekannte Eigenschaft"],
+    )
+
+    result = advise([plant], parsed)
+
+    assert result.answer == "Woas I ned."
+    assert not result.recommendations
+
+
+def test_catalog_listing_is_limited_to_six_cards():
+    plants = [
+        outdoor_plant(f"Tomate {number}", "Leckere Sorte.", "Tomate")
+        for number in range(10)
+    ]
+    parsed = ParsedQuery(
+        original_question="Welche Tomaten gibt es?",
+        intent=QueryIntent.CATALOG,
+        category="Tomate",
+    )
+
+    result = advise(plants, parsed)
+
+    assert len(result.recommendations) == 6
+    assert "ersten 6" in result.answer
