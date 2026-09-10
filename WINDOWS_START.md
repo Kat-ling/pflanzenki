@@ -5,28 +5,28 @@
 Den Inhalt des ZIP-Archivs direkt nach folgendem Ordner entpacken:
 
 ```text
-C:\Users\katrin.tindl\02_Anbau-KI
+C:\Users\Kamikaze\Documents\GitHub\pflanzenki
 ```
 
 Danach muss beispielsweise diese Datei vorhanden sein:
 
 ```text
-C:\Users\katrin.tindl\02_Anbau-KI\app\main.py
+C:\Users\Kamikaze\Documents\GitHub\pflanzenki\app\main.py
 ```
 
 Es darf keine zusätzliche Zwischenebene wie
-`02_Anbau-KI\PflanzenKI_MVP_v0.2\app` entstehen.
+`pflanzenki\PflanzenKI_MVP_v0.5\app` entstehen.
 
 ## 2. PowerShell öffnen
 
 ```powershell
-cd C:\Users\katrin.tindl\02_Anbau-KI
+cd C:\Users\Kamikaze\Documents\GitHub\pflanzenki
 ```
 
 ## 3. Alte virtuelle Umgebung optional entfernen
 
 Wenn die bestehende `.venv` unvollständig ist, PowerShell schließen, den Ordner
-`.venv` in `02_Anbau-KI` löschen und PowerShell erneut öffnen.
+`.venv` in `pflanzenki` löschen und PowerShell erneut öffnen.
 
 ## 4. Umgebung erstellen und Abhängigkeiten installieren
 
@@ -49,16 +49,15 @@ Set-ExecutionPolicy -Scope Process -ExecutionPolicy Bypass
 ## 5. OpenAI konfigurieren
 
 ```powershell
-Copy-Item .env.example .env
+if (!(Test-Path .env)) { Copy-Item .env.example .env }
 notepad .env
 ```
 
-In der geöffneten Datei den Platzhalter `sk-...` durch den eigenen
-OpenAI-API-Schlüssel ersetzen:
+In der geöffneten Datei den eigenen OpenAI-API-Schlüssel ergänzen:
 
 ```dotenv
 QUERY_INTERPRETER_PROVIDER=openai
-OPENAI_API_KEY=sk-...
+OPENAI_API_KEY=DEIN_API_SCHLUESSEL
 OPENAI_QUERY_MODEL=gpt-5-mini
 ```
 
@@ -77,7 +76,7 @@ Remove-Item Env:QUERY_INTERPRETER_PROVIDER
 Der erwartete Stand ist:
 
 ```text
-21 passed
+79 passed
 ```
 
 ## 7. Anwendung mit OpenAI starten
@@ -96,6 +95,23 @@ http://127.0.0.1:8000
 
 Der Server läuft weiter, solange das PowerShell-Fenster geöffnet ist. Beenden
 mit `Strg+C`.
+
+Für ein Update einer bestehenden Installation siehe `UPDATE_v0.5.md`.
+Die freie Beratung benötigt `QUERY_INTERPRETER_PROVIDER=openai`. Der
+Fake-Modus ist ausschließlich für begrenzte lokale Tests vorgesehen.
+
+## Pflanzenkatalog später aktualisieren
+
+Den neuen Notion-Export als ZIP-Datei herunterladen und dann im aktivierten
+Projektordner ausführen:
+
+```powershell
+python -m app.importer.notion_zip "C:\Pfad\zum\NotionExp.zip"
+```
+
+Dabei werden die Notion-CSV übernommen, die Katalogdaten neu erzeugt und die
+in der CSV referenzierten Pflanzenfotos nach `static\images` kopiert. Danach
+die Tests erneut ausführen und den Server neu starten.
 
 ## Häufiger Fehler
 

@@ -1,39 +1,29 @@
-# Domänenmodell v0.2
+# Domänenmodell v0.5
 
-Das fachliche Modell umfasst Identität, Eigenschaften, Standort, Umwelt, Pflege,
-Verwendung, Qualitätsmerkmale, Erfahrungswissen und Kundenanforderungen.
+Plant behält ID, Name, Kategorie, vollständige Beschreibung, Rohfelder,
+Bilddateinamen und die bisherigen importierten Merkmalsbelege.
 
-## Wissenswerte
+DialoguePlan enthält intent, mehrere Kategorien, benannte Sorten, freie
+criteria, eine mögliche Rückfrage und nicht unterstützte Aufträge.
 
-Jede fachliche Aussage besteht aus:
+Ein Criterion enthält:
 
-- Merkmal
-- Wert: `yes`, `no` oder `unknown`
-- Quelle
-- Belegtext oder Feldname
-- Sicherheit
-- möglichen Widersprüchen
+- text: vollständige Bedingung einschließlich Verneinung/Einheit/ODER
+- importance: required oder ausdrücklich preferred
+- kind: condition (Auswahl) oder information (erfragte Kataloginformation)
 
-`unknown` ist ein eigenständiger Wert und darf nicht wie `no` behandelt werden.
+Assessment enthält Kriterienindex, yes/no/unknown und Quellenzitate.
+Für Bedingungen bedeutet yes erfüllt, no widerlegt, unknown nicht sicher
+entscheidbar. Für Informationsfragen bedeutet yes, dass die erfragte Angabe
+vorliegt, unabhängig von ihrem positiven oder negativen Inhalt.
 
-## ParsedQuery
+Die Antwort enthält alle akzeptierten Karten sowie getrennte unknown/excluded-
+Karten. Jede Karte enthält vollständige Beschreibungen, checks pro Kriterium
+und catalogue_fields zum Aufklappen. Die UI paginiert die Anzeige, nicht die
+zugrunde liegenden Daten. Informationskarten sind keine Eignungsempfehlungen.
 
-Der Query Interpreter liefert:
+ParsedQuery, AdviceResult und die feste Feature-Enum bleiben für den lokalen
+Fake-/Kompatibilitätspfad vorhanden. Der OpenAI-Pfad ist nicht daran gebunden.
 
-- `original_question`
-- `category`
-- `requirements`
-- `follow_up_question`
-- `unsupported_requests`
-
-Jede Anforderung enthält Merkmal, gewünschten Wert, Wichtigkeit und eine kurze
-sprachliche Herleitung. Der Advisor erhält keine freie Kundenfrage zur Analyse.
-
-## AdviceResult
-
-Der Advisor liefert:
-
-- `recommendations`: passende, sortierte Pflanzen (maximal drei)
-- `unknown`: wegen fehlender Evidenz nicht entscheidbare Pflanzen
-- `excluded`: nur durch Pflichtanforderungen ausgeschlossene Pflanzen
-- `answer`: deterministisch formulierte Zusammenfassung
+Woas I ned. bleibt die sichtbare Bezeichnung für fehlendes Wissen. Fehlende
+Pflichtbelege dürfen nicht zu einer passenden Empfehlung werden.

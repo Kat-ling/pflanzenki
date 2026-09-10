@@ -4,6 +4,8 @@ from enum import Enum
 
 from pydantic import BaseModel, Field, model_validator
 
+from app.feature_catalog import PlantFeature
+
 
 class RequirementValue(str, Enum):
     YES = "yes"
@@ -15,20 +17,11 @@ class RequirementImportance(str, Enum):
     PREFERRED = "preferred"
 
 
-class PlantFeature(str, Enum):
-    OUTDOOR_UNCOVERED = "outdoor_uncovered"
-    BALCONY = "balcony"
-    GREENHOUSE = "greenhouse"
-    SWEET = "sweet"
-    AROMATIC = "aromatic"
-    EASY_CARE = "easy_care"
-    EARLY = "early"
-    SAUCE_TOMATO = "sauce_tomato"
-    ROBUST = "robust"
-    SMALL_FRUIT = "small_fruit"
-    WARM_LOCATION = "warm_location"
-    DROUGHT_TOLERANT = "drought_tolerant"
-    WINTER_HARDY = "winter_hardy"
+class QueryIntent(str, Enum):
+    RECOMMENDATION = "recommendation"
+    INFORMATION = "information"
+    COMPARISON = "comparison"
+    CATALOG = "catalog"
 
 
 class PlantRequirement(BaseModel):
@@ -36,7 +29,7 @@ class PlantRequirement(BaseModel):
     value: RequirementValue
     importance: RequirementImportance
     reason: str = Field(
-        min_length=1,
+        default="Aus der Kundenfrage abgeleitet.",
         description=(
             "Kurze Begründung, aus welcher Aussage der Kundenfrage "
             "diese Anforderung abgeleitet wurde."
@@ -47,11 +40,21 @@ class PlantRequirement(BaseModel):
 class ParsedQuery(BaseModel):
     original_question: str
 
+    intent: QueryIntent = QueryIntent.RECOMMENDATION
+
     category: str = Field(
         default="",
         description=(
             "Gesuchte Pflanzenkategorie, beispielsweise Tomate, Chili, "
             "Gurke oder Zucchini. Leer, wenn nicht erkennbar."
+        ),
+    )
+
+    plant_names: list[str] = Field(
+        default_factory=list,
+        description=(
+            "Explizit genannte Sorten- oder Pflanzennamen. Keine Namen "
+            "aus der Frage erfinden."
         ),
     )
 
@@ -83,6 +86,8 @@ class ParsedQuery(BaseModel):
         ] = {}
 
         for requirement in self.requirements:
+            if not requirement.reason.strip():
+                requirement.reason = "Aus der Kundenfrage abgeleitet."
             key = (
                 requirement.feature,
                 requirement.value,
@@ -103,4 +108,9 @@ class ParsedQuery(BaseModel):
                 unique[key] = requirement
 
         self.requirements = list(unique.values())
+        self.plant_names = list(dict.fromkeys(
+            name.strip()
+            for name in self.plant_names
+            if name.strip()
+        ))
         return self

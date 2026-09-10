@@ -1,0 +1,3097 @@
+{
+  "calls": [
+    {
+      "status": "completed",
+      "output_text": "{\n  \"intent\": \"recommendation\",\n  \"categories\": [\n    \"Tomate\"\n  ],\n  \"plant_names\": [],\n  \"criteria\": [\n    {\n      \"text\": \"Eignung für Freiland\",\n      \"importance\": \"required\",\n      \"kind\": \"condition\",\n      \"expression\": {\n        \"op\": \"predicate\",\n        \"text\": \"site.outdoor = true (Freiland)\",\n        \"property_id\": \"site.outdoor\",\n        \"comparator\": \"eq\",\n        \"value\": true,\n        \"unit\": null,\n        \"children\": []\n      }\n    },\n    {\n      \"text\": \"Große Früchte\",\n      \"importance\": \"required\",\n      \"kind\": \"condition\",\n      \"expression\": {\n        \"op\": \"predicate\",\n        \"text\": \"fruit.large = true (ausdrücklich große Früchte)\",\n        \"property_id\": \"fruit.large\",\n        \"comparator\": \"eq\",\n        \"value\": true,\n        \"unit\": null,\n        \"children\": []\n      }\n    }\n  ],\n  \"follow_up_question\": \"\",\n  \"unsupported_requests\": []\n}"
+    },
+    {
+      "status": "completed",
+      "output_text": "{\n  \"intent\": \"recommendation\",\n  \"categories\": [\n    \"Tomate\"\n  ],\n  \"plant_names\": [],\n  \"criteria\": [\n    {\n      \"text\": \"Eignung für Freiland\",\n      \"importance\": \"required\",\n      \"kind\": \"condition\",\n      \"expression\": {\n        \"op\": \"predicate\",\n        \"text\": \"site.outdoor = true (Freiland)\",\n        \"property_id\": \"site.outdoor\",\n        \"comparator\": \"eq\",\n        \"value\": true,\n        \"unit\": null,\n        \"children\": []\n      }\n    },\n    {\n      \"text\": \"Kleine Früchte\",\n      \"importance\": \"required\",\n      \"kind\": \"condition\",\n      \"expression\": {\n        \"op\": \"predicate\",\n        \"text\": \"fruit.small = true (ausdrücklich kleine Früchte)\",\n        \"property_id\": \"fruit.small\",\n        \"comparator\": \"eq\",\n        \"value\": true,\n        \"unit\": null,\n        \"children\": []\n      }\n    }\n  ],\n  \"follow_up_question\": \"\",\n  \"unsupported_requests\": []\n}"
+    },
+    {
+      "status": "completed",
+      "output_text": "{\n  \"intent\": \"recommendation\",\n  \"categories\": [\n    \"Tomate\"\n  ],\n  \"plant_names\": [],\n  \"criteria\": [\n    {\n      \"text\": \"Tomaten, entweder (rote UND kleine Früchte) ODER (gelbe UND große Früchte)\",\n      \"importance\": \"required\",\n      \"kind\": \"condition\",\n      \"expression\": {\n        \"op\": \"any\",\n        \"text\": \"(rot & klein) OR (gelb & groß)\",\n        \"property_id\": \"\",\n        \"comparator\": \"eq\",\n        \"value\": null,\n        \"unit\": null,\n        \"children\": [\n          {\n            \"op\": \"all\",\n            \"text\": \"rot und klein\",\n            \"property_id\": \"\",\n            \"comparator\": \"eq\",\n            \"value\": null,\n            \"unit\": null,\n            \"children\": [\n              {\n                \"op\": \"predicate\",\n                \"text\": \"Fruchtfarbe = \\\"rot\\\"\",\n                \"property_id\": \"fruit.color\",\n                \"comparator\": \"eq\",\n                \"value\": \"rot\",\n                \"unit\": null,\n                \"children\": []\n              },\n              {\n                \"op\": \"predicate\",\n                \"text\": \"fruit.small = true\",\n                \"property_id\": \"fruit.small\",\n                \"comparator\": \"eq\",\n                \"value\": true,\n                \"unit\": null,\n                \"children\": []\n              }\n            ]\n          },\n          {\n            \"op\": \"all\",\n            \"text\": \"gelb und groß\",\n            \"property_id\": \"\",\n            \"comparator\": \"eq\",\n            \"value\": null,\n            \"unit\": null,\n            \"children\": [\n              {\n                \"op\": \"predicate\",\n                \"text\": \"Fruchtfarbe = \\\"gelb\\\"\",\n                \"property_id\": \"fruit.color\",\n                \"comparator\": \"eq\",\n                \"value\": \"gelb\",\n                \"unit\": null,\n                \"children\": []\n              },\n              {\n                \"op\": \"predicate\",\n                \"text\": \"fruit.large = true\",\n                \"property_id\": \"fruit.large\",\n                \"comparator\": \"eq\",\n                \"value\": true,\n                \"unit\": null,\n                \"children\": []\n              }\n            ]\n          }\n        ]\n      }\n    }\n  ],\n  \"follow_up_question\": \"\",\n  \"unsupported_requests\": []\n}"
+    },
+    {
+      "status": "completed",
+      "output_text": "{\n  \"intent\": \"recommendation\",\n  \"categories\": [\n    \"Paprika\"\n  ],\n  \"plant_names\": [],\n  \"criteria\": [\n    {\n      \"text\": \"süß\",\n      \"importance\": \"required\",\n      \"kind\": \"condition\",\n      \"expression\": {\n        \"op\": \"predicate\",\n        \"text\": \"taste.sweet == true\",\n        \"property_id\": \"taste.sweet\",\n        \"comparator\": \"eq\",\n        \"value\": true,\n        \"unit\": null,\n        \"children\": []\n      }\n    },\n    {\n      \"text\": \"nicht scharf\",\n      \"importance\": \"required\",\n      \"kind\": \"condition\",\n      \"expression\": {\n        \"op\": \"predicate\",\n        \"text\": \"taste.spicy == false\",\n        \"property_id\": \"taste.spicy\",\n        \"comparator\": \"eq\",\n        \"value\": false,\n        \"unit\": null,\n        \"children\": []\n      }\n    }\n  ],\n  \"follow_up_question\": \"\",\n  \"unsupported_requests\": []\n}"
+    },
+    {
+      "status": "completed",
+      "output_text": "{\"intent\":\"recommendation\",\"categories\":[],\"plant_names\":[],\"criteria\":[{\"text\":\"Wuchshöhe höchstens 80 cm.\",\"importance\":\"required\",\"kind\":\"condition\",\"expression\":{\"op\":\"predicate\",\"text\":\"Wuchshöhe höchstens 80 cm.\",\"property_id\":\"plant.height\",\"comparator\":\"lte\",\"value\":80,\"unit\":\"cm\",\"children\":[]}}],\"follow_up_question\":\"\",\"unsupported_requests\":[]}"
+    },
+    {
+      "status": "completed",
+      "output_text": "{\n  \"intent\": \"recommendation\",\n  \"categories\": [\n    \"Tomate\"\n  ],\n  \"plant_names\": [],\n  \"criteria\": [\n    {\n      \"text\": \"weniger als fünf Kerne pro Frucht\",\n      \"importance\": \"required\",\n      \"kind\": \"condition\",\n      \"expression\": {\n        \"op\": \"unresolved\",\n        \"text\": \"weniger als fünf Kerne pro Frucht\",\n        \"property_id\": \"\",\n        \"comparator\": \"eq\",\n        \"value\": null,\n        \"unit\": null,\n        \"children\": []\n      }\n    }\n  ],\n  \"follow_up_question\": \"\",\n  \"unsupported_requests\": []\n}"
+    }
+  ],
+  "cases": [
+    {
+      "id": "freiland_large",
+      "question": "Welche Tomate eignet sich für Freiland und hat große Früchte?",
+      "result": {
+        "answer": "1 Sorten erfüllen die belegbaren Pflichtkriterien. Bei 93 Sorten fehlen eindeutige Belege; sie gelten nicht als passende Treffer. 10 Sorten widersprechen mindestens einer Pflichtbedingung.",
+        "intent": "recommendation",
+        "plan": {
+          "intent": "recommendation",
+          "categories": [
+            "Tomate"
+          ],
+          "plant_names": [],
+          "criteria": [
+            {
+              "text": "Eignung für Freiland",
+              "importance": "required",
+              "kind": "condition",
+              "expression": {
+                "op": "predicate",
+                "text": "site.outdoor = true (Freiland)",
+                "property_id": "site.outdoor",
+                "comparator": "eq",
+                "value": true,
+                "unit": null,
+                "children": []
+              }
+            },
+            {
+              "text": "Große Früchte",
+              "importance": "required",
+              "kind": "condition",
+              "expression": {
+                "op": "predicate",
+                "text": "fruit.large = true (ausdrücklich große Früchte)",
+                "property_id": "fruit.large",
+                "comparator": "eq",
+                "value": true,
+                "unit": null,
+                "children": []
+              }
+            }
+          ],
+          "follow_up_question": "",
+          "unsupported_requests": []
+        },
+        "selection_mode": "local",
+        "total_matches": 1,
+        "recommendations": [
+          {
+            "plant_id": "2bec06f3b2d7",
+            "plant_name": "Rote Zora"
+          }
+        ],
+        "unknown": [
+          {
+            "plant_id": "d73160a68c5d",
+            "plant_name": "Zuckertomate"
+          },
+          {
+            "plant_id": "1a3bed1be226",
+            "plant_name": "Justens Zuckertomate"
+          },
+          {
+            "plant_id": "c563ca8ea65f",
+            "plant_name": "Small Egg"
+          },
+          {
+            "plant_id": "432b924fc2a1",
+            "plant_name": "Französisches Ochsenherz (Coeur de boef)"
+          },
+          {
+            "plant_id": "1aa277e7b4db",
+            "plant_name": "Zuckertraube"
+          },
+          {
+            "plant_id": "aeb886393c7f",
+            "plant_name": "Vintage Wine"
+          },
+          {
+            "plant_id": "347a3c0ccd9a",
+            "plant_name": "Schlesische Himbeere"
+          },
+          {
+            "plant_id": "4b9485dbc6dc",
+            "plant_name": "Saint Pierre"
+          },
+          {
+            "plant_id": "a5ea01553a35",
+            "plant_name": "Purple Russian"
+          },
+          {
+            "plant_id": "25d634c7c5e7",
+            "plant_name": "Prinzipe Borghese"
+          },
+          {
+            "plant_id": "ba8c96c44b48",
+            "plant_name": "Orange Russische (MG)"
+          },
+          {
+            "plant_id": "cb821040e2d0",
+            "plant_name": "MiriMiri"
+          },
+          {
+            "plant_id": "f5c26bf1b26d",
+            "plant_name": "Matina"
+          },
+          {
+            "plant_id": "9a0cceb47f4d",
+            "plant_name": "Madagaskar"
+          },
+          {
+            "plant_id": "3f5072a15033",
+            "plant_name": "Huberts Beste"
+          },
+          {
+            "plant_id": "46e1081b1685",
+            "plant_name": "Homosa"
+          },
+          {
+            "plant_id": "178ce885505d",
+            "plant_name": "Hoffmanns Rentita"
+          },
+          {
+            "plant_id": "63ef8af150c5",
+            "plant_name": "Hillbilly"
+          },
+          {
+            "plant_id": "d3917f55fb4f",
+            "plant_name": "Harzfeuer (keine Hybride!)"
+          },
+          {
+            "plant_id": "490971d1dc99",
+            "plant_name": "HATO S+F"
+          },
+          {
+            "plant_id": "547b90ec461a",
+            "plant_name": "HATO 8 (Arbeitsname)"
+          },
+          {
+            "plant_id": "a531420c8f61",
+            "plant_name": "HATO 3 (Arbeitsname)"
+          },
+          {
+            "plant_id": "358709509e06",
+            "plant_name": "HATO 12 (Arbeitsname)"
+          },
+          {
+            "plant_id": "4a06cbc8f178",
+            "plant_name": "HATO 10 (Arbeitsname)"
+          },
+          {
+            "plant_id": "f12e3ec67cb0",
+            "plant_name": "Fuzzy-Wuzzy"
+          },
+          {
+            "plant_id": "463349de8c3f",
+            "plant_name": "Fonarik"
+          },
+          {
+            "plant_id": "f2e9d0739fed",
+            "plant_name": "Flablonelysty"
+          },
+          {
+            "plant_id": "71f68aa14dc1",
+            "plant_name": "Costoluto Genovese"
+          },
+          {
+            "plant_id": "9bab57f36ccc",
+            "plant_name": "Clarita"
+          },
+          {
+            "plant_id": "f5d38c7a19ad",
+            "plant_name": "Blue Osu"
+          },
+          {
+            "plant_id": "280d4f11fd97",
+            "plant_name": "Black and Red Boar"
+          },
+          {
+            "plant_id": "f5f52063a154",
+            "plant_name": "Auriga"
+          },
+          {
+            "plant_id": "c7a52aabe139",
+            "plant_name": "Angora Supersweet"
+          },
+          {
+            "plant_id": "89deaf2a37cf",
+            "plant_name": "3-Käse-hoch"
+          },
+          {
+            "plant_id": "2f71e7a51567",
+            "plant_name": "Zitronentraube"
+          },
+          {
+            "plant_id": "1477623815f8",
+            "plant_name": "Zebrino"
+          },
+          {
+            "plant_id": "a64e694f7f23",
+            "plant_name": "Tschernij Prinz"
+          },
+          {
+            "plant_id": "90ebd4e94553",
+            "plant_name": "Sibirisches Birnchen"
+          },
+          {
+            "plant_id": "dbdaf32cc520",
+            "plant_name": "Schwarze von der Krim"
+          },
+          {
+            "plant_id": "0dc938c34939",
+            "plant_name": "San Marzano Retorta"
+          },
+          {
+            "plant_id": "8cfde4250905",
+            "plant_name": "San Berao"
+          },
+          {
+            "plant_id": "ab8cc79ab040",
+            "plant_name": "Ruthje"
+          },
+          {
+            "plant_id": "c40140c6997b",
+            "plant_name": "Rote Murmel"
+          },
+          {
+            "plant_id": "c95624934d1b",
+            "plant_name": "Rote Brandywine"
+          },
+          {
+            "plant_id": "de5429d6f4fa",
+            "plant_name": "Roma"
+          },
+          {
+            "plant_id": "e6856d5239d0",
+            "plant_name": "Riesentraube"
+          },
+          {
+            "plant_id": "8407a4a3cbd7",
+            "plant_name": "Reisetomate"
+          },
+          {
+            "plant_id": "320360107637",
+            "plant_name": "Purple Calabash"
+          },
+          {
+            "plant_id": "db0f85ed9b42",
+            "plant_name": "Orange Russische"
+          },
+          {
+            "plant_id": "a2d5f05be671",
+            "plant_name": "Olirose"
+          },
+          {
+            "plant_id": "ffa105ddc1bd",
+            "plant_name": "Oaxakan Jewel"
+          },
+          {
+            "plant_id": "5b11e366d721",
+            "plant_name": "Liguria"
+          },
+          {
+            "plant_id": "425542580328",
+            "plant_name": "Kremser Perle"
+          },
+          {
+            "plant_id": "2f5bc0945abd",
+            "plant_name": "Hellfrucht"
+          },
+          {
+            "plant_id": "49b10add3d29",
+            "plant_name": "Green Zebra"
+          },
+          {
+            "plant_id": "8751bda30a5d",
+            "plant_name": "Goldene Königin"
+          },
+          {
+            "plant_id": "8791d27486c7",
+            "plant_name": "German Gold"
+          },
+          {
+            "plant_id": "3dea37e72b01",
+            "plant_name": "Cio Cio San"
+          },
+          {
+            "plant_id": "af87ea8bb1b9",
+            "plant_name": "Black Cherry"
+          },
+          {
+            "plant_id": "c4d33b1250b0",
+            "plant_name": "Berner Rose"
+          },
+          {
+            "plant_id": "663703f70dd5",
+            "plant_name": "Andenhörnchen"
+          },
+          {
+            "plant_id": "433ebb2dd998",
+            "plant_name": "Subarctic Plenty"
+          },
+          {
+            "plant_id": "2f144237223c",
+            "plant_name": "Schwarze Birne"
+          },
+          {
+            "plant_id": "c2d4f6a0f1fd",
+            "plant_name": "Sasha's Altai Pride"
+          },
+          {
+            "plant_id": "d197ba8d82e5",
+            "plant_name": "Rumänische Tomaten von Roksi"
+          },
+          {
+            "plant_id": "38bb758c3632",
+            "plant_name": "Rotes Zebra"
+          },
+          {
+            "plant_id": "f653655c0bca",
+            "plant_name": "Negro Azteka"
+          },
+          {
+            "plant_id": "3e7a8becc5bf",
+            "plant_name": "Mexikanische Honigtomate"
+          },
+          {
+            "plant_id": "5740a8842eb6",
+            "plant_name": "Marktomate \"Rote Spitzel"
+          },
+          {
+            "plant_id": "0229d802ba11",
+            "plant_name": "Urtomate Columbianum"
+          },
+          {
+            "plant_id": "5c7b11fe74c3",
+            "plant_name": "Johannisbeertomate"
+          },
+          {
+            "plant_id": "2a341ace8039",
+            "plant_name": "Haubners Vollendung"
+          },
+          {
+            "plant_id": "267c4d10f866",
+            "plant_name": "Handschuhsheimer Feldtomate"
+          },
+          {
+            "plant_id": "297efbf73609",
+            "plant_name": "Datterino"
+          },
+          {
+            "plant_id": "2039073eddff",
+            "plant_name": "Taubenherz"
+          },
+          {
+            "plant_id": "a0ecf956094b",
+            "plant_name": "Resi"
+          },
+          {
+            "plant_id": "7a24132d6802",
+            "plant_name": "Buschtomate Silbertanne"
+          },
+          {
+            "plant_id": "bd597a960152",
+            "plant_name": "Bulgarische Tomate (von Katrin)"
+          },
+          {
+            "plant_id": "b95b54cde0b9",
+            "plant_name": "Bio-Tomate (von Monika)"
+          },
+          {
+            "plant_id": "e3877becbf66",
+            "plant_name": "Ananastomate"
+          },
+          {
+            "plant_id": "a08b9a991583",
+            "plant_name": "Beuteltomate aus El Salvador"
+          },
+          {
+            "plant_id": "8cec1c73093f",
+            "plant_name": "Weißer Pfirsich"
+          },
+          {
+            "plant_id": "012e49d937a7",
+            "plant_name": "Marmorossa"
+          },
+          {
+            "plant_id": "bb0a1d1ebffc",
+            "plant_name": "Szuszanna"
+          },
+          {
+            "plant_id": "bcb66ae973b4",
+            "plant_name": "Benarys Gartenfreude"
+          },
+          {
+            "plant_id": "848bdb367f53",
+            "plant_name": "Fleischtomate aus Kroatien"
+          },
+          {
+            "plant_id": "8228bd87db65",
+            "plant_name": "Olena Ukrainian"
+          },
+          {
+            "plant_id": "5141a224028a",
+            "plant_name": "Marmande"
+          },
+          {
+            "plant_id": "f74dd938a093",
+            "plant_name": "Cocktailtomate aus Sizilien"
+          },
+          {
+            "plant_id": "4d0314927919",
+            "plant_name": "Vesennij Mieurinskij"
+          },
+          {
+            "plant_id": "37733a95c91b",
+            "plant_name": "Indigo Berry"
+          },
+          {
+            "plant_id": "d05f51ba18a8",
+            "plant_name": "Cerise rot"
+          },
+          {
+            "plant_id": "9c043784d703",
+            "plant_name": "Cerise geld"
+          }
+        ],
+        "excluded": [
+          {
+            "plant_id": "001c590048cf",
+            "plant_name": "Pomodorino del Piennolo del Vesuvio"
+          },
+          {
+            "plant_id": "66ee1869c3b9",
+            "plant_name": "Golden Currant"
+          },
+          {
+            "plant_id": "6e154603770f",
+            "plant_name": "Orange Wildtomate"
+          },
+          {
+            "plant_id": "4863b770f293",
+            "plant_name": "Pink Grape"
+          },
+          {
+            "plant_id": "3dee1726052f",
+            "plant_name": "Green Grape"
+          },
+          {
+            "plant_id": "95d3a8cd739f",
+            "plant_name": "Kotlas"
+          },
+          {
+            "plant_id": "6cb853546f46",
+            "plant_name": "Golden Grape"
+          },
+          {
+            "plant_id": "9fbcb1737e26",
+            "plant_name": "Dattelwein"
+          },
+          {
+            "plant_id": "cd2f76d7428c",
+            "plant_name": "Orange Johannisbeertomate"
+          },
+          {
+            "plant_id": "dd638b00b778",
+            "plant_name": "Philamina"
+          }
+        ]
+      }
+    },
+    {
+      "id": "correction",
+      "question": "Doch lieber kleine Früchte, alles andere bleibt.",
+      "result": {
+        "answer": "5 Sorten erfüllen die belegbaren Pflichtkriterien. Bei 94 Sorten fehlen eindeutige Belege; sie gelten nicht als passende Treffer. 5 Sorten widersprechen mindestens einer Pflichtbedingung.",
+        "intent": "recommendation",
+        "plan": {
+          "intent": "recommendation",
+          "categories": [
+            "Tomate"
+          ],
+          "plant_names": [],
+          "criteria": [
+            {
+              "text": "Eignung für Freiland",
+              "importance": "required",
+              "kind": "condition",
+              "expression": {
+                "op": "predicate",
+                "text": "site.outdoor = true (Freiland)",
+                "property_id": "site.outdoor",
+                "comparator": "eq",
+                "value": true,
+                "unit": null,
+                "children": []
+              }
+            },
+            {
+              "text": "Kleine Früchte",
+              "importance": "required",
+              "kind": "condition",
+              "expression": {
+                "op": "predicate",
+                "text": "fruit.small = true (ausdrücklich kleine Früchte)",
+                "property_id": "fruit.small",
+                "comparator": "eq",
+                "value": true,
+                "unit": null,
+                "children": []
+              }
+            }
+          ],
+          "follow_up_question": "",
+          "unsupported_requests": []
+        },
+        "selection_mode": "local",
+        "total_matches": 5,
+        "recommendations": [
+          {
+            "plant_id": "66ee1869c3b9",
+            "plant_name": "Golden Currant"
+          },
+          {
+            "plant_id": "6e154603770f",
+            "plant_name": "Orange Wildtomate"
+          },
+          {
+            "plant_id": "3dee1726052f",
+            "plant_name": "Green Grape"
+          },
+          {
+            "plant_id": "95d3a8cd739f",
+            "plant_name": "Kotlas"
+          },
+          {
+            "plant_id": "cd2f76d7428c",
+            "plant_name": "Orange Johannisbeertomate"
+          }
+        ],
+        "unknown": [
+          {
+            "plant_id": "d73160a68c5d",
+            "plant_name": "Zuckertomate"
+          },
+          {
+            "plant_id": "1a3bed1be226",
+            "plant_name": "Justens Zuckertomate"
+          },
+          {
+            "plant_id": "001c590048cf",
+            "plant_name": "Pomodorino del Piennolo del Vesuvio"
+          },
+          {
+            "plant_id": "c563ca8ea65f",
+            "plant_name": "Small Egg"
+          },
+          {
+            "plant_id": "1aa277e7b4db",
+            "plant_name": "Zuckertraube"
+          },
+          {
+            "plant_id": "aeb886393c7f",
+            "plant_name": "Vintage Wine"
+          },
+          {
+            "plant_id": "347a3c0ccd9a",
+            "plant_name": "Schlesische Himbeere"
+          },
+          {
+            "plant_id": "4b9485dbc6dc",
+            "plant_name": "Saint Pierre"
+          },
+          {
+            "plant_id": "a5ea01553a35",
+            "plant_name": "Purple Russian"
+          },
+          {
+            "plant_id": "25d634c7c5e7",
+            "plant_name": "Prinzipe Borghese"
+          },
+          {
+            "plant_id": "4863b770f293",
+            "plant_name": "Pink Grape"
+          },
+          {
+            "plant_id": "ba8c96c44b48",
+            "plant_name": "Orange Russische (MG)"
+          },
+          {
+            "plant_id": "cb821040e2d0",
+            "plant_name": "MiriMiri"
+          },
+          {
+            "plant_id": "f5c26bf1b26d",
+            "plant_name": "Matina"
+          },
+          {
+            "plant_id": "9a0cceb47f4d",
+            "plant_name": "Madagaskar"
+          },
+          {
+            "plant_id": "3f5072a15033",
+            "plant_name": "Huberts Beste"
+          },
+          {
+            "plant_id": "46e1081b1685",
+            "plant_name": "Homosa"
+          },
+          {
+            "plant_id": "178ce885505d",
+            "plant_name": "Hoffmanns Rentita"
+          },
+          {
+            "plant_id": "63ef8af150c5",
+            "plant_name": "Hillbilly"
+          },
+          {
+            "plant_id": "d3917f55fb4f",
+            "plant_name": "Harzfeuer (keine Hybride!)"
+          },
+          {
+            "plant_id": "490971d1dc99",
+            "plant_name": "HATO S+F"
+          },
+          {
+            "plant_id": "547b90ec461a",
+            "plant_name": "HATO 8 (Arbeitsname)"
+          },
+          {
+            "plant_id": "a531420c8f61",
+            "plant_name": "HATO 3 (Arbeitsname)"
+          },
+          {
+            "plant_id": "358709509e06",
+            "plant_name": "HATO 12 (Arbeitsname)"
+          },
+          {
+            "plant_id": "4a06cbc8f178",
+            "plant_name": "HATO 10 (Arbeitsname)"
+          },
+          {
+            "plant_id": "f12e3ec67cb0",
+            "plant_name": "Fuzzy-Wuzzy"
+          },
+          {
+            "plant_id": "463349de8c3f",
+            "plant_name": "Fonarik"
+          },
+          {
+            "plant_id": "f2e9d0739fed",
+            "plant_name": "Flablonelysty"
+          },
+          {
+            "plant_id": "71f68aa14dc1",
+            "plant_name": "Costoluto Genovese"
+          },
+          {
+            "plant_id": "9bab57f36ccc",
+            "plant_name": "Clarita"
+          },
+          {
+            "plant_id": "f5d38c7a19ad",
+            "plant_name": "Blue Osu"
+          },
+          {
+            "plant_id": "280d4f11fd97",
+            "plant_name": "Black and Red Boar"
+          },
+          {
+            "plant_id": "f5f52063a154",
+            "plant_name": "Auriga"
+          },
+          {
+            "plant_id": "c7a52aabe139",
+            "plant_name": "Angora Supersweet"
+          },
+          {
+            "plant_id": "89deaf2a37cf",
+            "plant_name": "3-Käse-hoch"
+          },
+          {
+            "plant_id": "2f71e7a51567",
+            "plant_name": "Zitronentraube"
+          },
+          {
+            "plant_id": "1477623815f8",
+            "plant_name": "Zebrino"
+          },
+          {
+            "plant_id": "a64e694f7f23",
+            "plant_name": "Tschernij Prinz"
+          },
+          {
+            "plant_id": "90ebd4e94553",
+            "plant_name": "Sibirisches Birnchen"
+          },
+          {
+            "plant_id": "dbdaf32cc520",
+            "plant_name": "Schwarze von der Krim"
+          },
+          {
+            "plant_id": "0dc938c34939",
+            "plant_name": "San Marzano Retorta"
+          },
+          {
+            "plant_id": "8cfde4250905",
+            "plant_name": "San Berao"
+          },
+          {
+            "plant_id": "ab8cc79ab040",
+            "plant_name": "Ruthje"
+          },
+          {
+            "plant_id": "c40140c6997b",
+            "plant_name": "Rote Murmel"
+          },
+          {
+            "plant_id": "c95624934d1b",
+            "plant_name": "Rote Brandywine"
+          },
+          {
+            "plant_id": "de5429d6f4fa",
+            "plant_name": "Roma"
+          },
+          {
+            "plant_id": "e6856d5239d0",
+            "plant_name": "Riesentraube"
+          },
+          {
+            "plant_id": "8407a4a3cbd7",
+            "plant_name": "Reisetomate"
+          },
+          {
+            "plant_id": "320360107637",
+            "plant_name": "Purple Calabash"
+          },
+          {
+            "plant_id": "ffa105ddc1bd",
+            "plant_name": "Oaxakan Jewel"
+          },
+          {
+            "plant_id": "5b11e366d721",
+            "plant_name": "Liguria"
+          },
+          {
+            "plant_id": "425542580328",
+            "plant_name": "Kremser Perle"
+          },
+          {
+            "plant_id": "2f5bc0945abd",
+            "plant_name": "Hellfrucht"
+          },
+          {
+            "plant_id": "49b10add3d29",
+            "plant_name": "Green Zebra"
+          },
+          {
+            "plant_id": "8751bda30a5d",
+            "plant_name": "Goldene Königin"
+          },
+          {
+            "plant_id": "6cb853546f46",
+            "plant_name": "Golden Grape"
+          },
+          {
+            "plant_id": "8791d27486c7",
+            "plant_name": "German Gold"
+          },
+          {
+            "plant_id": "9fbcb1737e26",
+            "plant_name": "Dattelwein"
+          },
+          {
+            "plant_id": "3dea37e72b01",
+            "plant_name": "Cio Cio San"
+          },
+          {
+            "plant_id": "af87ea8bb1b9",
+            "plant_name": "Black Cherry"
+          },
+          {
+            "plant_id": "663703f70dd5",
+            "plant_name": "Andenhörnchen"
+          },
+          {
+            "plant_id": "433ebb2dd998",
+            "plant_name": "Subarctic Plenty"
+          },
+          {
+            "plant_id": "2f144237223c",
+            "plant_name": "Schwarze Birne"
+          },
+          {
+            "plant_id": "c2d4f6a0f1fd",
+            "plant_name": "Sasha's Altai Pride"
+          },
+          {
+            "plant_id": "d197ba8d82e5",
+            "plant_name": "Rumänische Tomaten von Roksi"
+          },
+          {
+            "plant_id": "38bb758c3632",
+            "plant_name": "Rotes Zebra"
+          },
+          {
+            "plant_id": "f653655c0bca",
+            "plant_name": "Negro Azteka"
+          },
+          {
+            "plant_id": "3e7a8becc5bf",
+            "plant_name": "Mexikanische Honigtomate"
+          },
+          {
+            "plant_id": "5740a8842eb6",
+            "plant_name": "Marktomate \"Rote Spitzel"
+          },
+          {
+            "plant_id": "0229d802ba11",
+            "plant_name": "Urtomate Columbianum"
+          },
+          {
+            "plant_id": "5c7b11fe74c3",
+            "plant_name": "Johannisbeertomate"
+          },
+          {
+            "plant_id": "2a341ace8039",
+            "plant_name": "Haubners Vollendung"
+          },
+          {
+            "plant_id": "267c4d10f866",
+            "plant_name": "Handschuhsheimer Feldtomate"
+          },
+          {
+            "plant_id": "297efbf73609",
+            "plant_name": "Datterino"
+          },
+          {
+            "plant_id": "2039073eddff",
+            "plant_name": "Taubenherz"
+          },
+          {
+            "plant_id": "a0ecf956094b",
+            "plant_name": "Resi"
+          },
+          {
+            "plant_id": "dd638b00b778",
+            "plant_name": "Philamina"
+          },
+          {
+            "plant_id": "7a24132d6802",
+            "plant_name": "Buschtomate Silbertanne"
+          },
+          {
+            "plant_id": "bd597a960152",
+            "plant_name": "Bulgarische Tomate (von Katrin)"
+          },
+          {
+            "plant_id": "b95b54cde0b9",
+            "plant_name": "Bio-Tomate (von Monika)"
+          },
+          {
+            "plant_id": "e3877becbf66",
+            "plant_name": "Ananastomate"
+          },
+          {
+            "plant_id": "a08b9a991583",
+            "plant_name": "Beuteltomate aus El Salvador"
+          },
+          {
+            "plant_id": "2bec06f3b2d7",
+            "plant_name": "Rote Zora"
+          },
+          {
+            "plant_id": "8cec1c73093f",
+            "plant_name": "Weißer Pfirsich"
+          },
+          {
+            "plant_id": "012e49d937a7",
+            "plant_name": "Marmorossa"
+          },
+          {
+            "plant_id": "bb0a1d1ebffc",
+            "plant_name": "Szuszanna"
+          },
+          {
+            "plant_id": "bcb66ae973b4",
+            "plant_name": "Benarys Gartenfreude"
+          },
+          {
+            "plant_id": "848bdb367f53",
+            "plant_name": "Fleischtomate aus Kroatien"
+          },
+          {
+            "plant_id": "8228bd87db65",
+            "plant_name": "Olena Ukrainian"
+          },
+          {
+            "plant_id": "f74dd938a093",
+            "plant_name": "Cocktailtomate aus Sizilien"
+          },
+          {
+            "plant_id": "4d0314927919",
+            "plant_name": "Vesennij Mieurinskij"
+          },
+          {
+            "plant_id": "37733a95c91b",
+            "plant_name": "Indigo Berry"
+          },
+          {
+            "plant_id": "d05f51ba18a8",
+            "plant_name": "Cerise rot"
+          },
+          {
+            "plant_id": "9c043784d703",
+            "plant_name": "Cerise geld"
+          }
+        ],
+        "excluded": [
+          {
+            "plant_id": "432b924fc2a1",
+            "plant_name": "Französisches Ochsenherz (Coeur de boef)"
+          },
+          {
+            "plant_id": "db0f85ed9b42",
+            "plant_name": "Orange Russische"
+          },
+          {
+            "plant_id": "a2d5f05be671",
+            "plant_name": "Olirose"
+          },
+          {
+            "plant_id": "c4d33b1250b0",
+            "plant_name": "Berner Rose"
+          },
+          {
+            "plant_id": "5141a224028a",
+            "plant_name": "Marmande"
+          }
+        ]
+      }
+    },
+    {
+      "id": "alternatives",
+      "question": "Ich suche Tomaten mit (roten und kleinen Früchten) oder (gelben und großen Früchten).",
+      "result": {
+        "answer": "4 Sorten erfüllen die belegbaren Pflichtkriterien. Bei 100 Sorten fehlen eindeutige Belege; sie gelten nicht als passende Treffer.",
+        "intent": "recommendation",
+        "plan": {
+          "intent": "recommendation",
+          "categories": [
+            "Tomate"
+          ],
+          "plant_names": [],
+          "criteria": [
+            {
+              "text": "Tomaten, entweder (rote UND kleine Früchte) ODER (gelbe UND große Früchte)",
+              "importance": "required",
+              "kind": "condition",
+              "expression": {
+                "op": "any",
+                "text": "(rot & klein) OR (gelb & groß)",
+                "property_id": "",
+                "comparator": "eq",
+                "value": null,
+                "unit": null,
+                "children": [
+                  {
+                    "op": "all",
+                    "text": "rot und klein",
+                    "property_id": "",
+                    "comparator": "eq",
+                    "value": null,
+                    "unit": null,
+                    "children": [
+                      {
+                        "op": "predicate",
+                        "text": "Fruchtfarbe = \"rot\"",
+                        "property_id": "fruit.color",
+                        "comparator": "eq",
+                        "value": "rot",
+                        "unit": null,
+                        "children": []
+                      },
+                      {
+                        "op": "predicate",
+                        "text": "fruit.small = true",
+                        "property_id": "fruit.small",
+                        "comparator": "eq",
+                        "value": true,
+                        "unit": null,
+                        "children": []
+                      }
+                    ]
+                  },
+                  {
+                    "op": "all",
+                    "text": "gelb und groß",
+                    "property_id": "",
+                    "comparator": "eq",
+                    "value": null,
+                    "unit": null,
+                    "children": [
+                      {
+                        "op": "predicate",
+                        "text": "Fruchtfarbe = \"gelb\"",
+                        "property_id": "fruit.color",
+                        "comparator": "eq",
+                        "value": "gelb",
+                        "unit": null,
+                        "children": []
+                      },
+                      {
+                        "op": "predicate",
+                        "text": "fruit.large = true",
+                        "property_id": "fruit.large",
+                        "comparator": "eq",
+                        "value": true,
+                        "unit": null,
+                        "children": []
+                      }
+                    ]
+                  }
+                ]
+              }
+            }
+          ],
+          "follow_up_question": "",
+          "unsupported_requests": []
+        },
+        "selection_mode": "local",
+        "total_matches": 4,
+        "recommendations": [
+          {
+            "plant_id": "001c590048cf",
+            "plant_name": "Pomodorino del Piennolo del Vesuvio"
+          },
+          {
+            "plant_id": "4863b770f293",
+            "plant_name": "Pink Grape"
+          },
+          {
+            "plant_id": "95d3a8cd739f",
+            "plant_name": "Kotlas"
+          },
+          {
+            "plant_id": "dd638b00b778",
+            "plant_name": "Philamina"
+          }
+        ],
+        "unknown": [
+          {
+            "plant_id": "d73160a68c5d",
+            "plant_name": "Zuckertomate"
+          },
+          {
+            "plant_id": "1a3bed1be226",
+            "plant_name": "Justens Zuckertomate"
+          },
+          {
+            "plant_id": "c563ca8ea65f",
+            "plant_name": "Small Egg"
+          },
+          {
+            "plant_id": "66ee1869c3b9",
+            "plant_name": "Golden Currant"
+          },
+          {
+            "plant_id": "6e154603770f",
+            "plant_name": "Orange Wildtomate"
+          },
+          {
+            "plant_id": "432b924fc2a1",
+            "plant_name": "Französisches Ochsenherz (Coeur de boef)"
+          },
+          {
+            "plant_id": "1aa277e7b4db",
+            "plant_name": "Zuckertraube"
+          },
+          {
+            "plant_id": "aeb886393c7f",
+            "plant_name": "Vintage Wine"
+          },
+          {
+            "plant_id": "347a3c0ccd9a",
+            "plant_name": "Schlesische Himbeere"
+          },
+          {
+            "plant_id": "4b9485dbc6dc",
+            "plant_name": "Saint Pierre"
+          },
+          {
+            "plant_id": "a5ea01553a35",
+            "plant_name": "Purple Russian"
+          },
+          {
+            "plant_id": "25d634c7c5e7",
+            "plant_name": "Prinzipe Borghese"
+          },
+          {
+            "plant_id": "ba8c96c44b48",
+            "plant_name": "Orange Russische (MG)"
+          },
+          {
+            "plant_id": "cb821040e2d0",
+            "plant_name": "MiriMiri"
+          },
+          {
+            "plant_id": "f5c26bf1b26d",
+            "plant_name": "Matina"
+          },
+          {
+            "plant_id": "9a0cceb47f4d",
+            "plant_name": "Madagaskar"
+          },
+          {
+            "plant_id": "3f5072a15033",
+            "plant_name": "Huberts Beste"
+          },
+          {
+            "plant_id": "46e1081b1685",
+            "plant_name": "Homosa"
+          },
+          {
+            "plant_id": "178ce885505d",
+            "plant_name": "Hoffmanns Rentita"
+          },
+          {
+            "plant_id": "63ef8af150c5",
+            "plant_name": "Hillbilly"
+          },
+          {
+            "plant_id": "d3917f55fb4f",
+            "plant_name": "Harzfeuer (keine Hybride!)"
+          },
+          {
+            "plant_id": "490971d1dc99",
+            "plant_name": "HATO S+F"
+          },
+          {
+            "plant_id": "547b90ec461a",
+            "plant_name": "HATO 8 (Arbeitsname)"
+          },
+          {
+            "plant_id": "a531420c8f61",
+            "plant_name": "HATO 3 (Arbeitsname)"
+          },
+          {
+            "plant_id": "358709509e06",
+            "plant_name": "HATO 12 (Arbeitsname)"
+          },
+          {
+            "plant_id": "4a06cbc8f178",
+            "plant_name": "HATO 10 (Arbeitsname)"
+          },
+          {
+            "plant_id": "3dee1726052f",
+            "plant_name": "Green Grape"
+          },
+          {
+            "plant_id": "f12e3ec67cb0",
+            "plant_name": "Fuzzy-Wuzzy"
+          },
+          {
+            "plant_id": "463349de8c3f",
+            "plant_name": "Fonarik"
+          },
+          {
+            "plant_id": "f2e9d0739fed",
+            "plant_name": "Flablonelysty"
+          },
+          {
+            "plant_id": "71f68aa14dc1",
+            "plant_name": "Costoluto Genovese"
+          },
+          {
+            "plant_id": "9bab57f36ccc",
+            "plant_name": "Clarita"
+          },
+          {
+            "plant_id": "f5d38c7a19ad",
+            "plant_name": "Blue Osu"
+          },
+          {
+            "plant_id": "280d4f11fd97",
+            "plant_name": "Black and Red Boar"
+          },
+          {
+            "plant_id": "f5f52063a154",
+            "plant_name": "Auriga"
+          },
+          {
+            "plant_id": "c7a52aabe139",
+            "plant_name": "Angora Supersweet"
+          },
+          {
+            "plant_id": "89deaf2a37cf",
+            "plant_name": "3-Käse-hoch"
+          },
+          {
+            "plant_id": "2f71e7a51567",
+            "plant_name": "Zitronentraube"
+          },
+          {
+            "plant_id": "1477623815f8",
+            "plant_name": "Zebrino"
+          },
+          {
+            "plant_id": "a64e694f7f23",
+            "plant_name": "Tschernij Prinz"
+          },
+          {
+            "plant_id": "90ebd4e94553",
+            "plant_name": "Sibirisches Birnchen"
+          },
+          {
+            "plant_id": "dbdaf32cc520",
+            "plant_name": "Schwarze von der Krim"
+          },
+          {
+            "plant_id": "0dc938c34939",
+            "plant_name": "San Marzano Retorta"
+          },
+          {
+            "plant_id": "8cfde4250905",
+            "plant_name": "San Berao"
+          },
+          {
+            "plant_id": "ab8cc79ab040",
+            "plant_name": "Ruthje"
+          },
+          {
+            "plant_id": "c40140c6997b",
+            "plant_name": "Rote Murmel"
+          },
+          {
+            "plant_id": "c95624934d1b",
+            "plant_name": "Rote Brandywine"
+          },
+          {
+            "plant_id": "de5429d6f4fa",
+            "plant_name": "Roma"
+          },
+          {
+            "plant_id": "e6856d5239d0",
+            "plant_name": "Riesentraube"
+          },
+          {
+            "plant_id": "8407a4a3cbd7",
+            "plant_name": "Reisetomate"
+          },
+          {
+            "plant_id": "320360107637",
+            "plant_name": "Purple Calabash"
+          },
+          {
+            "plant_id": "db0f85ed9b42",
+            "plant_name": "Orange Russische"
+          },
+          {
+            "plant_id": "a2d5f05be671",
+            "plant_name": "Olirose"
+          },
+          {
+            "plant_id": "ffa105ddc1bd",
+            "plant_name": "Oaxakan Jewel"
+          },
+          {
+            "plant_id": "5b11e366d721",
+            "plant_name": "Liguria"
+          },
+          {
+            "plant_id": "425542580328",
+            "plant_name": "Kremser Perle"
+          },
+          {
+            "plant_id": "2f5bc0945abd",
+            "plant_name": "Hellfrucht"
+          },
+          {
+            "plant_id": "49b10add3d29",
+            "plant_name": "Green Zebra"
+          },
+          {
+            "plant_id": "8751bda30a5d",
+            "plant_name": "Goldene Königin"
+          },
+          {
+            "plant_id": "6cb853546f46",
+            "plant_name": "Golden Grape"
+          },
+          {
+            "plant_id": "8791d27486c7",
+            "plant_name": "German Gold"
+          },
+          {
+            "plant_id": "9fbcb1737e26",
+            "plant_name": "Dattelwein"
+          },
+          {
+            "plant_id": "3dea37e72b01",
+            "plant_name": "Cio Cio San"
+          },
+          {
+            "plant_id": "af87ea8bb1b9",
+            "plant_name": "Black Cherry"
+          },
+          {
+            "plant_id": "c4d33b1250b0",
+            "plant_name": "Berner Rose"
+          },
+          {
+            "plant_id": "663703f70dd5",
+            "plant_name": "Andenhörnchen"
+          },
+          {
+            "plant_id": "433ebb2dd998",
+            "plant_name": "Subarctic Plenty"
+          },
+          {
+            "plant_id": "2f144237223c",
+            "plant_name": "Schwarze Birne"
+          },
+          {
+            "plant_id": "c2d4f6a0f1fd",
+            "plant_name": "Sasha's Altai Pride"
+          },
+          {
+            "plant_id": "d197ba8d82e5",
+            "plant_name": "Rumänische Tomaten von Roksi"
+          },
+          {
+            "plant_id": "38bb758c3632",
+            "plant_name": "Rotes Zebra"
+          },
+          {
+            "plant_id": "cd2f76d7428c",
+            "plant_name": "Orange Johannisbeertomate"
+          },
+          {
+            "plant_id": "f653655c0bca",
+            "plant_name": "Negro Azteka"
+          },
+          {
+            "plant_id": "3e7a8becc5bf",
+            "plant_name": "Mexikanische Honigtomate"
+          },
+          {
+            "plant_id": "5740a8842eb6",
+            "plant_name": "Marktomate \"Rote Spitzel"
+          },
+          {
+            "plant_id": "0229d802ba11",
+            "plant_name": "Urtomate Columbianum"
+          },
+          {
+            "plant_id": "5c7b11fe74c3",
+            "plant_name": "Johannisbeertomate"
+          },
+          {
+            "plant_id": "2a341ace8039",
+            "plant_name": "Haubners Vollendung"
+          },
+          {
+            "plant_id": "267c4d10f866",
+            "plant_name": "Handschuhsheimer Feldtomate"
+          },
+          {
+            "plant_id": "297efbf73609",
+            "plant_name": "Datterino"
+          },
+          {
+            "plant_id": "2039073eddff",
+            "plant_name": "Taubenherz"
+          },
+          {
+            "plant_id": "a0ecf956094b",
+            "plant_name": "Resi"
+          },
+          {
+            "plant_id": "7a24132d6802",
+            "plant_name": "Buschtomate Silbertanne"
+          },
+          {
+            "plant_id": "bd597a960152",
+            "plant_name": "Bulgarische Tomate (von Katrin)"
+          },
+          {
+            "plant_id": "b95b54cde0b9",
+            "plant_name": "Bio-Tomate (von Monika)"
+          },
+          {
+            "plant_id": "e3877becbf66",
+            "plant_name": "Ananastomate"
+          },
+          {
+            "plant_id": "a08b9a991583",
+            "plant_name": "Beuteltomate aus El Salvador"
+          },
+          {
+            "plant_id": "2bec06f3b2d7",
+            "plant_name": "Rote Zora"
+          },
+          {
+            "plant_id": "8cec1c73093f",
+            "plant_name": "Weißer Pfirsich"
+          },
+          {
+            "plant_id": "012e49d937a7",
+            "plant_name": "Marmorossa"
+          },
+          {
+            "plant_id": "bb0a1d1ebffc",
+            "plant_name": "Szuszanna"
+          },
+          {
+            "plant_id": "bcb66ae973b4",
+            "plant_name": "Benarys Gartenfreude"
+          },
+          {
+            "plant_id": "848bdb367f53",
+            "plant_name": "Fleischtomate aus Kroatien"
+          },
+          {
+            "plant_id": "8228bd87db65",
+            "plant_name": "Olena Ukrainian"
+          },
+          {
+            "plant_id": "5141a224028a",
+            "plant_name": "Marmande"
+          },
+          {
+            "plant_id": "f74dd938a093",
+            "plant_name": "Cocktailtomate aus Sizilien"
+          },
+          {
+            "plant_id": "4d0314927919",
+            "plant_name": "Vesennij Mieurinskij"
+          },
+          {
+            "plant_id": "37733a95c91b",
+            "plant_name": "Indigo Berry"
+          },
+          {
+            "plant_id": "d05f51ba18a8",
+            "plant_name": "Cerise rot"
+          },
+          {
+            "plant_id": "9c043784d703",
+            "plant_name": "Cerise geld"
+          }
+        ],
+        "excluded": []
+      }
+    },
+    {
+      "id": "negation",
+      "question": "Welche Paprika sind süß und nicht scharf?",
+      "result": {
+        "answer": "9 Sorten erfüllen die belegbaren Pflichtkriterien. Bei 5 Sorten fehlen eindeutige Belege; sie gelten nicht als passende Treffer. 3 Sorten widersprechen mindestens einer Pflichtbedingung.",
+        "intent": "recommendation",
+        "plan": {
+          "intent": "recommendation",
+          "categories": [
+            "Paprika"
+          ],
+          "plant_names": [],
+          "criteria": [
+            {
+              "text": "süß",
+              "importance": "required",
+              "kind": "condition",
+              "expression": {
+                "op": "predicate",
+                "text": "taste.sweet == true",
+                "property_id": "taste.sweet",
+                "comparator": "eq",
+                "value": true,
+                "unit": null,
+                "children": []
+              }
+            },
+            {
+              "text": "nicht scharf",
+              "importance": "required",
+              "kind": "condition",
+              "expression": {
+                "op": "predicate",
+                "text": "taste.spicy == false",
+                "property_id": "taste.spicy",
+                "comparator": "eq",
+                "value": false,
+                "unit": null,
+                "children": []
+              }
+            }
+          ],
+          "follow_up_question": "",
+          "unsupported_requests": []
+        },
+        "selection_mode": "local",
+        "total_matches": 9,
+        "recommendations": [
+          {
+            "plant_id": "f665d59b1cd5",
+            "plant_name": "Roter Augsburger"
+          },
+          {
+            "plant_id": "677b8ef84a5e",
+            "plant_name": "Snackpaprika Carina"
+          },
+          {
+            "plant_id": "24d02cc43e30",
+            "plant_name": "Shepards Ramshorn"
+          },
+          {
+            "plant_id": "4cd496654753",
+            "plant_name": "Sweet Chocolate"
+          },
+          {
+            "plant_id": "0d2766fd07ad",
+            "plant_name": "Yesil Tatli"
+          },
+          {
+            "plant_id": "00baf1557f92",
+            "plant_name": "Lady Lou"
+          },
+          {
+            "plant_id": "68fb553b7f9d",
+            "plant_name": "Botinecka Zuta"
+          },
+          {
+            "plant_id": "80ea156e1b83",
+            "plant_name": "Healthy"
+          },
+          {
+            "plant_id": "2eb0f7e63c08",
+            "plant_name": "Orange Bell"
+          }
+        ],
+        "unknown": [
+          {
+            "plant_id": "d54f8d33feeb",
+            "plant_name": "Sweet Cayenne"
+          },
+          {
+            "plant_id": "3bc40b3e2c3d",
+            "plant_name": "King of the North"
+          },
+          {
+            "plant_id": "373cd192f341",
+            "plant_name": "Golden Marconi"
+          },
+          {
+            "plant_id": "280f888cfdaf",
+            "plant_name": "Minipaprika Merino"
+          },
+          {
+            "plant_id": "41928f7539af",
+            "plant_name": "Baumchili rot"
+          }
+        ],
+        "excluded": [
+          {
+            "plant_id": "aa89f3864588",
+            "plant_name": "Sibirischer Hauspaprika"
+          },
+          {
+            "plant_id": "d5e9aa2d04a6",
+            "plant_name": "Mustafa"
+          },
+          {
+            "plant_id": "8ab7abd9822d",
+            "plant_name": "Chocolate Cherry Hot"
+          }
+        ]
+      }
+    },
+    {
+      "id": "numeric",
+      "question": "Welche Pflanzen sind höchstens 80 cm hoch?",
+      "result": {
+        "answer": "4 Sorten erfüllen die belegbaren Pflichtkriterien. Bei 245 Sorten fehlen eindeutige Belege; sie gelten nicht als passende Treffer.",
+        "intent": "recommendation",
+        "plan": {
+          "intent": "recommendation",
+          "categories": [],
+          "plant_names": [],
+          "criteria": [
+            {
+              "text": "Wuchshöhe höchstens 80 cm.",
+              "importance": "required",
+              "kind": "condition",
+              "expression": {
+                "op": "predicate",
+                "text": "Wuchshöhe höchstens 80 cm.",
+                "property_id": "plant.height",
+                "comparator": "lte",
+                "value": 80.0,
+                "unit": "cm",
+                "children": []
+              }
+            }
+          ],
+          "follow_up_question": "",
+          "unsupported_requests": []
+        },
+        "selection_mode": "local",
+        "total_matches": 4,
+        "recommendations": [
+          {
+            "plant_id": "2039073eddff",
+            "plant_name": "Taubenherz"
+          },
+          {
+            "plant_id": "46ee42dd0cef",
+            "plant_name": "Strubelpeter"
+          },
+          {
+            "plant_id": "d49e553188d4",
+            "plant_name": "Flashy Butter Oak"
+          },
+          {
+            "plant_id": "648fcbe47384",
+            "plant_name": "Filderkraut"
+          }
+        ],
+        "unknown": [
+          {
+            "plant_id": "d73160a68c5d",
+            "plant_name": "Zuckertomate"
+          },
+          {
+            "plant_id": "1a3bed1be226",
+            "plant_name": "Justens Zuckertomate"
+          },
+          {
+            "plant_id": "001c590048cf",
+            "plant_name": "Pomodorino del Piennolo del Vesuvio"
+          },
+          {
+            "plant_id": "c563ca8ea65f",
+            "plant_name": "Small Egg"
+          },
+          {
+            "plant_id": "66ee1869c3b9",
+            "plant_name": "Golden Currant"
+          },
+          {
+            "plant_id": "6e154603770f",
+            "plant_name": "Orange Wildtomate"
+          },
+          {
+            "plant_id": "432b924fc2a1",
+            "plant_name": "Französisches Ochsenherz (Coeur de boef)"
+          },
+          {
+            "plant_id": "1aa277e7b4db",
+            "plant_name": "Zuckertraube"
+          },
+          {
+            "plant_id": "aeb886393c7f",
+            "plant_name": "Vintage Wine"
+          },
+          {
+            "plant_id": "347a3c0ccd9a",
+            "plant_name": "Schlesische Himbeere"
+          },
+          {
+            "plant_id": "4b9485dbc6dc",
+            "plant_name": "Saint Pierre"
+          },
+          {
+            "plant_id": "a5ea01553a35",
+            "plant_name": "Purple Russian"
+          },
+          {
+            "plant_id": "25d634c7c5e7",
+            "plant_name": "Prinzipe Borghese"
+          },
+          {
+            "plant_id": "4863b770f293",
+            "plant_name": "Pink Grape"
+          },
+          {
+            "plant_id": "ba8c96c44b48",
+            "plant_name": "Orange Russische (MG)"
+          },
+          {
+            "plant_id": "cb821040e2d0",
+            "plant_name": "MiriMiri"
+          },
+          {
+            "plant_id": "f5c26bf1b26d",
+            "plant_name": "Matina"
+          },
+          {
+            "plant_id": "9a0cceb47f4d",
+            "plant_name": "Madagaskar"
+          },
+          {
+            "plant_id": "3f5072a15033",
+            "plant_name": "Huberts Beste"
+          },
+          {
+            "plant_id": "46e1081b1685",
+            "plant_name": "Homosa"
+          },
+          {
+            "plant_id": "178ce885505d",
+            "plant_name": "Hoffmanns Rentita"
+          },
+          {
+            "plant_id": "63ef8af150c5",
+            "plant_name": "Hillbilly"
+          },
+          {
+            "plant_id": "d3917f55fb4f",
+            "plant_name": "Harzfeuer (keine Hybride!)"
+          },
+          {
+            "plant_id": "490971d1dc99",
+            "plant_name": "HATO S+F"
+          },
+          {
+            "plant_id": "547b90ec461a",
+            "plant_name": "HATO 8 (Arbeitsname)"
+          },
+          {
+            "plant_id": "a531420c8f61",
+            "plant_name": "HATO 3 (Arbeitsname)"
+          },
+          {
+            "plant_id": "358709509e06",
+            "plant_name": "HATO 12 (Arbeitsname)"
+          },
+          {
+            "plant_id": "4a06cbc8f178",
+            "plant_name": "HATO 10 (Arbeitsname)"
+          },
+          {
+            "plant_id": "3dee1726052f",
+            "plant_name": "Green Grape"
+          },
+          {
+            "plant_id": "f12e3ec67cb0",
+            "plant_name": "Fuzzy-Wuzzy"
+          },
+          {
+            "plant_id": "463349de8c3f",
+            "plant_name": "Fonarik"
+          },
+          {
+            "plant_id": "f2e9d0739fed",
+            "plant_name": "Flablonelysty"
+          },
+          {
+            "plant_id": "71f68aa14dc1",
+            "plant_name": "Costoluto Genovese"
+          },
+          {
+            "plant_id": "9bab57f36ccc",
+            "plant_name": "Clarita"
+          },
+          {
+            "plant_id": "f5d38c7a19ad",
+            "plant_name": "Blue Osu"
+          },
+          {
+            "plant_id": "280d4f11fd97",
+            "plant_name": "Black and Red Boar"
+          },
+          {
+            "plant_id": "f5f52063a154",
+            "plant_name": "Auriga"
+          },
+          {
+            "plant_id": "c7a52aabe139",
+            "plant_name": "Angora Supersweet"
+          },
+          {
+            "plant_id": "89deaf2a37cf",
+            "plant_name": "3-Käse-hoch"
+          },
+          {
+            "plant_id": "2f71e7a51567",
+            "plant_name": "Zitronentraube"
+          },
+          {
+            "plant_id": "1477623815f8",
+            "plant_name": "Zebrino"
+          },
+          {
+            "plant_id": "a64e694f7f23",
+            "plant_name": "Tschernij Prinz"
+          },
+          {
+            "plant_id": "90ebd4e94553",
+            "plant_name": "Sibirisches Birnchen"
+          },
+          {
+            "plant_id": "dbdaf32cc520",
+            "plant_name": "Schwarze von der Krim"
+          },
+          {
+            "plant_id": "0dc938c34939",
+            "plant_name": "San Marzano Retorta"
+          },
+          {
+            "plant_id": "8cfde4250905",
+            "plant_name": "San Berao"
+          },
+          {
+            "plant_id": "ab8cc79ab040",
+            "plant_name": "Ruthje"
+          },
+          {
+            "plant_id": "c40140c6997b",
+            "plant_name": "Rote Murmel"
+          },
+          {
+            "plant_id": "c95624934d1b",
+            "plant_name": "Rote Brandywine"
+          },
+          {
+            "plant_id": "de5429d6f4fa",
+            "plant_name": "Roma"
+          },
+          {
+            "plant_id": "e6856d5239d0",
+            "plant_name": "Riesentraube"
+          },
+          {
+            "plant_id": "8407a4a3cbd7",
+            "plant_name": "Reisetomate"
+          },
+          {
+            "plant_id": "320360107637",
+            "plant_name": "Purple Calabash"
+          },
+          {
+            "plant_id": "db0f85ed9b42",
+            "plant_name": "Orange Russische"
+          },
+          {
+            "plant_id": "a2d5f05be671",
+            "plant_name": "Olirose"
+          },
+          {
+            "plant_id": "ffa105ddc1bd",
+            "plant_name": "Oaxakan Jewel"
+          },
+          {
+            "plant_id": "5b11e366d721",
+            "plant_name": "Liguria"
+          },
+          {
+            "plant_id": "425542580328",
+            "plant_name": "Kremser Perle"
+          },
+          {
+            "plant_id": "95d3a8cd739f",
+            "plant_name": "Kotlas"
+          },
+          {
+            "plant_id": "2f5bc0945abd",
+            "plant_name": "Hellfrucht"
+          },
+          {
+            "plant_id": "49b10add3d29",
+            "plant_name": "Green Zebra"
+          },
+          {
+            "plant_id": "8751bda30a5d",
+            "plant_name": "Goldene Königin"
+          },
+          {
+            "plant_id": "6cb853546f46",
+            "plant_name": "Golden Grape"
+          },
+          {
+            "plant_id": "8791d27486c7",
+            "plant_name": "German Gold"
+          },
+          {
+            "plant_id": "9fbcb1737e26",
+            "plant_name": "Dattelwein"
+          },
+          {
+            "plant_id": "3dea37e72b01",
+            "plant_name": "Cio Cio San"
+          },
+          {
+            "plant_id": "af87ea8bb1b9",
+            "plant_name": "Black Cherry"
+          },
+          {
+            "plant_id": "c4d33b1250b0",
+            "plant_name": "Berner Rose"
+          },
+          {
+            "plant_id": "663703f70dd5",
+            "plant_name": "Andenhörnchen"
+          },
+          {
+            "plant_id": "433ebb2dd998",
+            "plant_name": "Subarctic Plenty"
+          },
+          {
+            "plant_id": "2f144237223c",
+            "plant_name": "Schwarze Birne"
+          },
+          {
+            "plant_id": "c2d4f6a0f1fd",
+            "plant_name": "Sasha's Altai Pride"
+          },
+          {
+            "plant_id": "d197ba8d82e5",
+            "plant_name": "Rumänische Tomaten von Roksi"
+          },
+          {
+            "plant_id": "38bb758c3632",
+            "plant_name": "Rotes Zebra"
+          },
+          {
+            "plant_id": "cd2f76d7428c",
+            "plant_name": "Orange Johannisbeertomate"
+          },
+          {
+            "plant_id": "f653655c0bca",
+            "plant_name": "Negro Azteka"
+          },
+          {
+            "plant_id": "3e7a8becc5bf",
+            "plant_name": "Mexikanische Honigtomate"
+          },
+          {
+            "plant_id": "5740a8842eb6",
+            "plant_name": "Marktomate \"Rote Spitzel"
+          },
+          {
+            "plant_id": "0229d802ba11",
+            "plant_name": "Urtomate Columbianum"
+          },
+          {
+            "plant_id": "5c7b11fe74c3",
+            "plant_name": "Johannisbeertomate"
+          },
+          {
+            "plant_id": "2a341ace8039",
+            "plant_name": "Haubners Vollendung"
+          },
+          {
+            "plant_id": "267c4d10f866",
+            "plant_name": "Handschuhsheimer Feldtomate"
+          },
+          {
+            "plant_id": "297efbf73609",
+            "plant_name": "Datterino"
+          },
+          {
+            "plant_id": "a0ecf956094b",
+            "plant_name": "Resi"
+          },
+          {
+            "plant_id": "dd638b00b778",
+            "plant_name": "Philamina"
+          },
+          {
+            "plant_id": "7a24132d6802",
+            "plant_name": "Buschtomate Silbertanne"
+          },
+          {
+            "plant_id": "bd597a960152",
+            "plant_name": "Bulgarische Tomate (von Katrin)"
+          },
+          {
+            "plant_id": "b95b54cde0b9",
+            "plant_name": "Bio-Tomate (von Monika)"
+          },
+          {
+            "plant_id": "e3877becbf66",
+            "plant_name": "Ananastomate"
+          },
+          {
+            "plant_id": "a08b9a991583",
+            "plant_name": "Beuteltomate aus El Salvador"
+          },
+          {
+            "plant_id": "2bec06f3b2d7",
+            "plant_name": "Rote Zora"
+          },
+          {
+            "plant_id": "8cec1c73093f",
+            "plant_name": "Weißer Pfirsich"
+          },
+          {
+            "plant_id": "012e49d937a7",
+            "plant_name": "Marmorossa"
+          },
+          {
+            "plant_id": "bb0a1d1ebffc",
+            "plant_name": "Szuszanna"
+          },
+          {
+            "plant_id": "bcb66ae973b4",
+            "plant_name": "Benarys Gartenfreude"
+          },
+          {
+            "plant_id": "848bdb367f53",
+            "plant_name": "Fleischtomate aus Kroatien"
+          },
+          {
+            "plant_id": "8228bd87db65",
+            "plant_name": "Olena Ukrainian"
+          },
+          {
+            "plant_id": "5141a224028a",
+            "plant_name": "Marmande"
+          },
+          {
+            "plant_id": "f74dd938a093",
+            "plant_name": "Cocktailtomate aus Sizilien"
+          },
+          {
+            "plant_id": "4d0314927919",
+            "plant_name": "Vesennij Mieurinskij"
+          },
+          {
+            "plant_id": "37733a95c91b",
+            "plant_name": "Indigo Berry"
+          },
+          {
+            "plant_id": "d05f51ba18a8",
+            "plant_name": "Cerise rot"
+          },
+          {
+            "plant_id": "9c043784d703",
+            "plant_name": "Cerise geld"
+          },
+          {
+            "plant_id": "f665d59b1cd5",
+            "plant_name": "Roter Augsburger"
+          },
+          {
+            "plant_id": "677b8ef84a5e",
+            "plant_name": "Snackpaprika Carina"
+          },
+          {
+            "plant_id": "aa89f3864588",
+            "plant_name": "Sibirischer Hauspaprika"
+          },
+          {
+            "plant_id": "24d02cc43e30",
+            "plant_name": "Shepards Ramshorn"
+          },
+          {
+            "plant_id": "4cd496654753",
+            "plant_name": "Sweet Chocolate"
+          },
+          {
+            "plant_id": "d54f8d33feeb",
+            "plant_name": "Sweet Cayenne"
+          },
+          {
+            "plant_id": "0d2766fd07ad",
+            "plant_name": "Yesil Tatli"
+          },
+          {
+            "plant_id": "d5e9aa2d04a6",
+            "plant_name": "Mustafa"
+          },
+          {
+            "plant_id": "00baf1557f92",
+            "plant_name": "Lady Lou"
+          },
+          {
+            "plant_id": "3bc40b3e2c3d",
+            "plant_name": "King of the North"
+          },
+          {
+            "plant_id": "373cd192f341",
+            "plant_name": "Golden Marconi"
+          },
+          {
+            "plant_id": "68fb553b7f9d",
+            "plant_name": "Botinecka Zuta"
+          },
+          {
+            "plant_id": "280f888cfdaf",
+            "plant_name": "Minipaprika Merino"
+          },
+          {
+            "plant_id": "80ea156e1b83",
+            "plant_name": "Healthy"
+          },
+          {
+            "plant_id": "8ab7abd9822d",
+            "plant_name": "Chocolate Cherry Hot"
+          },
+          {
+            "plant_id": "2eb0f7e63c08",
+            "plant_name": "Orange Bell"
+          },
+          {
+            "plant_id": "41928f7539af",
+            "plant_name": "Baumchili rot"
+          },
+          {
+            "plant_id": "784b867b32b3",
+            "plant_name": "Thai-Chili"
+          },
+          {
+            "plant_id": "3d1a11580432",
+            "plant_name": "Pimiento de Padron"
+          },
+          {
+            "plant_id": "7eae4a9581ab",
+            "plant_name": "NuMex Sandia"
+          },
+          {
+            "plant_id": "ca97fe3565b1",
+            "plant_name": "Jalapeno Ruben"
+          },
+          {
+            "plant_id": "929a78ecb36f",
+            "plant_name": "Habanero Tropical Red"
+          },
+          {
+            "plant_id": "85c512b9aeed",
+            "plant_name": "Zébrange"
+          },
+          {
+            "plant_id": "77c5be445316",
+            "plant_name": "Tazmanian Black"
+          },
+          {
+            "plant_id": "49d3a050f63d",
+            "plant_name": "Jalapeno"
+          },
+          {
+            "plant_id": "16c9f1820e69",
+            "plant_name": "Chi-Chien"
+          },
+          {
+            "plant_id": "6e8f7a9f6380",
+            "plant_name": "Kleine Rote Teufelchen"
+          },
+          {
+            "plant_id": "c1f04aa905e9",
+            "plant_name": "Hidalgo"
+          },
+          {
+            "plant_id": "ee699d396355",
+            "plant_name": "Cayenne"
+          },
+          {
+            "plant_id": "c28d957214e0",
+            "plant_name": "Bischofsmütze"
+          },
+          {
+            "plant_id": "eeee9b76ec5d",
+            "plant_name": "Aurora"
+          },
+          {
+            "plant_id": "3ca2b9ca0e09",
+            "plant_name": "Ungarischer Kirschpepperoni"
+          },
+          {
+            "plant_id": "02cd0eecd63f",
+            "plant_name": "Lombardo"
+          },
+          {
+            "plant_id": "02ee1f77b275",
+            "plant_name": "La Diva"
+          },
+          {
+            "plant_id": "739e51438a7e",
+            "plant_name": "Soo Yoo Long"
+          },
+          {
+            "plant_id": "ddb1bbf6f9e3",
+            "plant_name": "Nagai (Urtyp)"
+          },
+          {
+            "plant_id": "9bc919689a6f",
+            "plant_name": "Lemon (Zitronengurke)"
+          },
+          {
+            "plant_id": "51ef196a29c2",
+            "plant_name": "Tanja"
+          },
+          {
+            "plant_id": "9a653de1f9f4",
+            "plant_name": "Sensation"
+          },
+          {
+            "plant_id": "b7697ff9a0a2",
+            "plant_name": "Qualitas"
+          },
+          {
+            "plant_id": "438bff50cc48",
+            "plant_name": "Thai-Five-Star"
+          },
+          {
+            "plant_id": "91657b11f510",
+            "plant_name": "Chinesische Schlange"
+          },
+          {
+            "plant_id": "e5d14ee0adf6",
+            "plant_name": "Beth Alpha"
+          },
+          {
+            "plant_id": "f18cc70470ab",
+            "plant_name": "Marketmore"
+          },
+          {
+            "plant_id": "5b7cfe40d029",
+            "plant_name": "Vorgebirgstraube"
+          },
+          {
+            "plant_id": "5517ad84b76a",
+            "plant_name": "Black Beauty"
+          },
+          {
+            "plant_id": "9a0b8f00e52a",
+            "plant_name": "Gold Rush"
+          },
+          {
+            "plant_id": "fab55312c70b",
+            "plant_name": "Costata Romanesco"
+          },
+          {
+            "plant_id": "9fc3c0059a84",
+            "plant_name": "Alberello di Sarzana"
+          },
+          {
+            "plant_id": "3e7dc6286811",
+            "plant_name": "Tondo di Nizza"
+          },
+          {
+            "plant_id": "56e8c27a6e09",
+            "plant_name": "Trombetta die Albenga"
+          },
+          {
+            "plant_id": "6f285b1579e0",
+            "plant_name": "Muscade de Provence"
+          },
+          {
+            "plant_id": "28785ea37941",
+            "plant_name": "Rouge vif d'Etampes"
+          },
+          {
+            "plant_id": "b1e2591f439f",
+            "plant_name": "Futsu Black Rinded"
+          },
+          {
+            "plant_id": "dbde7a8e7064",
+            "plant_name": "Custard White"
+          },
+          {
+            "plant_id": "543e54d42d66",
+            "plant_name": "Uchiki Kuri"
+          },
+          {
+            "plant_id": "aae263da1fb0",
+            "plant_name": "Mennina Creme"
+          },
+          {
+            "plant_id": "d30668598a11",
+            "plant_name": "Aubergine Diamond"
+          },
+          {
+            "plant_id": "e5ee4b2f6aec",
+            "plant_name": "Blaukönigin"
+          },
+          {
+            "plant_id": "55ec831ab2a8",
+            "plant_name": "Little Green"
+          },
+          {
+            "plant_id": "ebbdba2d09e9",
+            "plant_name": "Little Brinjal"
+          },
+          {
+            "plant_id": "66c8a608aad2",
+            "plant_name": "De Barbentane"
+          },
+          {
+            "plant_id": "ad70de1abf1e",
+            "plant_name": "Cesky Rany"
+          },
+          {
+            "plant_id": "1f300fc66741",
+            "plant_name": "Salad Bowl"
+          },
+          {
+            "plant_id": "b8fcd1ac4b2c",
+            "plant_name": "Baby-Leaf Salatmischung"
+          },
+          {
+            "plant_id": "64053741f4c8",
+            "plant_name": "Viva Italia"
+          },
+          {
+            "plant_id": "32bc10c29f4e",
+            "plant_name": "Lollo rossa"
+          },
+          {
+            "plant_id": "a91788638e03",
+            "plant_name": "Asia-Mischung"
+          },
+          {
+            "plant_id": "9fee360f9671",
+            "plant_name": "Maravilla di Verano"
+          },
+          {
+            "plant_id": "f5a63a93fbb3",
+            "plant_name": "Forellenschluss"
+          },
+          {
+            "plant_id": "33dc291d96ba",
+            "plant_name": "Roter Rucola"
+          },
+          {
+            "plant_id": "d88bb9d46090",
+            "plant_name": "Teufelsohren"
+          },
+          {
+            "plant_id": "c264a9512c9d",
+            "plant_name": "Toya"
+          },
+          {
+            "plant_id": "066000ba846b",
+            "plant_name": "Pflücksalat Red Salad Bowl"
+          },
+          {
+            "plant_id": "90860a78cf6f",
+            "plant_name": "Rubinette"
+          },
+          {
+            "plant_id": "d31cde30fb99",
+            "plant_name": "Pirol"
+          },
+          {
+            "plant_id": "d5f53faef6c2",
+            "plant_name": "Goldforelle"
+          },
+          {
+            "plant_id": "d87294164b4e",
+            "plant_name": "Maikönig"
+          },
+          {
+            "plant_id": "9bd074a8fc3d",
+            "plant_name": "Grazer Krauthäuptel"
+          },
+          {
+            "plant_id": "88c83aa4cfe5",
+            "plant_name": "Till"
+          },
+          {
+            "plant_id": "232016889f10",
+            "plant_name": "Bolchoi"
+          },
+          {
+            "plant_id": "92f1cf02a5fb",
+            "plant_name": "Blattsalat Hirschzunge"
+          },
+          {
+            "plant_id": "81a5bdab6685",
+            "plant_name": "Lollo Bionda"
+          },
+          {
+            "plant_id": "67a0a3d3c947",
+            "plant_name": "Rhubarb Chard"
+          },
+          {
+            "plant_id": "ba7d0cbfc8a0",
+            "plant_name": "Lucullus"
+          },
+          {
+            "plant_id": "6147ec3bc5aa",
+            "plant_name": "Rote Kugel"
+          },
+          {
+            "plant_id": "36fa32846dea",
+            "plant_name": "Wintersonne"
+          },
+          {
+            "plant_id": "51eb1d2142af",
+            "plant_name": "Weiße Beete Albina Vereduna"
+          },
+          {
+            "plant_id": "b9a09094304b",
+            "plant_name": "Tonda die Chioggia"
+          },
+          {
+            "plant_id": "642218139003",
+            "plant_name": "Superschmelz"
+          },
+          {
+            "plant_id": "af34ddd955d4",
+            "plant_name": "Noriko"
+          },
+          {
+            "plant_id": "57921a658e1d",
+            "plant_name": "Azur-Star"
+          },
+          {
+            "plant_id": "f06aea3ee020",
+            "plant_name": "Calabrese"
+          },
+          {
+            "plant_id": "f3914cdcbb44",
+            "plant_name": "Negro Romano"
+          },
+          {
+            "plant_id": "d33b33b5c66c",
+            "plant_name": "Roter Spitzkohl Kalibos"
+          },
+          {
+            "plant_id": "33b8cfa73e57",
+            "plant_name": "Roodkop"
+          },
+          {
+            "plant_id": "44aa9fffa475",
+            "plant_name": "Marner Lagerweiß"
+          },
+          {
+            "plant_id": "d0fe3ff7a905",
+            "plant_name": "Winterfürst 2"
+          },
+          {
+            "plant_id": "41d3667fa468",
+            "plant_name": "Neckarperle"
+          },
+          {
+            "plant_id": "dfccc49a17ed",
+            "plant_name": "Rubine"
+          },
+          {
+            "plant_id": "7786250eeead",
+            "plant_name": "Groninger"
+          },
+          {
+            "plant_id": "8d34ef29b5b4",
+            "plant_name": "Blaugrüner Winter"
+          },
+          {
+            "plant_id": "b2d988c4e2c1",
+            "plant_name": "Charentais Melone Galoubet, Französische Gourmet-Melone"
+          },
+          {
+            "plant_id": "764d9a02cac5",
+            "plant_name": "Lerchenzungen"
+          },
+          {
+            "plant_id": "e3b3aa481967",
+            "plant_name": "Luftzwiebel"
+          },
+          {
+            "plant_id": "a3130c6cf6b4",
+            "plant_name": "Marjolina"
+          },
+          {
+            "plant_id": "fb9b51adbbf4",
+            "plant_name": "Rotgerippter"
+          },
+          {
+            "plant_id": "feff18a4a8be",
+            "plant_name": "Porthos"
+          },
+          {
+            "plant_id": "ba7c4553625f",
+            "plant_name": "Kerbel"
+          },
+          {
+            "plant_id": "b32880177b20",
+            "plant_name": "Dill"
+          },
+          {
+            "plant_id": "6e724838c3c6",
+            "plant_name": "PERU- Portulak"
+          },
+          {
+            "plant_id": "21dee4d9e0ea",
+            "plant_name": "Erdnuss-Rucola"
+          },
+          {
+            "plant_id": "966b9802a152",
+            "plant_name": "Wilde Rauke \"Lola"
+          },
+          {
+            "plant_id": "c08c0b7bd18c",
+            "plant_name": "Fenno"
+          },
+          {
+            "plant_id": "13c09c0d9d45",
+            "plant_name": "Kaprao"
+          },
+          {
+            "plant_id": "73503f06c4df",
+            "plant_name": "Everleaf Lemon"
+          },
+          {
+            "plant_id": "95e3bea29bdf",
+            "plant_name": "Everleaf Emerald Towers"
+          },
+          {
+            "plant_id": "5c068d8694c5",
+            "plant_name": "Gemischtes Buschbasilikum"
+          },
+          {
+            "plant_id": "f6de9cde0314",
+            "plant_name": "Kleines Buschbasilikum"
+          },
+          {
+            "plant_id": "5871fd0a0bb6",
+            "plant_name": "Griechisches Buschbasilikum"
+          },
+          {
+            "plant_id": "83f777319530",
+            "plant_name": "Zimtbasilikum"
+          },
+          {
+            "plant_id": "f5a4b99986a0",
+            "plant_name": "Basilikum Dark Opal"
+          },
+          {
+            "plant_id": "b366e9e1c761",
+            "plant_name": "Britisches Basilikum"
+          },
+          {
+            "plant_id": "86065eac35e8",
+            "plant_name": "Wildes Purpur"
+          },
+          {
+            "plant_id": "bd72a615f888",
+            "plant_name": "Special Select"
+          },
+          {
+            "plant_id": "d4b7fc825f88",
+            "plant_name": "Basilico a foglia larga"
+          },
+          {
+            "plant_id": "be3e12d4e235",
+            "plant_name": "Neckarkönigin"
+          },
+          {
+            "plant_id": "fdd45a37f256",
+            "plant_name": "Spaghettibohne Canetti"
+          },
+          {
+            "plant_id": "30a87c439667",
+            "plant_name": "Marona"
+          },
+          {
+            "plant_id": "8c92ee23ceea",
+            "plant_name": "Sweet Horizon"
+          },
+          {
+            "plant_id": "49cba6ae3b72",
+            "plant_name": "Eiszapfen"
+          },
+          {
+            "plant_id": "6a3a4296dafd",
+            "plant_name": "Mieze Schindler"
+          },
+          {
+            "plant_id": "eaa9c48fb0e6",
+            "plant_name": "Blattkoriander"
+          },
+          {
+            "plant_id": "aa8b4eb83792",
+            "plant_name": "True Sweet Gold"
+          },
+          {
+            "plant_id": "b09270bbd4aa",
+            "plant_name": "Roter Ziermais Sunset"
+          },
+          {
+            "plant_id": "a10a66890cc3",
+            "plant_name": "Ostindisches Lemongras"
+          },
+          {
+            "plant_id": "754095d243e3",
+            "plant_name": "Salatkresse Wrinkle Crinkle"
+          },
+          {
+            "plant_id": "e99fc49c8f50",
+            "plant_name": "Yellow Troika"
+          },
+          {
+            "plant_id": "4b6718038cf9",
+            "plant_name": "Baby Orange"
+          },
+          {
+            "plant_id": "08393119e955",
+            "plant_name": "Ailsa Craig"
+          },
+          {
+            "plant_id": "8a0c3bfa1064",
+            "plant_name": "Giant Pascal"
+          },
+          {
+            "plant_id": "6e50fd64d371",
+            "plant_name": "Schnittsellerie"
+          }
+        ],
+        "excluded": []
+      }
+    },
+    {
+      "id": "unknown",
+      "question": "Welche Tomate hat nachweislich weniger als fünf Kerne pro Frucht?",
+      "result": {
+        "answer": "Woas I ned. Für diese Kombination kann ich keine vollständig belegte Sorte nennen. Bei 104 Sorten fehlen eindeutige Belege; sie gelten nicht als passende Treffer.",
+        "intent": "recommendation",
+        "plan": {
+          "intent": "recommendation",
+          "categories": [
+            "Tomate"
+          ],
+          "plant_names": [],
+          "criteria": [
+            {
+              "text": "weniger als fünf Kerne pro Frucht",
+              "importance": "required",
+              "kind": "condition",
+              "expression": {
+                "op": "unresolved",
+                "text": "weniger als fünf Kerne pro Frucht",
+                "property_id": "",
+                "comparator": "eq",
+                "value": null,
+                "unit": null,
+                "children": []
+              }
+            }
+          ],
+          "follow_up_question": "",
+          "unsupported_requests": []
+        },
+        "selection_mode": "local",
+        "total_matches": 0,
+        "recommendations": [],
+        "unknown": [
+          {
+            "plant_id": "d73160a68c5d",
+            "plant_name": "Zuckertomate"
+          },
+          {
+            "plant_id": "1a3bed1be226",
+            "plant_name": "Justens Zuckertomate"
+          },
+          {
+            "plant_id": "001c590048cf",
+            "plant_name": "Pomodorino del Piennolo del Vesuvio"
+          },
+          {
+            "plant_id": "c563ca8ea65f",
+            "plant_name": "Small Egg"
+          },
+          {
+            "plant_id": "66ee1869c3b9",
+            "plant_name": "Golden Currant"
+          },
+          {
+            "plant_id": "6e154603770f",
+            "plant_name": "Orange Wildtomate"
+          },
+          {
+            "plant_id": "432b924fc2a1",
+            "plant_name": "Französisches Ochsenherz (Coeur de boef)"
+          },
+          {
+            "plant_id": "1aa277e7b4db",
+            "plant_name": "Zuckertraube"
+          },
+          {
+            "plant_id": "aeb886393c7f",
+            "plant_name": "Vintage Wine"
+          },
+          {
+            "plant_id": "347a3c0ccd9a",
+            "plant_name": "Schlesische Himbeere"
+          },
+          {
+            "plant_id": "4b9485dbc6dc",
+            "plant_name": "Saint Pierre"
+          },
+          {
+            "plant_id": "a5ea01553a35",
+            "plant_name": "Purple Russian"
+          },
+          {
+            "plant_id": "25d634c7c5e7",
+            "plant_name": "Prinzipe Borghese"
+          },
+          {
+            "plant_id": "4863b770f293",
+            "plant_name": "Pink Grape"
+          },
+          {
+            "plant_id": "ba8c96c44b48",
+            "plant_name": "Orange Russische (MG)"
+          },
+          {
+            "plant_id": "cb821040e2d0",
+            "plant_name": "MiriMiri"
+          },
+          {
+            "plant_id": "f5c26bf1b26d",
+            "plant_name": "Matina"
+          },
+          {
+            "plant_id": "9a0cceb47f4d",
+            "plant_name": "Madagaskar"
+          },
+          {
+            "plant_id": "3f5072a15033",
+            "plant_name": "Huberts Beste"
+          },
+          {
+            "plant_id": "46e1081b1685",
+            "plant_name": "Homosa"
+          },
+          {
+            "plant_id": "178ce885505d",
+            "plant_name": "Hoffmanns Rentita"
+          },
+          {
+            "plant_id": "63ef8af150c5",
+            "plant_name": "Hillbilly"
+          },
+          {
+            "plant_id": "d3917f55fb4f",
+            "plant_name": "Harzfeuer (keine Hybride!)"
+          },
+          {
+            "plant_id": "490971d1dc99",
+            "plant_name": "HATO S+F"
+          },
+          {
+            "plant_id": "547b90ec461a",
+            "plant_name": "HATO 8 (Arbeitsname)"
+          },
+          {
+            "plant_id": "a531420c8f61",
+            "plant_name": "HATO 3 (Arbeitsname)"
+          },
+          {
+            "plant_id": "358709509e06",
+            "plant_name": "HATO 12 (Arbeitsname)"
+          },
+          {
+            "plant_id": "4a06cbc8f178",
+            "plant_name": "HATO 10 (Arbeitsname)"
+          },
+          {
+            "plant_id": "3dee1726052f",
+            "plant_name": "Green Grape"
+          },
+          {
+            "plant_id": "f12e3ec67cb0",
+            "plant_name": "Fuzzy-Wuzzy"
+          },
+          {
+            "plant_id": "463349de8c3f",
+            "plant_name": "Fonarik"
+          },
+          {
+            "plant_id": "f2e9d0739fed",
+            "plant_name": "Flablonelysty"
+          },
+          {
+            "plant_id": "71f68aa14dc1",
+            "plant_name": "Costoluto Genovese"
+          },
+          {
+            "plant_id": "9bab57f36ccc",
+            "plant_name": "Clarita"
+          },
+          {
+            "plant_id": "f5d38c7a19ad",
+            "plant_name": "Blue Osu"
+          },
+          {
+            "plant_id": "280d4f11fd97",
+            "plant_name": "Black and Red Boar"
+          },
+          {
+            "plant_id": "f5f52063a154",
+            "plant_name": "Auriga"
+          },
+          {
+            "plant_id": "c7a52aabe139",
+            "plant_name": "Angora Supersweet"
+          },
+          {
+            "plant_id": "89deaf2a37cf",
+            "plant_name": "3-Käse-hoch"
+          },
+          {
+            "plant_id": "2f71e7a51567",
+            "plant_name": "Zitronentraube"
+          },
+          {
+            "plant_id": "1477623815f8",
+            "plant_name": "Zebrino"
+          },
+          {
+            "plant_id": "a64e694f7f23",
+            "plant_name": "Tschernij Prinz"
+          },
+          {
+            "plant_id": "90ebd4e94553",
+            "plant_name": "Sibirisches Birnchen"
+          },
+          {
+            "plant_id": "dbdaf32cc520",
+            "plant_name": "Schwarze von der Krim"
+          },
+          {
+            "plant_id": "0dc938c34939",
+            "plant_name": "San Marzano Retorta"
+          },
+          {
+            "plant_id": "8cfde4250905",
+            "plant_name": "San Berao"
+          },
+          {
+            "plant_id": "ab8cc79ab040",
+            "plant_name": "Ruthje"
+          },
+          {
+            "plant_id": "c40140c6997b",
+            "plant_name": "Rote Murmel"
+          },
+          {
+            "plant_id": "c95624934d1b",
+            "plant_name": "Rote Brandywine"
+          },
+          {
+            "plant_id": "de5429d6f4fa",
+            "plant_name": "Roma"
+          },
+          {
+            "plant_id": "e6856d5239d0",
+            "plant_name": "Riesentraube"
+          },
+          {
+            "plant_id": "8407a4a3cbd7",
+            "plant_name": "Reisetomate"
+          },
+          {
+            "plant_id": "320360107637",
+            "plant_name": "Purple Calabash"
+          },
+          {
+            "plant_id": "db0f85ed9b42",
+            "plant_name": "Orange Russische"
+          },
+          {
+            "plant_id": "a2d5f05be671",
+            "plant_name": "Olirose"
+          },
+          {
+            "plant_id": "ffa105ddc1bd",
+            "plant_name": "Oaxakan Jewel"
+          },
+          {
+            "plant_id": "5b11e366d721",
+            "plant_name": "Liguria"
+          },
+          {
+            "plant_id": "425542580328",
+            "plant_name": "Kremser Perle"
+          },
+          {
+            "plant_id": "95d3a8cd739f",
+            "plant_name": "Kotlas"
+          },
+          {
+            "plant_id": "2f5bc0945abd",
+            "plant_name": "Hellfrucht"
+          },
+          {
+            "plant_id": "49b10add3d29",
+            "plant_name": "Green Zebra"
+          },
+          {
+            "plant_id": "8751bda30a5d",
+            "plant_name": "Goldene Königin"
+          },
+          {
+            "plant_id": "6cb853546f46",
+            "plant_name": "Golden Grape"
+          },
+          {
+            "plant_id": "8791d27486c7",
+            "plant_name": "German Gold"
+          },
+          {
+            "plant_id": "9fbcb1737e26",
+            "plant_name": "Dattelwein"
+          },
+          {
+            "plant_id": "3dea37e72b01",
+            "plant_name": "Cio Cio San"
+          },
+          {
+            "plant_id": "af87ea8bb1b9",
+            "plant_name": "Black Cherry"
+          },
+          {
+            "plant_id": "c4d33b1250b0",
+            "plant_name": "Berner Rose"
+          },
+          {
+            "plant_id": "663703f70dd5",
+            "plant_name": "Andenhörnchen"
+          },
+          {
+            "plant_id": "433ebb2dd998",
+            "plant_name": "Subarctic Plenty"
+          },
+          {
+            "plant_id": "2f144237223c",
+            "plant_name": "Schwarze Birne"
+          },
+          {
+            "plant_id": "c2d4f6a0f1fd",
+            "plant_name": "Sasha's Altai Pride"
+          },
+          {
+            "plant_id": "d197ba8d82e5",
+            "plant_name": "Rumänische Tomaten von Roksi"
+          },
+          {
+            "plant_id": "38bb758c3632",
+            "plant_name": "Rotes Zebra"
+          },
+          {
+            "plant_id": "cd2f76d7428c",
+            "plant_name": "Orange Johannisbeertomate"
+          },
+          {
+            "plant_id": "f653655c0bca",
+            "plant_name": "Negro Azteka"
+          },
+          {
+            "plant_id": "3e7a8becc5bf",
+            "plant_name": "Mexikanische Honigtomate"
+          },
+          {
+            "plant_id": "5740a8842eb6",
+            "plant_name": "Marktomate \"Rote Spitzel"
+          },
+          {
+            "plant_id": "0229d802ba11",
+            "plant_name": "Urtomate Columbianum"
+          },
+          {
+            "plant_id": "5c7b11fe74c3",
+            "plant_name": "Johannisbeertomate"
+          },
+          {
+            "plant_id": "2a341ace8039",
+            "plant_name": "Haubners Vollendung"
+          },
+          {
+            "plant_id": "267c4d10f866",
+            "plant_name": "Handschuhsheimer Feldtomate"
+          },
+          {
+            "plant_id": "297efbf73609",
+            "plant_name": "Datterino"
+          },
+          {
+            "plant_id": "2039073eddff",
+            "plant_name": "Taubenherz"
+          },
+          {
+            "plant_id": "a0ecf956094b",
+            "plant_name": "Resi"
+          },
+          {
+            "plant_id": "dd638b00b778",
+            "plant_name": "Philamina"
+          },
+          {
+            "plant_id": "7a24132d6802",
+            "plant_name": "Buschtomate Silbertanne"
+          },
+          {
+            "plant_id": "bd597a960152",
+            "plant_name": "Bulgarische Tomate (von Katrin)"
+          },
+          {
+            "plant_id": "b95b54cde0b9",
+            "plant_name": "Bio-Tomate (von Monika)"
+          },
+          {
+            "plant_id": "e3877becbf66",
+            "plant_name": "Ananastomate"
+          },
+          {
+            "plant_id": "a08b9a991583",
+            "plant_name": "Beuteltomate aus El Salvador"
+          },
+          {
+            "plant_id": "2bec06f3b2d7",
+            "plant_name": "Rote Zora"
+          },
+          {
+            "plant_id": "8cec1c73093f",
+            "plant_name": "Weißer Pfirsich"
+          },
+          {
+            "plant_id": "012e49d937a7",
+            "plant_name": "Marmorossa"
+          },
+          {
+            "plant_id": "bb0a1d1ebffc",
+            "plant_name": "Szuszanna"
+          },
+          {
+            "plant_id": "bcb66ae973b4",
+            "plant_name": "Benarys Gartenfreude"
+          },
+          {
+            "plant_id": "848bdb367f53",
+            "plant_name": "Fleischtomate aus Kroatien"
+          },
+          {
+            "plant_id": "8228bd87db65",
+            "plant_name": "Olena Ukrainian"
+          },
+          {
+            "plant_id": "5141a224028a",
+            "plant_name": "Marmande"
+          },
+          {
+            "plant_id": "f74dd938a093",
+            "plant_name": "Cocktailtomate aus Sizilien"
+          },
+          {
+            "plant_id": "4d0314927919",
+            "plant_name": "Vesennij Mieurinskij"
+          },
+          {
+            "plant_id": "37733a95c91b",
+            "plant_name": "Indigo Berry"
+          },
+          {
+            "plant_id": "d05f51ba18a8",
+            "plant_name": "Cerise rot"
+          },
+          {
+            "plant_id": "9c043784d703",
+            "plant_name": "Cerise geld"
+          }
+        ],
+        "excluded": []
+      }
+    }
+  ]
+}

@@ -39,6 +39,7 @@ class Plant(BaseModel):
     name: str
     category: str | None = None
     description: str = ""
+    image_filenames: list[str] = Field(default_factory=list)
     raw_fields: dict[str, Any] = Field(default_factory=dict)
     evidence: list[Evidence] = Field(default_factory=list)
 
@@ -46,7 +47,9 @@ class Plant(BaseModel):
 class Recommendation(BaseModel):
     plant_id: str
     plant_name: str
+    plant_category: str = ""
     description: str = ""
+    image_filenames: list[str] = Field(default_factory=list)
     verdict: TruthValue
     score: float
 

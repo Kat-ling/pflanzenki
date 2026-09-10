@@ -31,3 +31,9 @@ Thumbs.db
 *.tmp
 tmp*
 pip-*/
+
+# Lokale Modelltest-Protokolle (bereinigte Regressionen in tests/fixtures)
+docs/LIVE_MODEL_*.json
+docs/SCREENSHOT_MODEL_*.json
+docs/*_REPORT.md
+docs/CATALOGUE_ACCEPTANCE_RESULTS.json

@@ -46,7 +46,9 @@ def test_fake_interpreter_returns_structured_query():
 def test_openai_interpreter_uses_responses_structured_output():
     responses = FakeResponses(
         {
+            "intent": "recommendation",
             "category": "Tomate",
+            "plant_names": [],
             "requirements": [
                 {
                     "feature": "outdoor_uncovered",
@@ -64,10 +66,12 @@ def test_openai_interpreter_uses_responses_structured_output():
     parsed = OpenAIQueryInterpreter(
         client=client,
         model="test-model",
+        categories=["Tomate", "Gurke"],
     ).interpret("Welche Tomate geht ohne Dach?")
 
     assert parsed.category == "Tomate"
     assert responses.request["model"] == "test-model"
+    assert "Gurke" in responses.request["instructions"]
     assert (
         responses.request["text"]["format"]["schema"]
         == QUERY_SCHEMA
@@ -83,15 +87,49 @@ def test_schema_features_come_from_feature_catalog():
     assert schema_features == {feature.value for feature in PlantFeature}
 
 
+def test_empty_requirement_reason_is_repaired():
+    responses = FakeResponses(
+        {
+            "intent": "recommendation",
+            "category": "Zucchini",
+            "plant_names": [],
+            "requirements": [
+                {
+                    "feature": "yellow",
+                    "value": "yes",
+                    "importance": "preferred",
+                    "reason": "",
+                }
+            ],
+            "follow_up_question": "",
+            "unsupported_requests": [],
+        }
+    )
+    interpreter = OpenAIQueryInterpreter(
+        client=SimpleNamespace(responses=responses),
+        model="test-model",
+        categories=["Zucchini"],
+    )
+
+    parsed = interpreter.interpret("Welche Zucchini ist gelb?")
+
+    assert parsed.requirements[0].reason
+
+
 def test_factory_defaults_to_openai(monkeypatch):
     monkeypatch.delenv("QUERY_INTERPRETER_PROVIDER", raising=False)
     monkeypatch.setenv("OPENAI_API_KEY", "test-key")
+    options = {}
+    def make_client(**kwargs):
+        options.update(kwargs)
+        return SimpleNamespace()
     monkeypatch.setattr(
         "app.ai.interpreters.openai_interpreter.OpenAI",
-        lambda: SimpleNamespace(),
+        make_client,
     )
 
     assert isinstance(create_query_interpreter(), OpenAIQueryInterpreter)
+    assert options == {"timeout": 30.0, "max_retries": 0}
 
 
 def test_factory_can_explicitly_use_fake(monkeypatch):
