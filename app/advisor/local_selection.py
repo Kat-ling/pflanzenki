@@ -53,6 +53,11 @@ def validate_expression(node, registry):
             raise ValueError("Einheit und Eigenschaft passen nicht zusammen.")
 
 
+def asks_only_existence(node):
+    return (node.op == "predicate" and node.comparator == "exists"
+            or any(asks_only_existence(child) for child in node.children))
+
+
 def numeric_status(fact, node):
     factor = {("m", "cm"): 100, ("kg", "g"): 1000}.get((node.unit, fact.unit), 1)
     target = node.value * factor

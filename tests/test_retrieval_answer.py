@@ -20,7 +20,7 @@ def fake(plant, source_id="s2", plant_id=None, suitability="matches"):
                   answer="Hier findest du eine Sorte mit kleinen Früchten.",
                   plants=[dict(plant_id=plant_id or plant.id, explanation="Kleine Früchte laut Beschreibung.",
                                source_ids=[source_id], suitability=suitability)],
-                  follow_up_question="")
+                  follow_up_question="", conditions=[])
     def create(**kwargs):
         calls.append(kwargs)
         return SimpleNamespace(status="completed", output_text=json.dumps(output))

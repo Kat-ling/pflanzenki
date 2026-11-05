@@ -1,5 +1,14 @@
 # Changelog
 
+## Unveröffentlicht
+
+- Lokale Gegenprüfung jeder Modellempfehlung gegen die Katalogfakten
+- Widerlegte Sorten erscheinen mit Gegenbeleg statt als Empfehlung
+- Name oder Kategorie allein gelten nicht mehr als Beleg für eine Bedingung
+- Antworttext nennt keine Sorten mehr, die keine Karte haben
+- Standorteignung muss im Katalog belegt sein, sonst gilt die Sorte als unsicher, auch wenn das Modell die Bedingung offen lässt
+- Nachfragen wie „weitere“ bleiben beim letzten Thema des Gesprächs
+
 ## v0.6.0
 
 - Umbenennung in KI-Sister, personenbezogene Angaben aus Katalog und Dokumenten entfernt
