@@ -12,6 +12,7 @@ from app.importer.privacy import find_personal_hints, load_privacy_rules, saniti
 ROOT = Path(__file__).resolve().parents[1]
 # Hashed so that this public test does not itself publish the terms.
 FORBIDDEN_WORD_HASHES = {
+    "b3017c8004c4a331406be2a21325888593fc233b0a09edc7651f59043e21d839",
     "448ff49f79b249a748decb4003d7e17f957351d79344c34cf9d31cec5fe5f2cc",
     "6cf3323e3c6670a17a231cc175ddd48d7e9a7c83bf3536199d60ef24c6b3522a",
     "82280bb7b30905f97322961a56e3c119150a246cb47293607c23385110c73d52",
@@ -91,6 +92,7 @@ def test_repository_contains_no_listed_personal_terms():
     assert hits == set()
 
 
-def test_catalogue_has_no_personal_hints():
-    rows = json.loads((ROOT / "data/normalized/plants.json").read_text(encoding="utf-8"))
+@pytest.mark.parametrize("path", ["data/normalized/plants.json", "tests/fixtures/catalogue_legacy.json"])
+def test_catalogue_has_no_personal_hints(path):
+    rows = json.loads((ROOT / path).read_text(encoding="utf-8"))
     assert find_personal_hints([p["raw_fields"] for p in rows]) == []
