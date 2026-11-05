@@ -37,3 +37,6 @@ docs/LIVE_MODEL_*.json
 docs/SCREENSHOT_MODEL_*.json
 docs/*_REPORT.md
 docs/CATALOGUE_ACCEPTANCE_RESULTS.json
+
+# Lokale Datenschutzregeln enthalten selbst personenbezogene Begriffe
+*.local.json

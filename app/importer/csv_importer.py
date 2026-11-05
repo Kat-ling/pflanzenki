@@ -2,6 +2,7 @@ from __future__ import annotations
 
 import csv
 import hashlib
+import io
 from pathlib import Path
 from typing import Any
 
@@ -275,13 +276,14 @@ def row_to_plant(row: dict[str, Any]) -> Plant:
     )
 
 
+def parse_csv_text(text: str) -> list[dict]:
+    try:
+        dialect = csv.Sniffer().sniff(text[:8192], delimiters=",;\t")
+    except csv.Error:
+        dialect = csv.excel
+    return list(csv.DictReader(io.StringIO(text, newline=""), dialect=dialect))
+
+
 def import_csv(path: str | Path) -> list[Plant]:
-    path = Path(path)
-    with path.open("r", encoding="utf-8-sig", newline="") as handle:
-        sample = handle.read(8192)
-        handle.seek(0)
-        try:
-            dialect = csv.Sniffer().sniff(sample, delimiters=",;\t")
-        except csv.Error:
-            dialect = csv.excel
-        return [row_to_plant(row) for row in csv.DictReader(handle, dialect=dialect)]
+    text = Path(path).read_text(encoding="utf-8-sig")
+    return [row_to_plant(row) for row in parse_csv_text(text)]

@@ -246,7 +246,8 @@ def test_fake_mode_does_not_pretend_to_remember(monkeypatch):
 
 
 def test_page_has_reply_reset_and_unclipped_layout():
-    html = TestClient(app).get("/").text
+    client = TestClient(app)
+    html = "".join(client.get(path).text for path in ("/", "/static/app.js", "/static/app.css"))
     for marker in ["Deine Antwort auf die Rückfrage", "Neue Beratung", "history: requestHistory",
                    "Weitere anzeigen", "white-space: pre-wrap", "object-fit: contain"]:
         assert marker in html

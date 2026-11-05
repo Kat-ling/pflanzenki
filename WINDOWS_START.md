@@ -36,7 +36,7 @@ Jede Zeile einzeln ausführen:
 py -m venv .venv
 .\.venv\Scripts\Activate.ps1
 python -m pip install --upgrade pip
-python -m pip install -r requirements.txt
+python -m pip install -r requirements-dev.txt
 ```
 
 Wenn das Aktivierungsskript blockiert wird:
@@ -76,7 +76,7 @@ Remove-Item Env:QUERY_INTERPRETER_PROVIDER
 Der erwartete Stand ist:
 
 ```text
-79 passed
+Alle Tests bestanden, keine Fehler.
 ```
 
 ## 7. Anwendung mit OpenAI starten
@@ -84,7 +84,7 @@ Der erwartete Stand ist:
 Erst nach Abschluss der Tests einen separaten Befehl ausführen:
 
 ```powershell
-python -m uvicorn app.main:app --reload
+python -m app
 ```
 
 Anschließend im Browser öffnen:
@@ -102,16 +102,7 @@ Fake-Modus ist ausschließlich für begrenzte lokale Tests vorgesehen.
 
 ## Pflanzenkatalog später aktualisieren
 
-Den neuen Notion-Export als ZIP-Datei herunterladen und dann im aktivierten
-Projektordner ausführen:
-
-```powershell
-python -m app.importer.notion_zip "C:\Pfad\zum\NotionExp.zip"
-```
-
-Dabei werden die Notion-CSV übernommen, die Katalogdaten neu erzeugt und die
-in der CSV referenzierten Pflanzenfotos nach `static\images` kopiert. Danach
-die Tests erneut ausführen und den Server neu starten.
+Siehe Abschnitt „Katalog pflegen“ in der `README.md`.
 
 ## Häufiger Fehler
 

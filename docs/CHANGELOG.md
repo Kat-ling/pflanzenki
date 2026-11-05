@@ -1,5 +1,16 @@
 # Changelog
 
+## v0.6.0
+
+- Umbenennung in KI-Sister, personenbezogene Angaben aus Katalog und Dokumenten entfernt
+- Import-Befehl `app.importer.update` mit Vorschau und Stopp bei Teilexporten,
+  doppelten Namen und möglichem Personenbezug
+- Bildlinks werden auf Dateinamen gekürzt; alle Katalogdateien werden gemeinsam ersetzt
+- Suche für den gesamten Katalog: alle Kategorien, zusammengesetzte Wörter,
+  gesetzte Checkboxen, pflegbare Synonyme, weitere Sorten statt Wiederholungen
+- Start mit `python -m app`, Webbetrieb über Einstellungen mit Anmeldung und Anfragelimit
+- Oberfläche nach `static/` ausgelagert, Katalog wird nach Änderungen ohne Neustart geladen
+
 ## v0.5.0
 
 - Freie statt ausschließlich fest vorgegebener Kriterien im OpenAI-Modus

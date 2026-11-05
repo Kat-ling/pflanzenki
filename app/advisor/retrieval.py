@@ -4,8 +4,16 @@ import math
 import re
 from collections import Counter
 from functools import lru_cache
+from pathlib import Path
 
-STOP = set("ich du mir mich welche welchen welcher gibt ist sind haben hat suche bitte und oder mit ohne der die das ein eine einer für von in im den dem es nun doch lieber als nach".split())
+STOP = set("""ich du mir mich wir uns welche welchen welcher welches gibt ist sind haben hat suche
+bitte und oder mit ohne der die das ein eine einer einen für fürs von in im auf den dem es nun doch
+lieber als nach was wie wann wo kann könnte soll sollte passt noch mehr nicht sehr auch etwas gern
+gerne möchte hätte brauche bräuchte also halt mal äh ähm hallo weitere weiteren andere anderen
+""".split())
+SYNONYMS = Path(__file__).resolve().parents[2] / "data" / "search_synonyms.json"
+YES_VALUES = {"yes", "true", "ja", "checked"}
+MORE_RESULTS = re.compile(r"\b(?:weitere\w*|noch mehr|noch andere|andere\w*|sonst noch)\b", re.I)
 
 # Export bookkeeping and derived search tags are useful locally, not as
 # duplicate evidence in every model request. Original cards retain everything.
@@ -26,15 +34,49 @@ def answer_fields(original):
     return fields
 
 
-def terms(text):
+@lru_cache(maxsize=1)
+def synonym_groups():
+    if not SYNONYMS.exists():
+        return ()
+    return tuple(tuple(group) for group in json.loads(SYNONYMS.read_text(encoding="utf-8"))["groups"])
+
+
+def compound_heads(categories):
+    """German compounds end in their head: Salattomate is a tomato, not a salad."""
+    stems = {(c.casefold().rstrip("e") if len(c) > 4 else c.casefold()): c.casefold()[:5]
+             for c in categories if c}
+    if not stems:
+        return None
+    alternatives = "|".join(sorted(map(re.escape, stems), key=len, reverse=True))
+    return re.compile("(" + alternatives + r")\w{0,3}$"), stems
+
+
+def terms(text, heads=None):
     words = re.findall(r"[a-zäöüß0-9]+", text.casefold())
     result = {w[:5] for w in words if len(w) > 2 and w not in STOP}
+    for word in words:
+        match = heads[0].search(word) if heads else None
+        if match:
+            result.add(heads[1][match.group(1)])
     # Retrieval expansion only: these words do not certify matching properties.
-    if any("tomat" in w for w in words):
-        result.add("tomat")
-    if any(w.startswith(("cocktail", "cherry", "kirsch", "klein")) for w in words):
-        result.update({"cockt", "cherr", "kirsc", "klein"})
+    for group in synonym_groups():
+        if any(w.startswith(member) for w in words for member in group):
+            result.update(member[:5] for member in group)
     return result
+
+
+def compound_modifiers(text, heads):
+    """In Salattomate, Salat only qualifies the head and asks for no salad."""
+    if not heads:
+        return set()
+    words = re.findall(r"[a-zäöüß0-9]+", text.casefold())
+    return {w[:5] for w in words if (match := heads[0].search(w)) and match.start() > 0}
+
+
+def searchable_text(fields):
+    """A ticked checkbox says Yes; only its field name carries the meaning."""
+    ticked = [key for key, value in fields.items() if value.strip().casefold() in YES_VALUES]
+    return " ".join([*fields.values(), *ticked])
 
 
 def records(plants):
@@ -48,27 +90,35 @@ def records(plants):
 @lru_cache(maxsize=2)
 def index(serialized):
     rows = json.loads(serialized)
-    documents = [terms(" ".join(row["fields"].values())) for row in rows]
+    heads = compound_heads({row["fields"]["Kategorie"] for row in rows})
+    documents = [terms(searchable_text(row["fields"]), heads) for row in rows]
     frequencies = Counter(t for document in documents for t in document)
-    return rows, documents, frequencies
+    return rows, documents, frequencies, heads
 
 
 def retrieve(plants, question, history, visible=(), limit=24, budget=28000):
-    rows, documents, frequencies = index(json.dumps(records(plants), ensure_ascii=False))
-    current = terms(question)
-    prior = terms(" ".join(m.content for m in history if m.role == "user"))
+    rows, documents, frequencies, heads = index(json.dumps(records(plants), ensure_ascii=False))
+    current = terms(question, heads)
+    prior = terms(" ".join(m.content for m in history if m.role == "user"), heads)
     visible_ids = {p["plant_id"] for p in visible}
+    asked_categories = current - compound_modifiers(question, heads)
+    wants_more = bool(MORE_RESULTS.search(question))
     scored = []
     height_query = bool(re.search(r"niedrig|wuchshöhe|klein\w*\s+(?:pflanz|wuchs)|kompakt", question, re.I))
     if not height_query and history:
         height_query = bool(re.search(r"niedrig|wuchshöhe", history[-1].content, re.I))
     normalized_question = " ".join(re.findall(r"\w+", question.casefold()))
     for row, document in zip(rows, documents):
+        if wants_more and row["plant_id"] in visible_ids:
+            continue
         score = sum((3 if t in current else .3) * math.log(1 + len(rows) / frequencies[t])
                     for t in document & (current | prior))
         name = row["fields"]["Name"].casefold()
-        if terms(row["fields"]["Kategorie"]) & current:
+        category = terms(row["fields"]["Kategorie"])
+        if category & asked_categories:
             score += 20
+        elif category & prior:
+            score += 6
         if " ".join(re.findall(r"\w+", name)) in normalized_question:
             score += 100
         if height_query:

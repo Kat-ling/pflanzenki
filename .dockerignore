@@ -1,0 +1,7 @@
+*
+!app
+!data
+!static
+!requirements.txt
+**/__pycache__
+data/*.local.json

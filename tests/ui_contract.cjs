@@ -1,4 +1,4 @@
-// Executes the real inline UI script against a minimal DOM. No visual test.
+// Executes the real UI script against a minimal DOM. No visual test.
 const fs = require('node:fs');
 const path = require('node:path');
 const vm = require('node:vm');
@@ -19,8 +19,7 @@ class Element {
 }
 
 (async () => {
-    const source = fs.readFileSync(path.join(__dirname, '../app/main.py'), 'utf8');
-    const script = source.match(/<script>([\s\S]*?)<\/script>/)[1];
+    const script = fs.readFileSync(path.join(__dirname, '../static/app.js'), 'utf8');
     const elements = new Map();
     const el = id => {
         if (!elements.has(id)) elements.set(id, new Element('div'));

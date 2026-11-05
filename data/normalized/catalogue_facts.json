@@ -2,7 +2,7 @@
   "schema_version": "2",
   "extractor_version": "4",
   "registry_hash": "98e0e35b558f9fdd6a5e27cdc6d148c6540a12a53442e5cad049c7b40749cff1",
-  "catalogue_revision": "d128d5a8a6ea222058f461aaf2c5611382c9afc70af68b413f720ab668739833",
+  "catalogue_revision": "a77fb320af499c3b0a91820de00f8782e56c4b9cb4fd45f8335507a5d110ca12",
   "registry": [
     {
       "property_id": "site.outdoor",
@@ -248,7 +248,7 @@
   "plants": [
     {
       "plant_id": "ebbdba2d09e9",
-      "content_hash": "4f3cf7ad141f27601dae8a67818008eb8345af049e4a16ad8988583db0e6956d",
+      "content_hash": "effda47317b91555ee1cfa057b12fa99f55daca5b43250b737fd8bb00ab10d54",
       "facts": [
         {
           "fact_id": "7f695041313f3a9f2d95ccc5fedd2b68b816233b29256d2375970d9dfe024b25",
@@ -561,7 +561,7 @@
     },
     {
       "plant_id": "55ec831ab2a8",
-      "content_hash": "e57257671c87ba4ba7f37f5c493c9efc0faccf80635680c60a9c3a939ac92c32",
+      "content_hash": "0171f36f6e1564e5d4d7595d1a8e80c2d18469f84bfe1e352f4e61e1d8a0cd2d",
       "facts": [
         {
           "fact_id": "ee265a38bb9bec7ea78bb178808c94d5f162181a5ea303bc8f90d38e8e34ba73",
@@ -1011,7 +1011,7 @@
     },
     {
       "plant_id": "e5ee4b2f6aec",
-      "content_hash": "591509782ba8a1e154cc8e49940bd6e5af17bdbd908d79ba1d55cffbc71deb71",
+      "content_hash": "8ef3005e343fb990839e0be833935ce0bd3fb1e61f8d65bb54417b29cdc79264",
       "facts": [
         {
           "fact_id": "19359fbbc93af82cb99a76680026be223a004407e4f0f5295fd2108e5f384ad1",
@@ -1169,7 +1169,7 @@
     },
     {
       "plant_id": "d30668598a11",
-      "content_hash": "1fb401892d2116ed0d583d864a0b8e821145e52aa06de778c817f5d00bf8818f",
+      "content_hash": "ab1609336ccd402d58fcb90b33f13aba973857bb4a83cb01a73d585da0c774b9",
       "facts": [
         {
           "fact_id": "d66812df3332acfc5993d253fcfa0f86d839a3e6377d9e7959109eb4e0f71784",
@@ -1293,7 +1293,7 @@
     },
     {
       "plant_id": "ad70de1abf1e",
-      "content_hash": "bd0f2d4277a91e1e14349256c77599db7482c4be05da6e3ba953da584af4b947",
+      "content_hash": "2d86bff53186f3dce4a193db3a36099e11efb95032f6241f2456745b58cdb9c3",
       "facts": [
         {
           "fact_id": "1e8ea9a7d54aae48ddb0acd5206032998fd888304e6098b70cea39b03d9f3209",
@@ -2019,7 +2019,7 @@
     },
     {
       "plant_id": "b366e9e1c761",
-      "content_hash": "17b8d6a77b74b6a39baf00bddab4a6a8635a364d3968590a4b4d2024132ce46a",
+      "content_hash": "09584300f4dc31961870ba50b29ba88d7451b4d909e38df967ffd49acdcbaa85",
       "facts": [
         {
           "fact_id": "fd75553580b40444c2bb710bec4329d0cdb43a2cce9685934f5b7f1b33fab622",
@@ -2616,7 +2616,7 @@
     },
     {
       "plant_id": "73503f06c4df",
-      "content_hash": "a876e03ac149c22e6b51076ba551870f085fad19136566f6d54d6abbc0a0015d",
+      "content_hash": "3f1152b7134e348e102888ef8129a265ea942455663e93c7489274ddf73d63ae",
       "facts": [
         {
           "fact_id": "98821a27ad1bb9ec77d6187837f218f1ab5e52ce42f16e2fdba9a7e6ad77a888",
@@ -2868,7 +2868,7 @@
     },
     {
       "plant_id": "95e3bea29bdf",
-      "content_hash": "d2567ab03bc0b27a9320946b11d3ef2f2ad713ad2b7618ffa653adf921d5b1a2",
+      "content_hash": "d4ad66b0392bba8a35b26bae514d66af7fdab96e1a5c1c342573c4bf9a411ce8",
       "facts": [
         {
           "fact_id": "cee532836e3233c1857ebd1f2bf6e0fdaa2d65dd3a7f64d6df77f6561d771547",
@@ -3565,7 +3565,7 @@
     },
     {
       "plant_id": "5871fd0a0bb6",
-      "content_hash": "9df38deea8ca8cab004db3e80f6869f86db62b8896c8e971ab4efa7de64c0f3b",
+      "content_hash": "d33f35aa2e0ab89e4357363b781c5290905dd0590882f32cb8ed131115e2bded",
       "facts": [
         {
           "fact_id": "e7dc28ac94d233f18e00e064756d1f1b2e5907200ac4c8e30018db9dbf5ad42c",
@@ -3742,7 +3742,7 @@
     },
     {
       "plant_id": "36fa32846dea",
-      "content_hash": "89a984acb2b3b5a224ac60f00c2239cbc727f8be55f5aefaf7ab723a0a57e0ad",
+      "content_hash": "d382db00d253c6ed8dd962591eb9bffbccdcb12cbec76fe0525e75036f7db772",
       "facts": [
         {
           "fact_id": "003e112cc057fbbc2e5f8e7f2f5042d5ce208b97ff4042999d634034bb66447b",
@@ -4494,7 +4494,7 @@
     },
     {
       "plant_id": "fdd45a37f256",
-      "content_hash": "e62f514e450c3dc683719110e155c3299a28142f2f39f53a3e7f3e78f6aa2062",
+      "content_hash": "ad9a76921ad0b695d5c30117ff84b1483ed19fe6f000d5bffdacf887f7b14638",
       "facts": [
         {
           "fact_id": "2cbdc71ff8a09271a539a2c160db31db9d1b4832d8aacb9049d7e97bbb373934",
@@ -4742,7 +4742,7 @@
     },
     {
       "plant_id": "be3e12d4e235",
-      "content_hash": "0a118683df8246a350fa9de577cbe63778d0306bfb0c7675e7e18202f349361c",
+      "content_hash": "103d43799ec1ef2766c444bb6ee0772e2dd72fd508ba19d8ea8cd349b8b568e6",
       "facts": [
         {
           "fact_id": "64df932b6615cbffdb981c133834803b9fd17af57a91cd374e473dc3ec4fdae5",
@@ -5318,7 +5318,7 @@
     },
     {
       "plant_id": "929a78ecb36f",
-      "content_hash": "3338d6fd1087bdba53a72ae2cc368760da02b90c79ca6df8957dd2cc78e1bfd7",
+      "content_hash": "a4ae020b6fe08a87296ed8cc52580b747bd380254cc7295ded9109229694ef34",
       "facts": [
         {
           "fact_id": "51ff8309b9d98a07ad71354adaef0c90d2c6148fc680949a78da7aea0a19d9a6",
@@ -5603,7 +5603,7 @@
     },
     {
       "plant_id": "3d1a11580432",
-      "content_hash": "67acc75fd96cf39fde520b725f9e4da8de8b669d6bb80e7b8d7a105bc4f22a78",
+      "content_hash": "f013ba461777f67a33ebaad62b9347db2790362c5e80e372ce6c76f527c92fd1",
       "facts": [
         {
           "fact_id": "dfc73a4575af7b52628dd490a6baf582e9ba1427ed0a5f918fc8f334db077f05",
@@ -5822,7 +5822,7 @@
     },
     {
       "plant_id": "77c5be445316",
-      "content_hash": "5040b2a550a9c89814105bc9c65a42bceca73b73b2f294564ef49dc74f509ec9",
+      "content_hash": "b69410730cdf787878ae91cdec58b65b46770ce0a95f04cb36150f43792a4815",
       "facts": [
         {
           "fact_id": "6e7a85f6a66d31d7233a64cc30db1a5672d81520295ac7beb57f0c76dfb19617",
@@ -6306,7 +6306,7 @@
     },
     {
       "plant_id": "784b867b32b3",
-      "content_hash": "ed2a30d20258afd89d3a8ac0841c881319dd857d035ee42ec9647ed7ef0fa78c",
+      "content_hash": "83e30d9f6fc3e827f2962bce756e637167c023c0fe659399c97b692ccda14281",
       "facts": [
         {
           "fact_id": "a66bdf5f7fdaaba3b096920c569a1ed0c6da5d0908109d65963ca2a757c86072",
@@ -6572,7 +6572,7 @@
     },
     {
       "plant_id": "ca97fe3565b1",
-      "content_hash": "ddeed769432a559a5747db5a754f1991b36308d33b65744989c90763b1073f23",
+      "content_hash": "914cd9a077b18531612f0ec55b2c8b5d4e9475cbfa72e2d9b0768437f7768430",
       "facts": [
         {
           "fact_id": "66ef9070dde4a39dbff6ffbef010a5ef8f0a5892d77fe63a79efb7dd596f78cc",
@@ -6791,7 +6791,7 @@
     },
     {
       "plant_id": "7eae4a9581ab",
-      "content_hash": "8ae89a76bec60a05c2280c143721d59877bee3f6cf84924363b233b6275a6410",
+      "content_hash": "0135cdacf880275c6a73308a64762dfd6900526db62bd1ceb7d7ea5a7cb39280",
       "facts": [
         {
           "fact_id": "ac42aad3fb1d85f69d4a9486c024a17a2301cfdb889dc8a10553d9c8def6d8dd",
@@ -7091,7 +7091,7 @@
     },
     {
       "plant_id": "c1f04aa905e9",
-      "content_hash": "6f1f6b511df7e0ec140601965a5c0a11eac0943b4d7b01730b6ccc428c5d51c5",
+      "content_hash": "b72e96f4e49ef3c60a34570aa100c3d1962cd61c4c51f51994f5647f3da2687c",
       "facts": [
         {
           "fact_id": "a78fb952dec8c4c8417fe8bea3ba48f60b1fa0e5541541840de222201375632f",
@@ -7450,7 +7450,7 @@
     },
     {
       "plant_id": "49d3a050f63d",
-      "content_hash": "42cda1c54fae0de0169f0365a1037ad8bf8dea06d053ccd037711a484d94d656",
+      "content_hash": "b2ef6c89d0aea3c3f3bfecbd90f2eeebcc72980308ee13766571e23651c2e3d7",
       "facts": [
         {
           "fact_id": "0a044087d75904badbb589d42342ee79bd49ea2d4188740b3ade7e96c9ec75fd",
@@ -7594,7 +7594,7 @@
     },
     {
       "plant_id": "6e8f7a9f6380",
-      "content_hash": "efefc308948174aa4a353b345611e5aae988e1f50edefc5ad86768a00509b221",
+      "content_hash": "8ecc190bcf1bd3cc964a03c6feed3b6358300985465b3754cce28e5e5c9d08c2",
       "facts": [
         {
           "fact_id": "c6a71e4125d8f7fd8ce4f53c4296710e6430847fa3dbc3b65432b46a0b2c641f",
@@ -7736,7 +7736,7 @@
     },
     {
       "plant_id": "16c9f1820e69",
-      "content_hash": "5adab8f40042a9e19de586f01080122f417e4840c1096cf64c50652a7d2f72d9",
+      "content_hash": "59b8ef49e512b38f2abc9260b8888d4bb5f461470b851945d8d19f1d3cd87bde",
       "facts": [
         {
           "fact_id": "698f05a9b59d4ba5116b3ab1e2c015a5b2b71a36692b12b42e725915d371a55a",
@@ -7896,7 +7896,7 @@
     },
     {
       "plant_id": "eeee9b76ec5d",
-      "content_hash": "e3e2cb439a298682897f4f87118ffd035d44e0723e2bf478df7d6611b635f4f1",
+      "content_hash": "80f237e28461c91f29f2a75f0e13d8b134dba74edb301fb847b984d220654a7c",
       "facts": [
         {
           "fact_id": "8f6665379d89fa1fda556e298edbc02c309000068231a09b52836ed47a46f16b",
@@ -8607,7 +8607,7 @@
     },
     {
       "plant_id": "c08c0b7bd18c",
-      "content_hash": "83a1cde1231d5131534a7b014b6ae3a5d89248872e19ec462ac1328dd1ed170b",
+      "content_hash": "39af68f2637c262f3d66e26586c8f28ef8557e7a7096df3e190413705cb511c9",
       "facts": [
         {
           "fact_id": "e5ea8f704be49ae1c625286705d55c9a51feb25e050618f712a618fb40b34a54",
@@ -10185,7 +10185,7 @@
     },
     {
       "plant_id": "9bc919689a6f",
-      "content_hash": "4c73719546481ad278f8cc6a5da5b83d811928f89536fd00306c1836348b8ab3",
+      "content_hash": "66453ceaf7692c6b7f47f88f3c2f990b01f40be63586d5604f00db52ec3fdec4",
       "facts": [
         {
           "fact_id": "8a15a81bbb1d13d091acf23a72ff1da7f695a8774fc2c6b56156ad4580306683",
@@ -10726,7 +10726,7 @@
     },
     {
       "plant_id": "b7697ff9a0a2",
-      "content_hash": "3aa0a7fb1f02158af81734f9e21d6217555836f3b28ee90bd2db4dea2b0176f3",
+      "content_hash": "32a8c2d350c93ae27732e154d22c69b473c57e13a03594faa65c96ffb8f3fc0a",
       "facts": [
         {
           "fact_id": "7f0bb1ae72fadc34a385e7a68ed9640f7493d3db46f252e43cd455bc76f609c9",
@@ -11304,7 +11304,7 @@
     },
     {
       "plant_id": "91657b11f510",
-      "content_hash": "7f60c5f1751d15c38b94fe8260ee5d571d11742a10f92d2f2a7e4ed0124d9c6d",
+      "content_hash": "da23eac77d2a060478a43c6556ec961de84171ed683a0973a34ecd6607cfd89b",
       "facts": [
         {
           "fact_id": "ae0d668cf1e8a6de44d969f39a7c6da0c841809890c520cc8850ca26ef046c6f",
@@ -11697,7 +11697,7 @@
     },
     {
       "plant_id": "af34ddd955d4",
-      "content_hash": "f87e3d27cea9b2050be4cb64462563195f747ca43b2164e0f19130aacc15495a",
+      "content_hash": "51d1519843206a1aacf91e5449c2f5299227fd69cad6541f2160ed3c19777612",
       "facts": [
         {
           "fact_id": "3875d2849e603aedbce7c1555c5e5d207cffe10700e44e6e4e27bce157f000e5",
@@ -11996,7 +11996,7 @@
     },
     {
       "plant_id": "642218139003",
-      "content_hash": "f12b648dd0bb7e075f7f274446687aa36b9f86285d49ff15d919a04405714a41",
+      "content_hash": "a346ada7ca82805836823b0c3862bc2b84325c6616fae77f648c75006d8b2ee2",
       "facts": [
         {
           "fact_id": "304bead188b19438bb1a8ba52227e75d4cb3b7427afd5f1e0efb96dc34a4ec5c",
@@ -12461,7 +12461,7 @@
     },
     {
       "plant_id": "e99fc49c8f50",
-      "content_hash": "a9c6a50f042244a10aa1178bc58beb86f73991cfc8105089fa1485a44bb25e25",
+      "content_hash": "2cbb515aac3ddbc1ba0e4a41e38b6e286738524df1933616c18235afdb3b6fae",
       "facts": [
         {
           "fact_id": "9c629ab8882829feda1e2d083b48c3f776f35d290e0edc7eaa03d1056255b97c",
@@ -12625,7 +12625,7 @@
     },
     {
       "plant_id": "4b6718038cf9",
-      "content_hash": "b5581f27c5fc84fecb95149e6e83073593ce4579645a80b8d6da7d703db56c22",
+      "content_hash": "3c64d56d4b52edab11b2dbdb48643283a467bb07f23daf56704f9004fcf554d1",
       "facts": [
         {
           "fact_id": "13b9480bad4ffb088f99c55d60e7d3146437b87911e9a959b18e6590eb5270da",
@@ -12822,7 +12822,7 @@
     },
     {
       "plant_id": "754095d243e3",
-      "content_hash": "b1e7018321257a179ca6a7b041c3072ff769e5628bf20b8bf5cb644cacafe577",
+      "content_hash": "c8d8d2d14198fdf411238cec8589c17be0216b4cdd76348d7f59340ad7c34263",
       "facts": [
         {
           "fact_id": "096dc74b7f6dd165863dbde48a766e2308320f0f2c19b8a57cda5f3c1848e2d5",
@@ -13417,7 +13417,7 @@
     },
     {
       "plant_id": "b1e2591f439f",
-      "content_hash": "047c558a3dece98d7bcce000063604a659867d1f97f75dc2f484c240e1649c18",
+      "content_hash": "24d96ee7e41ae5c168eeb5b0da0015b1fbaa6f5358985b20f64fac0501ed5293",
       "facts": [
         {
           "fact_id": "5333a19ce8508b5d37cd274a8637016563678da42c9863733ad8352d73ccaad5",
@@ -14102,7 +14102,7 @@
     },
     {
       "plant_id": "543e54d42d66",
-      "content_hash": "d5b67b82a7e520b8dd32e32d4f8b3b74fc094557ce46ab53b3427c4145ed0387",
+      "content_hash": "7c6920ad3e7b528ee64e5363742cfa28a56b820ad63b65b7dd32940521c1f234",
       "facts": [
         {
           "fact_id": "d47a88154b3fd61525c896fdca040ca9215b989cfbb0e90aaf671b732a303f54",
@@ -14680,7 +14680,7 @@
     },
     {
       "plant_id": "a10a66890cc3",
-      "content_hash": "85c461ba73ee53639da1e98d51e18541aa35a648b03dd43400efbee66d6702bc",
+      "content_hash": "8dca2975816a983bae07480c93419a928c8d0dce790a83ca2881982ec07a3c0e",
       "facts": [
         {
           "fact_id": "73efb3ae77c1fc4c319e33724ee73ca01d2857cd7dcf77a00fad466508ffad8d",
@@ -15027,7 +15027,7 @@
     },
     {
       "plant_id": "b09270bbd4aa",
-      "content_hash": "deb8907713c24051669dd9fdc61cd795f7d07ee0d93e8f4fadb596c2fec26e9d",
+      "content_hash": "86fcf8d874780502b45f9b77b46fc41c3ec461f63b14d6ef90b6722c43c89a28",
       "facts": [
         {
           "fact_id": "b2bf4fc4040fc7273923d2519657a05a517c67852166842daada298802fbfb95",
@@ -15208,7 +15208,7 @@
     },
     {
       "plant_id": "aa8b4eb83792",
-      "content_hash": "f7d1630ee944f19993d03252c0a034ac1341ade176487935efc89df4852835f9",
+      "content_hash": "d782033acc6929ad6c129bfac7954a3b397676952733b5dc9b87f7baca94a8d4",
       "facts": [
         {
           "fact_id": "c8dc29b53b8d16b6933c21b32135a33bb86f9c316240f528081aa1d2b5023159",
@@ -15649,7 +15649,7 @@
     },
     {
       "plant_id": "67a0a3d3c947",
-      "content_hash": "09e5886632aa4ec70eabcc68523e94c1ca3b06ce68b9f50dce93a23b008d2f9f",
+      "content_hash": "efe441cf2ec7a0ac8a10ab0eada582c22130f6f3ccbc98618b64ad5957f92306",
       "facts": [
         {
           "fact_id": "fa049a2f9a765c5cc24eaf57749e48d9be6926caa690d9e4bf23fab78b456d00",
@@ -16252,7 +16252,7 @@
     },
     {
       "plant_id": "aa89f3864588",
-      "content_hash": "3d29737ee243dfea9e67efdcfccf4d3f0cbc4fd410872b3ea411426536420b00",
+      "content_hash": "fe219f60bfab614e3f340f7c62c1e10bcb84792e7cf7bc5131211e0f19c2a5bf",
       "facts": [
         {
           "fact_id": "4e3add25c337c1b1f344487576a8e8bed83726b3354c2f8cc6bb3caaaba06778",
@@ -16460,7 +16460,7 @@
     },
     {
       "plant_id": "d54f8d33feeb",
-      "content_hash": "bd4efc7a6fb38904a419a8af835f48d2d11b415a6b70c5b0b24a159a626ba686",
+      "content_hash": "2c0561f4108c1d3ec3777b83191c7ef13985f2304d79df154df6a8b5f3b85950",
       "facts": [
         {
           "fact_id": "a25b53913c35c3fb96b171d1d6924a074a7cdefce1193b4b0a8d6e58003f6801",
@@ -16695,7 +16695,7 @@
     },
     {
       "plant_id": "677b8ef84a5e",
-      "content_hash": "fd54fef404a9928fac1140c8cf126ac4594d5c3373f577516c3a03e147bc1eb2",
+      "content_hash": "b8c51dc411e021cde6db960938f918ca512a06e2ddc70bfe4ed98cd82d64ef2e",
       "facts": [
         {
           "fact_id": "dea3f6ee4d61d027fb6cf9f52527e087319b28dc729d57930f3d2aac2edab7ff",
@@ -16793,7 +16793,7 @@
           "semantic_status": "unreviewed"
         },
         {
-          "fact_id": "bb912d7d34d41d9976644840f39a2429704652d7b5f6cbdf7745f46cb712ede3",
+          "fact_id": "8afcc7491aa02e18e9db798d5a884768c3987a037e4eb709609c5636ddc5bef7",
           "plant_id": "677b8ef84a5e",
           "property_id": "taste.sweet",
           "value": true,
@@ -16802,9 +16802,9 @@
           "value_max": null,
           "source": {
             "field": "Beschreibung",
-            "field_hash": "0fb79272d302f25fc7bc06518639e215ba576611a36690bf1f0a8331f911efa4",
-            "start": 134,
-            "end": 196,
+            "field_hash": "f5975f6436ea34d6d813a4d24deae34280f7a6caac2628eb8981003e7130ebe9",
+            "start": 99,
+            "end": 161,
             "quote": " Die Früchte reifen orange ab sind knackig-süß und aromatisch."
           },
           "origin": "description_rule",
@@ -16812,7 +16812,7 @@
           "semantic_status": "rule_checked"
         },
         {
-          "fact_id": "8c457a81a94949e1f276b183927e6382b6e608f4763dfbaf0b891fb818ecf779",
+          "fact_id": "29baa274a6dc446459c93eecb043f7e3e280307de5dd6f891397272a9a07f251",
           "plant_id": "677b8ef84a5e",
           "property_id": "fruit.color",
           "value": "orange",
@@ -16821,9 +16821,9 @@
           "value_max": null,
           "source": {
             "field": "Beschreibung",
-            "field_hash": "0fb79272d302f25fc7bc06518639e215ba576611a36690bf1f0a8331f911efa4",
-            "start": 134,
-            "end": 196,
+            "field_hash": "f5975f6436ea34d6d813a4d24deae34280f7a6caac2628eb8981003e7130ebe9",
+            "start": 99,
+            "end": 161,
             "quote": " Die Früchte reifen orange ab sind knackig-süß und aromatisch."
           },
           "origin": "description_rule",
@@ -16831,7 +16831,7 @@
           "semantic_status": "rule_checked"
         },
         {
-          "fact_id": "5969e07080a4c7c7f3257edb0f2966092b19c83cfb1a41ad6f7ccbf5951b9487",
+          "fact_id": "14d49951576c5b59301f11c25a52017f80482fc66d319b2df7453ecc29fd2333",
           "plant_id": "677b8ef84a5e",
           "property_id": "harvest.start_month",
           "value": "unparsed harvest context",
@@ -16840,9 +16840,9 @@
           "value_max": null,
           "source": {
             "field": "Beschreibung",
-            "field_hash": "0fb79272d302f25fc7bc06518639e215ba576611a36690bf1f0a8331f911efa4",
-            "start": 134,
-            "end": 196,
+            "field_hash": "f5975f6436ea34d6d813a4d24deae34280f7a6caac2628eb8981003e7130ebe9",
+            "start": 99,
+            "end": 161,
             "quote": " Die Früchte reifen orange ab sind knackig-süß und aromatisch."
           },
           "origin": "description_rule",
@@ -16850,7 +16850,7 @@
           "semantic_status": "ambiguous"
         },
         {
-          "fact_id": "27ea5e8f5ced757b4b08e9b52d084787af2ad867feafc8d728e88452c445bfd0",
+          "fact_id": "6e6a03da48c7bb2ddf013f8e06b2301ac10e9f7e70115b5f0029e830ecb38a15",
           "plant_id": "677b8ef84a5e",
           "property_id": "harvest.end_month",
           "value": "unparsed harvest context",
@@ -16859,9 +16859,9 @@
           "value_max": null,
           "source": {
             "field": "Beschreibung",
-            "field_hash": "0fb79272d302f25fc7bc06518639e215ba576611a36690bf1f0a8331f911efa4",
-            "start": 134,
-            "end": 196,
+            "field_hash": "f5975f6436ea34d6d813a4d24deae34280f7a6caac2628eb8981003e7130ebe9",
+            "start": 99,
+            "end": 161,
             "quote": " Die Früchte reifen orange ab sind knackig-süß und aromatisch."
           },
           "origin": "description_rule",
@@ -16869,7 +16869,7 @@
           "semantic_status": "ambiguous"
         },
         {
-          "fact_id": "15174f0b33607502f037cbceab5b1bcf430299cffcc6d4110b16152f292da06c",
+          "fact_id": "b25c3bfe0c21bbe83d48e550746560af25bfc9f3dbfa17d99de1e400c949a57e",
           "plant_id": "677b8ef84a5e",
           "property_id": "plant.height",
           "value": "unparsed or qualified",
@@ -16878,9 +16878,9 @@
           "value_max": null,
           "source": {
             "field": "Beschreibung",
-            "field_hash": "0fb79272d302f25fc7bc06518639e215ba576611a36690bf1f0a8331f911efa4",
-            "start": 226,
-            "end": 308,
+            "field_hash": "f5975f6436ea34d6d813a4d24deae34280f7a6caac2628eb8981003e7130ebe9",
+            "start": 191,
+            "end": 273,
             "quote": " Die Pflanze wird nur etwa 40 cm hoch, verzweigt sich gut und trägt viele Früchte."
           },
           "origin": "description_rule",
@@ -17313,7 +17313,7 @@
     },
     {
       "plant_id": "f665d59b1cd5",
-      "content_hash": "afea684d820bc859722bc62cc7e01fcebf271bc06a5518349ff750995216caca",
+      "content_hash": "b0fb04a5d70a2e28978f4300f974aa0394e4bc92a3cd92544d4b0e63347084d2",
       "facts": [
         {
           "fact_id": "8e9e8939003ff54c334cff36a6580fdacc9b95aa5b5d277daa560703ae85e0b2",
@@ -17599,7 +17599,7 @@
     },
     {
       "plant_id": "2eb0f7e63c08",
-      "content_hash": "ef2028ceacdfbf9387d49ce4d55e9e531ce0bfbc6b896b19d84cb7a90e932c48",
+      "content_hash": "5505934b3b69534b8faab7ff97189194255057b467c17519a5a3de19303c1c80",
       "facts": [
         {
           "fact_id": "177960613e6b6bbecbe1379ec9cf43086bf2c9216411f08ccce784bc63fb3071",
@@ -18337,7 +18337,7 @@
     },
     {
       "plant_id": "00baf1557f92",
-      "content_hash": "e3366f89ed10a29a82f9ddd59b3af4986a0a25602a66f343450f58e07818d741",
+      "content_hash": "798bcea99d78373d8634f803c1c068a6cdba25591d9837c2c28d15dab1892005",
       "facts": [
         {
           "fact_id": "713783f7cdb71e7343a6555e53fbe32e7bf11479628961352a7937d018f9d104",
@@ -19227,7 +19227,7 @@
     },
     {
       "plant_id": "280f888cfdaf",
-      "content_hash": "3e0da6b5f6ddbe5e972f5eea4fd09b108fff9bbe15b8ce0f059b2c4c1a6fd63c",
+      "content_hash": "9894fe3515d4d567ec6f84570d39fc295114c01f54300ca349093f427891505c",
       "facts": [
         {
           "fact_id": "c4ab18deda784f24bb8dd4614d20bc78b35e80e85355bfd13f993262f57d785f",
@@ -19514,7 +19514,7 @@
     },
     {
       "plant_id": "68fb553b7f9d",
-      "content_hash": "10062df633866a902dd81ff1fbb17ab850428ff0e8b6f4a0ab404733179a5da0",
+      "content_hash": "391861956ebefbf00f1a94dafc3ca99f377ac02e438e587b063030d488491658",
       "facts": [
         {
           "fact_id": "00b2a1b709311e7e07593592a1aa4584b50bebe494ce8b800f3f93b512edd4af",
@@ -19806,7 +19806,7 @@
     },
     {
       "plant_id": "3bc40b3e2c3d",
-      "content_hash": "0ecc239f32894b59acfd69b1898792c2119bd160cc6c6b74dc59d4c4e6cd12e3",
+      "content_hash": "624ee8821ce215f413bbed8f155349d2003093ce804321a18f2d9be829761695",
       "facts": [
         {
           "fact_id": "4e14a3a2cbdb0ec04b4c52a4a61ac0ab2bd1643190a001d02c476adb92adedae",
@@ -20035,7 +20035,7 @@
     },
     {
       "plant_id": "373cd192f341",
-      "content_hash": "7a10680d784cfb1d2893210bfaa3c7aa9320aae62fd0a2bf3e11c044597ca98c",
+      "content_hash": "f826b51c641da8ef3bf07cd75cfe9b87e3ddd21e3e109d51fc33243fd43d356c",
       "facts": [
         {
           "fact_id": "fd5f36df582471a03e7de397171c1e7676b0d79fb47ddf0ef33f8691705908a1",
@@ -20170,7 +20170,7 @@
     },
     {
       "plant_id": "80ea156e1b83",
-      "content_hash": "87ab114ff05e1bf64bc1d96d40247f9dbe0ff9a8639b4f922d35d648e4ea2e2a",
+      "content_hash": "5098edeaf0b91ec1574bb9d9ab9ddbdf68623d777a9dc37ab790e813fb7debad",
       "facts": [
         {
           "fact_id": "4401cbf28476bd85e227e2662eaa35617b5875074425dc3d2a878907cc2ef79a",
@@ -20325,7 +20325,7 @@
     },
     {
       "plant_id": "bb0a1d1ebffc",
-      "content_hash": "1077c8679921543fa3f05f8f525f8a4ae9d3cc08b067bc575cef2008a03f3404",
+      "content_hash": "dce8e186a8f19f4387cb50337ac544826276fb67d35721d716c3fe95d677be74",
       "facts": [
         {
           "fact_id": "90b379692d1a1754204588c678b98fa9b2e6779dac94d75ac96fe03676c5508f",
@@ -20624,7 +20624,7 @@
     },
     {
       "plant_id": "02cd0eecd63f",
-      "content_hash": "e6d68919a2f72478f7f96e614cb50bb474bb7dc294145d436cb388b47d34bfda",
+      "content_hash": "6373b8086635c3e19498e1979b2dfb48ba3bc979b62f0a87a90bbf660727858e",
       "facts": [
         {
           "fact_id": "ded0966c57cf9e71cf66add761a880c4093568045558dd7d8d3a03ff1fda8bd3",
@@ -21109,7 +21109,7 @@
     },
     {
       "plant_id": "49cba6ae3b72",
-      "content_hash": "5fc45bb97702b1ca03a9d9d3efc39903a4c2357e9e5f9cf6d0b7b160cc7cdcdb",
+      "content_hash": "3203174b13998c4bbf09bfdfa56a5e236b6f2501f2d73a7200b2c3ba1d1edda1",
       "facts": [
         {
           "fact_id": "3bca9e50472c6f96aeac7267ed6d758e99d5a638796ac7e84ab9ddf21db62340",
@@ -21236,7 +21236,7 @@
     },
     {
       "plant_id": "dfccc49a17ed",
-      "content_hash": "b726e987017c8bb68d77ee31b3186e6a6471be53265a8ce70d1a07e566bcc5e6",
+      "content_hash": "f3167b11f76a871c06771e3a73ba5ab54fd8ca945b61ca149dbe7cb31d3c9935",
       "facts": [
         {
           "fact_id": "17a506bdf964920a6dfdd1b9c02ebcbd8aa3211a0e541ac407c3218cf26d4e14",
@@ -21745,7 +21745,7 @@
     },
     {
       "plant_id": "966b9802a152",
-      "content_hash": "78c16fb27f5c05808e934a1af77a09ae43324e88ca8525d270721a5a2ee510e7",
+      "content_hash": "5f8170b70dd5172050f37bf5753f651ff2e389482cb3cdf514d07b268bac2d29",
       "facts": [
         {
           "fact_id": "7ad0cb8085db3ed362f9a795cf254d579c295fa8e17ccb3745782201a35c267c",
@@ -22064,7 +22064,7 @@
     },
     {
       "plant_id": "33dc291d96ba",
-      "content_hash": "6057015f559eecc50290e44859bd88a40188701e7422115924d3f6504ed71aee",
+      "content_hash": "663dbf3cee83ce93072b2eb5d5edc8c141456bca4a65d6db7567d1f3bcc96335",
       "facts": [
         {
           "fact_id": "ec3c072a69b29fee2ccc186cbd0a7249b01aca9e1e7c33412cca91ff776e5bf3",
@@ -23404,7 +23404,7 @@
     },
     {
       "plant_id": "64053741f4c8",
-      "content_hash": "46a9036a3401bf723b226cee0adbb5385d6d5c543392d574829a30b3e0f97aba",
+      "content_hash": "72c03ab225715c0731144b3e47058a93c2b39c8f52e49d2da1b7a01da474fc27",
       "facts": [
         {
           "fact_id": "cc2f4c6c60d6a60dcf78333cf0007af87425f1f36b73a4055f92482414c33055",
@@ -23580,7 +23580,7 @@
     },
     {
       "plant_id": "d31cde30fb99",
-      "content_hash": "391579737783bc6e82847de867c69f52eec3ac91f5f0e3264d31f2d5c5ead92b",
+      "content_hash": "9baa03dd88e2e908ae477a3a2d920c93f31676fb87f37875eb302b61878697ef",
       "facts": [
         {
           "fact_id": "84cc5a61c3e8ee4968ca4dd141ba33536e449ba3c68f8dd7a96128e7ca4fe682",
@@ -23734,7 +23734,7 @@
     },
     {
       "plant_id": "9fee360f9671",
-      "content_hash": "db9ba4c202b42b07abc7791df9dfe0ac56679557b1b2ffe514aff43636a1d27b",
+      "content_hash": "fde4af19de7bba4454c14ccc76573304a467813d7928fc40c1f86684f13ada45",
       "facts": [
         {
           "fact_id": "87ba79bba9f8266a695834998d8eaebec8ab092d1f64dcf39573c4d7519d6e30",
@@ -24489,7 +24489,7 @@
     },
     {
       "plant_id": "88c83aa4cfe5",
-      "content_hash": "e8b0349b6d37af53f975eb90aa28aef23353498231b537999b437816cb792950",
+      "content_hash": "747c395e20dca2cac5a034f72753eefce895260aab07093ce38f996d33cabf8d",
       "facts": [
         {
           "fact_id": "abeb420a4c5e612b92c61319d8e478dc87d4975af99376a240f1a66dc67ccaf9",
@@ -25508,7 +25508,7 @@
     },
     {
       "plant_id": "feff18a4a8be",
-      "content_hash": "017fe7436c42a319dbe1b91c25e91b932e53ce066377ace9f5f00d756be97bd7",
+      "content_hash": "548c68f727db95d44b2d9b1cb9cbd7816e85b54ab0e74d420aeb5117743f9454",
       "facts": [
         {
           "fact_id": "2ca69cfd99bea266d04d23f7a3a08d07db8a1abccc7448861fe21e41e0731582",
@@ -26682,7 +26682,7 @@
     },
     {
       "plant_id": "490971d1dc99",
-      "content_hash": "a02c9579b8f62bc6ec552b7f6ca4b3f63ebada2fc1909e161b66fee1a70dddbf",
+      "content_hash": "ec476c3ee7219c6a761c1d001188529aa6c819c0f8297e6d6c5a06e33902d0df",
       "facts": [
         {
           "fact_id": "e5bb725ef61a02fd60fa6e7c7533021ebad074a80bf1a9ac1ea233e93bb5ca88",
@@ -26918,7 +26918,7 @@
     },
     {
       "plant_id": "463349de8c3f",
-      "content_hash": "1729e28c3ca8d603b10544b6f9b3e4082e1d6cddcfb594cb10e02a508587318c",
+      "content_hash": "feb55031309700d0534c56ee721aa7bc0f4d3c027e7eb9ddb2c3f85e855e4640",
       "facts": [
         {
           "fact_id": "b35f303d8b25d5921993d7e9f388582994b8f1600a7e19d9d154edb174ef30b6",
@@ -27348,7 +27348,7 @@
     },
     {
       "plant_id": "46e1081b1685",
-      "content_hash": "c01efe405a3ee780d021cae66a3349cd64f30b7eebbc8b557bd447fe46e35c5f",
+      "content_hash": "17f6d266783faacf7587ac432d174f9df618b43c9c3f30ba2e8f65c7f5d05557",
       "facts": [
         {
           "fact_id": "fb145affb4cd6e8416e953e1a157f72f54d2430e4ccb17d50b325d91522b7710",
@@ -27581,7 +27581,7 @@
     },
     {
       "plant_id": "f12e3ec67cb0",
-      "content_hash": "3f58c21437f903f3c2cebdb5e130b048196b4f25c19137572c1aad9c267a4d3c",
+      "content_hash": "22bf867ad13dcebeca59404cd6fa7fa86f8f254267413ebe2551a6c0356b98e8",
       "facts": [
         {
           "fact_id": "3959ae55bf3d14fc0a6f237c38249bd18bd75d4d2705e3e0066fcd26e7e7432e",
@@ -27910,7 +27910,7 @@
     },
     {
       "plant_id": "63ef8af150c5",
-      "content_hash": "3f71d724a1cfb8e62d6f679bbd35cac7932e15ddcd275a2a4f2b14ab3fc758b0",
+      "content_hash": "3d83530c61eabbdfc1c2d5a67054816f8d9f8ddd45c031304837cbe98e8710ef",
       "facts": [
         {
           "fact_id": "f291b6e28db81bde70beeb2d92eff8b241ee454ac7e895edad9e909c9674b820",
@@ -28364,7 +28364,7 @@
     },
     {
       "plant_id": "9bab57f36ccc",
-      "content_hash": "22de0e8b20adf4bfc15872257019dab807311f0a69e85f6f382c7d74bea0788c",
+      "content_hash": "f7410cae2ea9b735f464be68bfd237b44c6eafd366306352103d4412dd43f497",
       "facts": [
         {
           "fact_id": "d449c9c42efdc59c940979668c32f6be97b067afcbb8a063812f26f651f85e19",
@@ -28974,7 +28974,7 @@
     },
     {
       "plant_id": "178ce885505d",
-      "content_hash": "c15316b4c853e84a32d17fdedd154d6359ccbfb5f9ab6fee46e6dcf16bad462a",
+      "content_hash": "356dde5832a1cd59f1dd50aa151cf4c1172b19f31cd6cc84f068927758fe6a71",
       "facts": [
         {
           "fact_id": "6f253931e9003878903d8f40fc6e92765379494bb22d7ffc598889c63a6243ed",
@@ -29496,7 +29496,7 @@
     },
     {
       "plant_id": "d3917f55fb4f",
-      "content_hash": "ad44b48ab83605a80876669dfaec52dc8ff5208ed532648ed9d7e97d5f730c4b",
+      "content_hash": "e5c5bd2eb2377993b1451786f23becd149cfd8565e56c268c22f2433c4a81380",
       "facts": [
         {
           "fact_id": "3b8ef6b8d44805502577bd302ed54df49c5d8750c6ff722da112ce4b0c3c0224",
@@ -30012,7 +30012,7 @@
     },
     {
       "plant_id": "d73160a68c5d",
-      "content_hash": "09e9b143d7d2e5e67da1473328b694d375a335213073a3e095bd1dfb94282913",
+      "content_hash": "21ef269c15e46bd13c2c114f6f8f304936676a0830941be56f645d375cdf2131",
       "facts": [
         {
           "fact_id": "1fb56c95c1daa2426d3155c24d6d6852e19f07a87e272d686e2e69ffcfec93af",
@@ -30291,7 +30291,7 @@
     },
     {
       "plant_id": "1a3bed1be226",
-      "content_hash": "a3f490e1e56cb52824db6429151cf6910928a0cd3178d2a68c33550af65d7988",
+      "content_hash": "8ef5608815b15f19ac0f03933b711f57bd7c3beec44bd22b052986305416b44c",
       "facts": [
         {
           "fact_id": "531e9772a82e533e4e8ea87d284c4f237e44cf0b13ed6dcdf9bbf6ab3477a287",
@@ -30658,7 +30658,7 @@
     },
     {
       "plant_id": "c563ca8ea65f",
-      "content_hash": "be7f8e72f2fccaddb91b8f20685cd1c3102249c42811167ff8019091988ff461",
+      "content_hash": "380325d76a287a878d3abafa479eb1ff51b0852270483052a11bf20a8906dfd5",
       "facts": [
         {
           "fact_id": "84ecb6cabb3662023233f3440bb19d65e6d5560db65e8c65a9247ae73f03d490",
@@ -30967,7 +30967,7 @@
     },
     {
       "plant_id": "001c590048cf",
-      "content_hash": "452e00f6c81dcc51ed6772bde7ed303533295d09ca7e25dc6079832f31aac032",
+      "content_hash": "b8a8af305ca139bca63b4378c0283bb96e4a15d2c246b54d9d0fe68681d44872",
       "facts": [
         {
           "fact_id": "784bbd15748648716ba6f4a193fd2e9a2bbeaf895dd49f203b1053d4018a3f60",
@@ -31343,7 +31343,7 @@
     },
     {
       "plant_id": "f5c26bf1b26d",
-      "content_hash": "bc4bf59ef9523f7428a162e4d101d102348b1cbe9b55ca97774bf1e52f2ce90a",
+      "content_hash": "35d374d4d47b23eb12589e79cfa59869e30bb34450bfcf0a8d8eef2535e1af2e",
       "facts": [
         {
           "fact_id": "34e4510c8b4e594d7f7b0e3c5f82b499aea554806e933d80593175f58cd2a19a",
@@ -31544,7 +31544,7 @@
     },
     {
       "plant_id": "6e154603770f",
-      "content_hash": "b792edfe5dedd14d6f0130a4346a6dd38b7a8668a0b14e568697b68fb986902f",
+      "content_hash": "0211206d3317c3bd40a857af248cebd1aec8a8054e1e3ecc41882d58777c7c79",
       "facts": [
         {
           "fact_id": "681c112a00623bae23f3aa28b79a83d531602ccd0fc180e939f09b63d8c6199a",
@@ -31849,7 +31849,7 @@
     },
     {
       "plant_id": "25d634c7c5e7",
-      "content_hash": "7c33ab4a20d44b9e98d4f2adcf766763fa353608567fd8fc045987b09b2d03ad",
+      "content_hash": "b1819770998d4afb434bee3cf893c1ff1a672185448399ddaac9ddd2c95e307f",
       "facts": [
         {
           "fact_id": "342cda2cacc6bdc83deb995a7453c2f4085ddea468c9742bd8483041d12d4cf1",
@@ -32395,7 +32395,7 @@
     },
     {
       "plant_id": "ba8c96c44b48",
-      "content_hash": "38602a432e7c84606f880fee84fbb1a4edd732473ece9d8d021283b6daea010a",
+      "content_hash": "29868e7d44da4af239155cee254c8a3ae731fc81691c64c82df38963cd6f2c25",
       "facts": [
         {
           "fact_id": "5319e7c3f5b8df4a63fa5768cc65cb8483c836678860960cd30b01c1d798bb23",
@@ -32717,7 +32717,7 @@
     },
     {
       "plant_id": "4863b770f293",
-      "content_hash": "131e4cf73be09573c3e2baeaad53616cfc1e4b0bdc92e9b8250fde4fcb57c45e",
+      "content_hash": "9ccf3fe683bbcfe88a5895b277b24ea3b31bcf0c5c829ed4444a6c9444e37318",
       "facts": [
         {
           "fact_id": "62d4a5fd1d007097b6cc964baf7a1cbb8e74534f07979f95b2fecc385b8a0839",
@@ -32984,7 +32984,7 @@
     },
     {
       "plant_id": "9a0cceb47f4d",
-      "content_hash": "fcf3ddaf1890799084239a73e78182a58a5084c253f6d6b7e0b89d6f91e7fb0d",
+      "content_hash": "212781b7072d62c393205396038d4bb40f5f45a1c21666e47b507cd119b8e915",
       "facts": [
         {
           "fact_id": "df4fa3c926199fda008361e6503910df70f829df6526712895704bb2df9c0cf2",
@@ -33270,7 +33270,7 @@
     },
     {
       "plant_id": "3f5072a15033",
-      "content_hash": "5ee9ab807164d9db389b554faa654c39de6ba2d82151d8ac7e274d742dbf8f94",
+      "content_hash": "bddd4a81c88e192c87e4c9d63951411c9b7229474e24e5a3261b20e04b331cba",
       "facts": [
         {
           "fact_id": "75899f5856e78a28fbd0666978d4846d2742fe4aa749b6523467bfc7b0239a9d",
@@ -33610,7 +33610,7 @@
     },
     {
       "plant_id": "347a3c0ccd9a",
-      "content_hash": "442a16e8c16ee202735055ac95ca3ad45a67fe5d0104f33eb2f5382549f728c7",
+      "content_hash": "9ff11060337f3a44314cac31515843fa1790216dc77c4c90c5f6e9abba7ff735",
       "facts": [
         {
           "fact_id": "ae3694ab005ea4f61a3bdbfa9e3a06d74b7c0c706648ffdcd6cb7ab04ecf10b0",
@@ -34007,7 +34007,7 @@
     },
     {
       "plant_id": "66ee1869c3b9",
-      "content_hash": "b8d19b3719ad07f3b3c6b8152c70c62815d205580059e3da5db07db75011af35",
+      "content_hash": "c5503547e82c385856617f26338f12855f1ba68006a21cad7b70ce62e44a66b1",
       "facts": [
         {
           "fact_id": "56a410910494e5b6ef99f9c549a5aa9f8e51378e21c308ac532e120648b1107c",
@@ -34275,7 +34275,7 @@
     },
     {
       "plant_id": "aeb886393c7f",
-      "content_hash": "9dc6caf883859c4637d31ed4dbdabdf53df395b49fc6bb5820513c742432e444",
+      "content_hash": "186057e52e39faef15a318fed5dcfab62774f4e3956be5eacfde0e46fcced33b",
       "facts": [
         {
           "fact_id": "df79b4c5a553926d55c9719677101c61aab74e7bed688d819e8ba1c6f0d7cbb4",
@@ -34548,7 +34548,7 @@
     },
     {
       "plant_id": "4b9485dbc6dc",
-      "content_hash": "532a03a0720abfc51a849dede5f280eb318a187e84c37a5841fad7fec3db8bd8",
+      "content_hash": "f2cf7220237ca6a48923df9522fd8df03087c6c594372b73098ed966bfe36015",
       "facts": [
         {
           "fact_id": "38295afc409ed48e1bd0cb1c678c034f74849fa1606e68efe0bd99c68c20a3a2",
@@ -34710,7 +34710,7 @@
     },
     {
       "plant_id": "1aa277e7b4db",
-      "content_hash": "34cebee25aa8260ceb53f5b0f4ee01d2a6ba63956f20c002460e617592adae9f",
+      "content_hash": "1126f1fbd5cc9108d8b1bcfb9a0af94cc43084c736d6805083c4f72139d03834",
       "facts": [
         {
           "fact_id": "996727a4ad095fe3c2f80abd16c18045a8e9e3f4321ce2ecb042c5fbbe1c12d0",
@@ -35541,7 +35541,7 @@
     },
     {
       "plant_id": "280d4f11fd97",
-      "content_hash": "36fc2f9b5015b8f9d2c32b4f86d3b9ed08fcdef03c45aefea3c0d3081b64437a",
+      "content_hash": "2cb44e1ed4e0039e070b87e1489aef77d2a1ac0e6e844f561b4558ab483416aa",
       "facts": [
         {
           "fact_id": "ca07ec1701394ab194143aa952789caecb9adb21e662ebe3576870f4c0887db6",
@@ -36060,7 +36060,7 @@
     },
     {
       "plant_id": "90ebd4e94553",
-      "content_hash": "bb9f57cdf78b8f0d2a2900034f4cb6f7c6572d255e13278730fbca291c549231",
+      "content_hash": "9ffd533501582aa222a5d8877b762a521166a241bcad2cd2f21eacf4b141f998",
       "facts": [
         {
           "fact_id": "1066014a2f5b87197cfbfff523f303c3a90e8e7d34544491da24a64a1402d9bf",
@@ -36846,7 +36846,7 @@
     },
     {
       "plant_id": "dbdaf32cc520",
-      "content_hash": "71c68a722a74d85e2752c70d13cada549ef5bf27885d656d44083bbb71c0ebdb",
+      "content_hash": "f520c0365f27a4f83c4fa8d17ff07bb17598583b2bacfd4edf0272c030da6799",
       "facts": [
         {
           "fact_id": "00bbe77e71bb1cb8390275b5a2363ddace18a10902e2e9e760279930cbcb1b0e",
@@ -37080,7 +37080,7 @@
     },
     {
       "plant_id": "2f71e7a51567",
-      "content_hash": "86006637c2f1f36c44dd24c5e39a38694f9003df850e7c342f851dbe3869d536",
+      "content_hash": "0caba12df786f4168de736d94036b1abbf80144016925533ec6f783dc8afd257",
       "facts": [
         {
           "fact_id": "2019f135c9aba5297172386769ad551c44a750fc118c522c8c2f14e38693ad6f",
@@ -37295,7 +37295,7 @@
     },
     {
       "plant_id": "c95624934d1b",
-      "content_hash": "e26c4974eae59664d34bc18afc67068ee0d6a4a58bbb01e55d588c7a73705ab7",
+      "content_hash": "95940e997e60d42f0ccff7e347c93318725756536c323b346090c32e0b84b2d2",
       "facts": [
         {
           "fact_id": "5cbac12f4054124b85ab865538adf8fefe97c7ac42d01d793b17cc3c73dab974",
@@ -37493,7 +37493,7 @@
     },
     {
       "plant_id": "c7a52aabe139",
-      "content_hash": "0314590365dfdec0ab2246e33cecc19a5308a2699de8cc3ca25f6d5fe45d6397",
+      "content_hash": "44a1a51740cdde40ed82eb564d834f67bfad094f1d7398b027a4fbc9e2d82769",
       "facts": [
         {
           "fact_id": "b8dde71b0a8d46f3a83f9aeb9c5748a605dbad85d2d5c2717a501dd685dea5f9",
@@ -37929,7 +37929,7 @@
     },
     {
       "plant_id": "0dc938c34939",
-      "content_hash": "3cdcc1ff1c60fbeb56b50e3a89ace4b9c7090644400be52b107e5d5c7de831b1",
+      "content_hash": "ef59cc3dafc3fc812b934c1253258d2ffaecf37ae3e47ea7767384082ce2be59",
       "facts": [
         {
           "fact_id": "4c7f4bd99894edcd9236aa04abd4fd75588eedaa1bbe39094835f7af0b4ed921",
@@ -38230,7 +38230,7 @@
     },
     {
       "plant_id": "c40140c6997b",
-      "content_hash": "71dc1536ffd7e21b97d570aaa97019bc1886efd9bbc9e719d99516a8cfbcdb99",
+      "content_hash": "6c634100e8622e70ba2e1307c35f9e84c9685f4f2cde6db0f02bc281311596d7",
       "facts": [
         {
           "fact_id": "49390f21762ba327157bbbe013f7b7e72bb0d2793bd38816dfb1d67d88cddd65",
@@ -38875,7 +38875,7 @@
     },
     {
       "plant_id": "89deaf2a37cf",
-      "content_hash": "5d1e704c75c41877484ca6e7b83bd5ef8b7aeb1f59447b81be2c379fd51707cd",
+      "content_hash": "2ea31fd8d48c97c8a865ff911533dfa5808027eca93f06ffd6e15f8f4e50c42f",
       "facts": [
         {
           "fact_id": "b705bd82cf0a8b57cacb3575d1fb930812da506aa73036999fc4d6ad3fbab044",
@@ -40115,7 +40115,7 @@
     },
     {
       "plant_id": "db0f85ed9b42",
-      "content_hash": "88c867a94fbc099684f70453d64d6f07955377cd393308148f2318e293fe96b2",
+      "content_hash": "e086f4e42adcecf54b2cb9bca74eddacbebcd942f42ffa5ac4bb26868bdc9529",
       "facts": [
         {
           "fact_id": "b1e4a996524028751ceeac9afd73901486c1488f4244be56a61c9d14c4560934",
@@ -40417,7 +40417,7 @@
     },
     {
       "plant_id": "ffa105ddc1bd",
-      "content_hash": "6d1951e24947d63831bd52050af32848e2a4cc4b9e99676acd6deae9d54ae978",
+      "content_hash": "c1494cb5dc0fe551e97356f7c0b172d08a7d264dc24262978a2dd32a840eb837",
       "facts": [
         {
           "fact_id": "63379a684ec54d3140802e6d0235e0c953b69e5dc43e8c0ffcdeac9edba49392",
@@ -40677,7 +40677,7 @@
     },
     {
       "plant_id": "95d3a8cd739f",
-      "content_hash": "37f242d7aa1974210dba4ef323e400b6073e7fe9a12d71bece98a4d7523cd31a",
+      "content_hash": "70dba40183498bcebf11f470999b51afb20b3bb6567b726e786ac2d9a8f4ceca",
       "facts": [
         {
           "fact_id": "2d596bcdbb77fc5274fc0e018ee0dfb18a0012fb3a6f0ab335fc025ae16aabb3",
@@ -41096,7 +41096,7 @@
     },
     {
       "plant_id": "320360107637",
-      "content_hash": "d7d11f38c79810ccf0be2515008e4508b55a824ee5320d32d4ee8baa247dedc2",
+      "content_hash": "081681726a59f945b8a2b563b38207c728574926b8babbb4941b0153a0b8939d",
       "facts": [
         {
           "fact_id": "a66395d487268e9e173ae7c67915c8542abae151491eacda0865dc04b18b43cf",
@@ -42081,7 +42081,7 @@
     },
     {
       "plant_id": "a2d5f05be671",
-      "content_hash": "25dc6ed2ad2c0b8b09337d7ded442feae668ef1a337501192ae5f297d2ecdab0",
+      "content_hash": "d30bf1e9e80d5fd4271227d357fd3cb6878052b3f6159e59e844695f13e76804",
       "facts": [
         {
           "fact_id": "45839d61d6d3071910c39e195e6a91ae0d333d0f587ac951d21e0f9318dc5dab",
@@ -42281,7 +42281,7 @@
     },
     {
       "plant_id": "2f5bc0945abd",
-      "content_hash": "71a762ce02ac65efa3572e4dca1dd205e3cfd2d5697c44dd7ae44c49a2c92df7",
+      "content_hash": "38b3b8972a96e05481342ac7f3c70b2cfdfb48b8a5807a6729ac2765e84d3f1d",
       "facts": [
         {
           "fact_id": "8a420a54b0d6f0ffd5f5343b559380f5db98d647e5d56ba006318759a7ea205c",
@@ -42750,7 +42750,7 @@
     },
     {
       "plant_id": "38bb758c3632",
-      "content_hash": "70aa93eb3b00bc4f620901628ec80440ec36ac33770644038f3058101eb63ed5",
+      "content_hash": "604692bc648511ab8007c03f302d27bb54bf04cbc1e827d3fa1b7368ddc4b68b",
       "facts": [
         {
           "fact_id": "22eaea8a49cdf05b9ebf1046f68af46458625a7590e7a67ccaf671e0d52a6009",
@@ -42968,7 +42968,7 @@
     },
     {
       "plant_id": "3dea37e72b01",
-      "content_hash": "5edf1e08bde88cf386d59c54e3d73119dd404b50a1deaea7f437b9ad6d04f1d6",
+      "content_hash": "869c5be8f9e9e6d50aae461a87eff3221e831cb2cd1195c1c8da889915dd5399",
       "facts": [
         {
           "fact_id": "4445f648ce0541f88adca2069c51d534055098127c43ccf7955396abd94a1aaa",
@@ -43487,7 +43487,7 @@
     },
     {
       "plant_id": "af87ea8bb1b9",
-      "content_hash": "2f3c8ee63e2b97b99d50b8cf6b6f13a6a1dc107a20ed0a2392e1f4bd7a54d6b7",
+      "content_hash": "042337ecc2c65aa4459e9fd73999c156c77f37662be34b367ad6c97914605186",
       "facts": [
         {
           "fact_id": "f6d7b35a66db7f075a96a84945aab1333a51b63234c36559f71654bc58de6b62",
@@ -43740,7 +43740,7 @@
     },
     {
       "plant_id": "cd2f76d7428c",
-      "content_hash": "9ecc6a3888a8de95b55342dfe3f1f96fbf77517c1a330fd81064a7f38577eaea",
+      "content_hash": "1596eb6879f88bc9e4135eb08678d34e2b383dd0131abfaea84e7ae45b59a41e",
       "facts": [
         {
           "fact_id": "80584ce4b4348ecf7fdbbfa1eb793e404e6c080dfb61a7ec261c4e0fac4db96b",
@@ -43977,10 +43977,10 @@
     },
     {
       "plant_id": "3c5ecf1827c1",
-      "content_hash": "cc1272226fcc3fa6533fa7184ee68692bb6562a4d520c1b2b397bc840b1059e1",
+      "content_hash": "0324f0b7d6c65d4f33708c91e1ec5bd96ecca22671cade9a315b08fbdb78a0cd",
       "facts": [
         {
-          "fact_id": "3824f4a2cd482789ee84e04e8f956d83b6bba629485286cfef826c2a254a1654",
+          "fact_id": "bacf1ec0bd5817fc8856c9af677d50d5350dd0039048174936044245346139a9",
           "plant_id": "3c5ecf1827c1",
           "property_id": "site.greenhouse_or_roof",
           "value": true,
@@ -43999,7 +43999,7 @@
           "semantic_status": "unreviewed"
         },
         {
-          "fact_id": "7f46e2d41770d209a518b9b21b585d8cd86fb59560dbb511281dc23eece304ae",
+          "fact_id": "4cc46f803b89e4e8e9594148d51f7bbdb5beb720137b9dbe2a14785e9ce83ade",
           "plant_id": "3c5ecf1827c1",
           "property_id": "site.warm",
           "value": true,
@@ -44018,7 +44018,7 @@
           "semantic_status": "unreviewed"
         },
         {
-          "fact_id": "c797efdcc8cb20d12bfb9f1e30cac65d6f3277a6f9e822290b40972056e0c1a3",
+          "fact_id": "86292a326d704dd979eb40fe8361dfdd6e4095c5160cdb9329e5c86b7e0a2348",
           "plant_id": "3c5ecf1827c1",
           "property_id": "harvest.start_month",
           "value": 9.0,
@@ -44037,7 +44037,7 @@
           "semantic_status": "unreviewed"
         },
         {
-          "fact_id": "249adc833efc0707f306002a18b35d24c9cee0ed87bfe43f68723b5a5f29d1dc",
+          "fact_id": "8600f20f1035b8d1aa58cfc4c8f9211e72a38ace9fda3bcfc94c9941256b5880",
           "plant_id": "3c5ecf1827c1",
           "property_id": "harvest.end_month",
           "value": 10.0,
@@ -44056,7 +44056,7 @@
           "semantic_status": "unreviewed"
         },
         {
-          "fact_id": "800d61a0006b1a6848f7318b776d9561c29a51071497cbc3595fa619f9c4a324",
+          "fact_id": "646863c73f75f60cbbb2cca76d16f3f3dc7dd731a3ce7c51d0786a4c516fa000",
           "plant_id": "3c5ecf1827c1",
           "property_id": "fruit.color",
           "value": "rot",
@@ -44075,7 +44075,7 @@
           "semantic_status": "unreviewed"
         },
         {
-          "fact_id": "c741a62a19869877fe5309851221d845a1c407e04eb66ba4b138b034481b82e9",
+          "fact_id": "8b66897ddf20cfcd6dd37865a087ea4a663ad751dfe42eeda741230d494552df",
           "plant_id": "3c5ecf1827c1",
           "property_id": "taste.sweet",
           "value": false,
@@ -44084,9 +44084,9 @@
           "value_max": null,
           "source": {
             "field": "Beschreibung",
-            "field_hash": "ee4d5e2cbcef0830409881d03c61182ed83a65d07a553c8363aa5bab1147adc5",
-            "start": 195,
-            "end": 234,
+            "field_hash": "1e1c4618159746d0f038efe5310b54acba5576b73c70d55d29f20cbefda12704",
+            "start": 116,
+            "end": 155,
             "quote": " Guter, tomatiger Geschmack, nicht süß."
           },
           "origin": "description_rule",
@@ -44094,7 +44094,7 @@
           "semantic_status": "rule_checked"
         },
         {
-          "fact_id": "a28c6db2132cec8a70ce54ceef5b8f60840c6dc39b559121d23928cfee18b2a7",
+          "fact_id": "de1d651ecba1b545f4ef07ffa7bc7016deea8adb8f9ab96f03f5f2d2f526e2a4",
           "plant_id": "3c5ecf1827c1",
           "property_id": "harvest.start_month",
           "value": "unparsed harvest context",
@@ -44103,9 +44103,9 @@
           "value_max": null,
           "source": {
             "field": "Beschreibung",
-            "field_hash": "ee4d5e2cbcef0830409881d03c61182ed83a65d07a553c8363aa5bab1147adc5",
-            "start": 279,
-            "end": 308,
+            "field_hash": "1e1c4618159746d0f038efe5310b54acba5576b73c70d55d29f20cbefda12704",
+            "start": 200,
+            "end": 229,
             "quote": " Die Früchte reifen gut nach."
           },
           "origin": "description_rule",
@@ -44113,7 +44113,7 @@
           "semantic_status": "ambiguous"
         },
         {
-          "fact_id": "55fca6293c6f29a9919512135ee4a0ab217746b296423c4bccd3acb9c26c0273",
+          "fact_id": "709fdd495350d2d7de4f5bfa42fbee634527bf2d8c9ac94c16521120260e8808",
           "plant_id": "3c5ecf1827c1",
           "property_id": "harvest.end_month",
           "value": "unparsed harvest context",
@@ -44122,9 +44122,9 @@
           "value_max": null,
           "source": {
             "field": "Beschreibung",
-            "field_hash": "ee4d5e2cbcef0830409881d03c61182ed83a65d07a553c8363aa5bab1147adc5",
-            "start": 279,
-            "end": 308,
+            "field_hash": "1e1c4618159746d0f038efe5310b54acba5576b73c70d55d29f20cbefda12704",
+            "start": 200,
+            "end": 229,
             "quote": " Die Früchte reifen gut nach."
           },
           "origin": "description_rule",
@@ -44132,7 +44132,7 @@
           "semantic_status": "ambiguous"
         },
         {
-          "fact_id": "36f754c3899679edd55561e0eb8e6cd4c7c30c4a8e3f4e38d0ab6bd38ae53db2",
+          "fact_id": "a31c70784acffb8a524d2fceb08b7e3d58cd00539e707ca97ce57b1eeeb2031a",
           "plant_id": "3c5ecf1827c1",
           "property_id": "site.uncovered",
           "value": false,
@@ -44141,9 +44141,9 @@
           "value_max": null,
           "source": {
             "field": "Beschreibung",
-            "field_hash": "ee4d5e2cbcef0830409881d03c61182ed83a65d07a553c8363aa5bab1147adc5",
-            "start": 308,
-            "end": 330,
+            "field_hash": "1e1c4618159746d0f038efe5310b54acba5576b73c70d55d29f20cbefda12704",
+            "start": 229,
+            "end": 251,
             "quote": " Anbau mit Regenschutz"
           },
           "origin": "description_rule",
@@ -44151,7 +44151,7 @@
           "semantic_status": "rule_checked"
         },
         {
-          "fact_id": "4ce58c461d59616f87578538ac61db1b699bec5521fcd5e781f7be52e4f15cfa",
+          "fact_id": "cc34b9044711a448c05efba40be5d977eb1974f32bc68b46a86917fe7781531a",
           "plant_id": "3c5ecf1827c1",
           "property_id": "site.protected",
           "value": "unparsed or qualified",
@@ -44160,9 +44160,9 @@
           "value_max": null,
           "source": {
             "field": "Beschreibung",
-            "field_hash": "ee4d5e2cbcef0830409881d03c61182ed83a65d07a553c8363aa5bab1147adc5",
-            "start": 308,
-            "end": 330,
+            "field_hash": "1e1c4618159746d0f038efe5310b54acba5576b73c70d55d29f20cbefda12704",
+            "start": 229,
+            "end": 251,
             "quote": " Anbau mit Regenschutz"
           },
           "origin": "description_rule",
@@ -44242,7 +44242,7 @@
     },
     {
       "plant_id": "3e7a8becc5bf",
-      "content_hash": "58c9ab84a6c022030da4245fc6624cf3dbf4c687ca09a773aa92dc7dd70a2daf",
+      "content_hash": "f7eab1d1ebac499e02645bb50d06070f01ec0b9a749194dd95a16b7b260758ea",
       "facts": [
         {
           "fact_id": "32e59268e091ced62d9e85e5a605d6e9430760c62b4f1011796cf3e06928782c",
@@ -44476,7 +44476,7 @@
     },
     {
       "plant_id": "c4d33b1250b0",
-      "content_hash": "de8b79fbda6b0600c259f076e654605bc1f6a98ac77706ea5c1fa451376ad51c",
+      "content_hash": "6e8536897dda1eb888ee011ade8d47f9aed4cf2a67925356225a0fb1ffece2b8",
       "facts": [
         {
           "fact_id": "79463f198cba6bf938b391b74ab859bddb47b5e7b221a4a076a784149370d182",
@@ -44763,7 +44763,7 @@
     },
     {
       "plant_id": "0229d802ba11",
-      "content_hash": "6b83ddaeaf287812324bf1641b9f8de7efb10f4bc60b67882f917b699f74628f",
+      "content_hash": "6456e8859a0704576f6b10ac65b6a93505958cadafb25580add3a615488297dc",
       "facts": [
         {
           "fact_id": "d76e5b345395c356433b1ddca456840ff63dd7bc0b0561d29634ff6aa1cbf9ae",
@@ -45259,7 +45259,7 @@
     },
     {
       "plant_id": "5740a8842eb6",
-      "content_hash": "b1b427412acdda2deeaaad6a8abdb91712074c68c77eed8c082a27ab015ba289",
+      "content_hash": "79ba806e2d419d642bb8fab7c5143ca06ba28191bb2303de05a9f2b0b275abb8",
       "facts": [
         {
           "fact_id": "f16a40f8b9f60ba5ec6c7deae226382b000c84bbcfb7a8cefa0b468b08375ced",
@@ -45679,7 +45679,7 @@
     },
     {
       "plant_id": "2f144237223c",
-      "content_hash": "4c0fd567e25dd8f2a694bb76f358d85e2ee4494fbbafb1b3be2f5e32ff581df2",
+      "content_hash": "15162ceb7cadc47becefbae8f751b3619871f660db6562a1bf45610d3c9c469c",
       "facts": [
         {
           "fact_id": "07c0012ae1ab32cf98550f7d0500d86b259de316d30a1184aecbb3fa88cc408c",
@@ -46523,7 +46523,7 @@
     },
     {
       "plant_id": "2a341ace8039",
-      "content_hash": "48705f203bada2c83c659e97fe5deaf8e2c01a5e249457e4e32ef1c293707c9d",
+      "content_hash": "b7b2a18021c0b40e4a5f8b20a287afbe9968a301acf438baf4cb45be47dce0e2",
       "facts": [
         {
           "fact_id": "5562bd1d4fb5153451c1fd2145269080c13786177fcae6f7b14f1c98ade2156e",
@@ -46734,7 +46734,7 @@
     },
     {
       "plant_id": "bf9955b3c7fd",
-      "content_hash": "2fa0f872665eb3cbc9602c05b9753ce05690581af2e8c7b890a0531f880ce713",
+      "content_hash": "24e2dc463767209b634a465d4ba0e6da010ffa359f5d98d4c55f765d334fa3dd",
       "facts": [
         {
           "fact_id": "ee01c5b3c2a2f203366120af18d8de5c9ffa43114c72601d4063930ee88a8219",
@@ -46935,7 +46935,7 @@
     },
     {
       "plant_id": "7a24132d6802",
-      "content_hash": "dad4507b4b9f4b9db5bcd16dc76bc9cda4d265c38386d8fb910e64ef3f7f5f9f",
+      "content_hash": "03a06c52b2516565c12b45f96427b0c0eaf25e6ce39314880654aba5279a292e",
       "facts": [
         {
           "fact_id": "8d1a84449c5c12f3856bcc33a8a4400ee7e1c6051e563650dd45ce12d2707143",
@@ -47199,7 +47199,7 @@
     },
     {
       "plant_id": "2bec06f3b2d7",
-      "content_hash": "d49887c397c525f50a92e8830d5fa40058584d10b77532d20aff62ffd8a79743",
+      "content_hash": "f5144db51c6956192041e600261e3274e0329766b1a5994b5da6a47b44e35c5f",
       "facts": [
         {
           "fact_id": "a29f47db89488b087270a2a663a03d1829ff789375d650b17461015f144eb1e0",
@@ -47419,7 +47419,7 @@
     },
     {
       "plant_id": "297efbf73609",
-      "content_hash": "422b7bb99456b9f43029e0c6e517c2f71029b9e1d6d8fbfb58a73d98c0bd97cc",
+      "content_hash": "b58ead4766061cc8499746a1b2f1ed0c3967d25371d75601adb7b85583eb70c1",
       "facts": [
         {
           "fact_id": "f7a100ae4cd7817e71048384de2ebd546bcd06364d9cc65f3e59b82dbe835597",
@@ -48575,7 +48575,7 @@
     },
     {
       "plant_id": "8cec1c73093f",
-      "content_hash": "40cae6789a28e025d8294eedacff4b31927033ffc8622f0fd5c67872908796d1",
+      "content_hash": "1bc2f71b88243809cb866c4778165d3e0cfddbb49d3e00fe748e9d5b0be540ed",
       "facts": [
         {
           "fact_id": "48ac64fdb1805fb8c2a84879dab1dcc3adc381ba089c8a4b510248bccf2dd765",
@@ -48700,10 +48700,10 @@
     },
     {
       "plant_id": "5c5befdafd1e",
-      "content_hash": "6e2fee4596447e62d8cc5de53f240967d5f4ebf36488d277fb2243279ee4503f",
+      "content_hash": "de51c80bf7fa8679704f2be2fdf9a2e194178f3ced7e387a036060fb154f6cce",
       "facts": [
         {
-          "fact_id": "1c5be3ba13b4f5120a0eb4a69f6ff5cef77fd16326465052666dfa83e09acc86",
+          "fact_id": "156607a039b315b37a1edaac175f247b2ee8fc94b972ae8c5b40b67907f4ac34",
           "plant_id": "5c5befdafd1e",
           "property_id": "site.greenhouse_or_roof",
           "value": true,
@@ -48722,7 +48722,7 @@
           "semantic_status": "unreviewed"
         },
         {
-          "fact_id": "50e71ba01bed44fb74324ddfda399d6526dd0d0b55215af335f23a74b2e2632e",
+          "fact_id": "9f33615dc6ff7f30c4f0934444d8e4f83a705cabb415e701a0ee645a20c1ceb4",
           "plant_id": "5c5befdafd1e",
           "property_id": "site.warm",
           "value": true,
@@ -48741,7 +48741,7 @@
           "semantic_status": "unreviewed"
         },
         {
-          "fact_id": "8025cc9d6c39758658b9da08e18b08db257822a41445e77f1da8f117531f34b9",
+          "fact_id": "5b4633ee6adfb870d5dba36fe866ede5e843990c4a0fc29789c11d108f83739a",
           "plant_id": "5c5befdafd1e",
           "property_id": "fruit.color",
           "value": "rot",
@@ -48760,7 +48760,7 @@
           "semantic_status": "unreviewed"
         },
         {
-          "fact_id": "2734eada741d1ebe4c0b166ec29017562e12b2735b7c31087d42f8024e90606d",
+          "fact_id": "870b85cbdb0be069393ad70b8473bd06177d68620b0f57bbe87a9776cc215e26",
           "plant_id": "5c5befdafd1e",
           "property_id": "taste.sweet",
           "value": "unparsed or qualified",
@@ -48769,9 +48769,9 @@
           "value_max": null,
           "source": {
             "field": "Beschreibung",
-            "field_hash": "3442e3cabf99cb0d1567283473640fe02855bf74c823fc6a3b6456e0a2de0d96",
-            "start": 93,
-            "end": 228,
+            "field_hash": "a49880f0b8b2bbcb6bafcd03276ba135ce29f2d0d9783162461bf595e1ab061e",
+            "start": 64,
+            "end": 199,
             "quote": " Eine rote, nicht zu große Fleischtomate mit ausgewogenem Verhältnis zwischen Saft und Fruchtfleisch, gutem tomatigen Aroma, nicht süß."
           },
           "origin": "description_rule",
@@ -48779,7 +48779,7 @@
           "semantic_status": "ambiguous"
         },
         {
-          "fact_id": "de04a4490915dbd3612b0883d74c47617f01177853ac159c8de24d96652682a3",
+          "fact_id": "88cad57129d39bc956ba86da180151d774cc67a08ff9304a5a2d3d89e6679271",
           "plant_id": "5c5befdafd1e",
           "property_id": "fruit.color",
           "value": "unparsed or qualified",
@@ -48788,9 +48788,9 @@
           "value_max": null,
           "source": {
             "field": "Beschreibung",
-            "field_hash": "3442e3cabf99cb0d1567283473640fe02855bf74c823fc6a3b6456e0a2de0d96",
-            "start": 93,
-            "end": 228,
+            "field_hash": "a49880f0b8b2bbcb6bafcd03276ba135ce29f2d0d9783162461bf595e1ab061e",
+            "start": 64,
+            "end": 199,
             "quote": " Eine rote, nicht zu große Fleischtomate mit ausgewogenem Verhältnis zwischen Saft und Fruchtfleisch, gutem tomatigen Aroma, nicht süß."
           },
           "origin": "description_rule",
@@ -48798,7 +48798,7 @@
           "semantic_status": "ambiguous"
         },
         {
-          "fact_id": "23df0617048f601a53f861095e3f41dc70255230a0678e20ca616aadf732cc40",
+          "fact_id": "88946fbf62bbfe503eaf6fea937c807210ac3669385c70a746b263fea2b96d52",
           "plant_id": "5c5befdafd1e",
           "property_id": "site.uncovered",
           "value": false,
@@ -48807,9 +48807,9 @@
           "value_max": null,
           "source": {
             "field": "Beschreibung",
-            "field_hash": "3442e3cabf99cb0d1567283473640fe02855bf74c823fc6a3b6456e0a2de0d96",
-            "start": 252,
-            "end": 273,
+            "field_hash": "a49880f0b8b2bbcb6bafcd03276ba135ce29f2d0d9783162461bf595e1ab061e",
+            "start": 223,
+            "end": 244,
             "quote": "Anbau mit Regenschutz"
           },
           "origin": "description_rule",
@@ -48817,7 +48817,7 @@
           "semantic_status": "rule_checked"
         },
         {
-          "fact_id": "9d6569a46f5be985999f6df22231486eb4fe239a30f7f88021870495fdf699b8",
+          "fact_id": "38cf1f62b55173956fb54a10ea0c26913c7048afc7ceedb2752613410ad8af6d",
           "plant_id": "5c5befdafd1e",
           "property_id": "site.protected",
           "value": "unparsed or qualified",
@@ -48826,9 +48826,9 @@
           "value_max": null,
           "source": {
             "field": "Beschreibung",
-            "field_hash": "3442e3cabf99cb0d1567283473640fe02855bf74c823fc6a3b6456e0a2de0d96",
-            "start": 252,
-            "end": 273,
+            "field_hash": "a49880f0b8b2bbcb6bafcd03276ba135ce29f2d0d9783162461bf595e1ab061e",
+            "start": 223,
+            "end": 244,
             "quote": "Anbau mit Regenschutz"
           },
           "origin": "description_rule",
@@ -48916,7 +48916,7 @@
     },
     {
       "plant_id": "dd638b00b778",
-      "content_hash": "b1bc890db78a122c2e31b6990d577103aba46200cad0391da6a4a014dfca521f",
+      "content_hash": "d8670dd71413b57430fb7e711b55938db6c9bd8c801f9786ed8616de88772985",
       "facts": [
         {
           "fact_id": "792503900b0b519bde6b84b333ea42abff04d6b8eab6f3b90dedb884c2fa8630",
@@ -49332,7 +49332,7 @@
     },
     {
       "plant_id": "2039073eddff",
-      "content_hash": "b82972618ee2700ba3f9e4950be41d059e1d4d3591dd45c21fab941ee6c79c3e",
+      "content_hash": "dff483f771aa15e437cfcd96ce31dd62e748cb591782040a7d749ca3327cfdb5",
       "facts": [
         {
           "fact_id": "72a49b75810b7fed300e9db569814ec01797663e34785b533f4f108abeec3245",
@@ -49910,7 +49910,7 @@
     },
     {
       "plant_id": "267c4d10f866",
-      "content_hash": "f25a58f551e17c7c0d187c94e05b9dc76d2000d9d44616ab636fd28b6e76e1d3",
+      "content_hash": "493f9e60d08bd6ea51a3f3c4ea3ed9ef001577b4575fc3d132b8f6c3e0d79032",
       "facts": [
         {
           "fact_id": "d9734db5608cecb4c869f7cffdeb7beafce5ea99abda2113a81364d151be1b5a",
@@ -50217,7 +50217,7 @@
     },
     {
       "plant_id": "e3877becbf66",
-      "content_hash": "d98de201b9897457dfc05ba6ecb68d688e5b1d9cc3c12c42912084465e534747",
+      "content_hash": "ec0a6648550d901e39a73a01e34d974f83e265403749ee5978949df3370d0aaa",
       "facts": [
         {
           "fact_id": "ecb7ecd774c4fa4ed2c92d1cc8b164c5df0bede9d9922d6e39d41858c6544779",
@@ -50915,7 +50915,7 @@
     },
     {
       "plant_id": "4d0314927919",
-      "content_hash": "232307137b8b17803884126b0943ad674c805da2903f6ef70d15c88463699943",
+      "content_hash": "c600255c45ad45298f90d35ac02e8be89d6d8799c222d572389b99881946ebee",
       "facts": [
         {
           "fact_id": "700c9c04cca8cc114063b79fbc309456c5dad6beee9366f8efb456cec3652d31",
@@ -51121,7 +51121,7 @@
     },
     {
       "plant_id": "d05f51ba18a8",
-      "content_hash": "c10ad0bc08b23662d00af967d80a56110416fa9b91b5774532301ebad8986567",
+      "content_hash": "c68a99a847bd93d8139a0aa61c417a2e2745ddd72085fd71e6438ff434c9e900",
       "facts": [
         {
           "fact_id": "7541ca4dc384bc9ad8eca58276ca24eab0deb4fe24c86ab441b2b895db4c0cf4",
@@ -51322,7 +51322,7 @@
     },
     {
       "plant_id": "5c7b11fe74c3",
-      "content_hash": "ba28ff4aea8fdb96a600d982feb2b9c677cbdfeb46c7d5976ce0cb4053dc9dde",
+      "content_hash": "e28738c3bcc2fb343cedf491f9585d827ba6cac23ef6cb01f08fa9224201ce61",
       "facts": [
         {
           "fact_id": "cf2a57015fa1ef4255a7548d91bc4321b815b30723708637f3e31ca8ee5d5546",
@@ -51558,10 +51558,10 @@
     },
     {
       "plant_id": "b45215f9d77c",
-      "content_hash": "aefc08ee9848fff30d4a8f781d11c1c7eb3fde21d7d73c63f16466d8765e1c80",
+      "content_hash": "772e33692c6c6a58908c363fbb97c3a8564f7556c427a921258f3604dbe2158d",
       "facts": [
         {
-          "fact_id": "48bd2b3a489252bb810a4c610dd81e1dfaf17de5c504e89b33dbad22e71ea770",
+          "fact_id": "e48e61262fcd45968bb59eec869e11e9fd9c6c02d857cfa5a5a003fdfdbcd068",
           "plant_id": "b45215f9d77c",
           "property_id": "site.greenhouse_or_roof",
           "value": true,
@@ -51580,7 +51580,7 @@
           "semantic_status": "unreviewed"
         },
         {
-          "fact_id": "4418194bc165657f272e10a25dbc3a6479e499bae5f0445f26a4df483f0dff11",
+          "fact_id": "70b2621a5a12ac2c6df106a66f72be2b366d25ddd24899849c0143584624c66c",
           "plant_id": "b45215f9d77c",
           "property_id": "site.warm",
           "value": true,
@@ -51599,7 +51599,7 @@
           "semantic_status": "unreviewed"
         },
         {
-          "fact_id": "2b86189e859428d88a0d3f7ce0272e4804bec593dbbb6692212f55029442f6d8",
+          "fact_id": "f300d132f352e5299656e9c17c2bd2a0cd930364a1baaa1cf2224f50cf284e17",
           "plant_id": "b45215f9d77c",
           "property_id": "harvest.start_month",
           "value": 7.0,
@@ -51618,7 +51618,7 @@
           "semantic_status": "unreviewed"
         },
         {
-          "fact_id": "66e22dd6dc6b463775d6bd78fcaa31b78b331bb890026c98f14ac292dffb52d8",
+          "fact_id": "c5d2008ab412fc37171a4177d12209c0832ac031b9623fd769ada436fed19a81",
           "plant_id": "b45215f9d77c",
           "property_id": "harvest.end_month",
           "value": 7.0,
@@ -51637,7 +51637,7 @@
           "semantic_status": "unreviewed"
         },
         {
-          "fact_id": "d13808aac691d93900d707853d66aa51189364841f979b87da33d4dffe6e9ef9",
+          "fact_id": "7d4a127c0162089458cc8ba11f426d059022b4dc29df1f86b663feb69b1940c6",
           "plant_id": "b45215f9d77c",
           "property_id": "fruit.color",
           "value": "rot",
@@ -51656,7 +51656,7 @@
           "semantic_status": "unreviewed"
         },
         {
-          "fact_id": "4f5f00784827967c834c8e3e6d20a8a03b40530192805f51d40849ed53af2b16",
+          "fact_id": "9c3a10e3064faae720cb183267aaf5c0c92a3be065c2f706285f42e554bb6f10",
           "plant_id": "b45215f9d77c",
           "property_id": "site.uncovered",
           "value": "unparsed or qualified",
@@ -51665,7 +51665,7 @@
           "value_max": null,
           "source": {
             "field": "Beschreibung",
-            "field_hash": "cf7b2b526b801b59b2efcc014e35ada2f1f31cc152711878efe119597bc351cb",
+            "field_hash": "85fa7eb278b56c08f6de6eee940825371b7f6ae3fe742afddb7f212d92b93d47",
             "start": 0,
             "end": 80,
             "quote": "Eine saftige, rote, reichtragende, würzige Salattomate für den Anbau unter Dach."
@@ -51675,7 +51675,7 @@
           "semantic_status": "ambiguous"
         },
         {
-          "fact_id": "c9046c9db9d124c0aed7b722d6f95359ad7f58cbfe10200e60471f22b9a814f0",
+          "fact_id": "6bc78ca5255b129ab157e30d9054c75103c2f26158ee9826e0b50fc6954a69e0",
           "plant_id": "b45215f9d77c",
           "property_id": "site.greenhouse_or_roof",
           "value": true,
@@ -51684,7 +51684,7 @@
           "value_max": null,
           "source": {
             "field": "Beschreibung",
-            "field_hash": "cf7b2b526b801b59b2efcc014e35ada2f1f31cc152711878efe119597bc351cb",
+            "field_hash": "85fa7eb278b56c08f6de6eee940825371b7f6ae3fe742afddb7f212d92b93d47",
             "start": 0,
             "end": 80,
             "quote": "Eine saftige, rote, reichtragende, würzige Salattomate für den Anbau unter Dach."
@@ -51694,7 +51694,7 @@
           "semantic_status": "rule_checked"
         },
         {
-          "fact_id": "064f3e989b4200826eb3124a8bc88b4575ef0733fe218f0fce4fd7107445731c",
+          "fact_id": "229f9192152f5645b1ec553b3b356300295d37ecdd1d52b6f8f4868e3afa1e3c",
           "plant_id": "b45215f9d77c",
           "property_id": "plant.winter_hardy",
           "value": "unparsed or qualified",
@@ -51703,7 +51703,7 @@
           "value_max": null,
           "source": {
             "field": "Beschreibung",
-            "field_hash": "cf7b2b526b801b59b2efcc014e35ada2f1f31cc152711878efe119597bc351cb",
+            "field_hash": "85fa7eb278b56c08f6de6eee940825371b7f6ae3fe742afddb7f212d92b93d47",
             "start": 80,
             "end": 137,
             "quote": " Die Früchte reifen in Rispen ab Ende Juli bis zum Frost."
@@ -51713,7 +51713,7 @@
           "semantic_status": "ambiguous"
         },
         {
-          "fact_id": "a888d0d394eeea2eedbf8012157f402a16827fd3703f78c54528fe350dc4498a",
+          "fact_id": "65f39dd7a4a8b59636fd4f61c5fc2d17389691c972812533e7d3abb47725cea5",
           "plant_id": "b45215f9d77c",
           "property_id": "harvest.start_month",
           "value": "unparsed harvest context",
@@ -51722,7 +51722,7 @@
           "value_max": null,
           "source": {
             "field": "Beschreibung",
-            "field_hash": "cf7b2b526b801b59b2efcc014e35ada2f1f31cc152711878efe119597bc351cb",
+            "field_hash": "85fa7eb278b56c08f6de6eee940825371b7f6ae3fe742afddb7f212d92b93d47",
             "start": 80,
             "end": 137,
             "quote": " Die Früchte reifen in Rispen ab Ende Juli bis zum Frost."
@@ -51732,7 +51732,7 @@
           "semantic_status": "ambiguous"
         },
         {
-          "fact_id": "9651cac0f5aa7bc1564f428f47144687852726a7cccfb947389ba5f535e4cfce",
+          "fact_id": "5fc1986d486bd07806a7cfe7bb5493b72e71cd26a715c457d9daddd828ed8891",
           "plant_id": "b45215f9d77c",
           "property_id": "harvest.end_month",
           "value": "unparsed harvest context",
@@ -51741,7 +51741,7 @@
           "value_max": null,
           "source": {
             "field": "Beschreibung",
-            "field_hash": "cf7b2b526b801b59b2efcc014e35ada2f1f31cc152711878efe119597bc351cb",
+            "field_hash": "85fa7eb278b56c08f6de6eee940825371b7f6ae3fe742afddb7f212d92b93d47",
             "start": 80,
             "end": 137,
             "quote": " Die Früchte reifen in Rispen ab Ende Juli bis zum Frost."
@@ -51751,7 +51751,7 @@
           "semantic_status": "ambiguous"
         },
         {
-          "fact_id": "52c1c161243d129eecfaccf97e70d2381de464ce672b974c41ee3c4224629ac9",
+          "fact_id": "c659945e6a50a75433d2e7d9e10fa62bc2e233a715d8adc8670283214cf80ccc",
           "plant_id": "b45215f9d77c",
           "property_id": "care.no_pruning",
           "value": false,
@@ -51760,7 +51760,7 @@
           "value_max": null,
           "source": {
             "field": "Beschreibung",
-            "field_hash": "cf7b2b526b801b59b2efcc014e35ada2f1f31cc152711878efe119597bc351cb",
+            "field_hash": "85fa7eb278b56c08f6de6eee940825371b7f6ae3fe742afddb7f212d92b93d47",
             "start": 137,
             "end": 175,
             "quote": " Die Pflanze sollte ausgegeizt werden."
@@ -51770,7 +51770,7 @@
           "semantic_status": "rule_checked"
         },
         {
-          "fact_id": "783a7ea11884ef053cef6f6505d31b296aaed6f86870d046c779e158dc30a737",
+          "fact_id": "7e801e9494ca73c449f68874b2f6c5b78e8d36e8362fe7daba972fa07aa66a58",
           "plant_id": "b45215f9d77c",
           "property_id": "harvest.start_month",
           "value": "unparsed harvest context",
@@ -51779,7 +51779,7 @@
           "value_max": null,
           "source": {
             "field": "Beschreibung",
-            "field_hash": "cf7b2b526b801b59b2efcc014e35ada2f1f31cc152711878efe119597bc351cb",
+            "field_hash": "85fa7eb278b56c08f6de6eee940825371b7f6ae3fe742afddb7f212d92b93d47",
             "start": 175,
             "end": 189,
             "quote": " Guter Ertrag!"
@@ -51789,7 +51789,7 @@
           "semantic_status": "ambiguous"
         },
         {
-          "fact_id": "941a00841a0fa272bcda5e77a1f3d866bf11f1e410ee90cf97a996d25bd9efa1",
+          "fact_id": "bb8290e80ff0b6bffa409a39c6577e4f12b4f4a30cd3a78cc1fd69222ee1369d",
           "plant_id": "b45215f9d77c",
           "property_id": "harvest.end_month",
           "value": "unparsed harvest context",
@@ -51798,7 +51798,7 @@
           "value_max": null,
           "source": {
             "field": "Beschreibung",
-            "field_hash": "cf7b2b526b801b59b2efcc014e35ada2f1f31cc152711878efe119597bc351cb",
+            "field_hash": "85fa7eb278b56c08f6de6eee940825371b7f6ae3fe742afddb7f212d92b93d47",
             "start": 175,
             "end": 189,
             "quote": " Guter Ertrag!"
@@ -51880,7 +51880,7 @@
     },
     {
       "plant_id": "848bdb367f53",
-      "content_hash": "29fac3586f412d26783f344ee80377324d53f9f49734716c942242f52bf04a2f",
+      "content_hash": "a17f6816c4116c745dc6364fa32c506a6b5130f833896ebb93ffcb8b043ca518",
       "facts": [
         {
           "fact_id": "8be01e24f9e44b20196d4f8df70e95024684df9056260543b6ce393589c0b095",
@@ -51940,7 +51940,7 @@
           "semantic_status": "unreviewed"
         },
         {
-          "fact_id": "f1db53beb22ea42c9a5cb4491eaea6367886717171181a48f588cbec4a833f32",
+          "fact_id": "ab795249c6d96b8508908bb27d458f4023036b0ffe439b8cc7d380a919a69fd2",
           "plant_id": "848bdb367f53",
           "property_id": "fruit.large",
           "value": true,
@@ -51949,9 +51949,9 @@
           "value_max": null,
           "source": {
             "field": "Beschreibung",
-            "field_hash": "917c6ac8dcf53a73ac7bffa1271a53891bd3d75f6946ab4096400f58b04f306f",
-            "start": 264,
-            "end": 328,
+            "field_hash": "e2b8cd89004d644d02402aaa8556bf135bcd392fd5f55c28c0588cba2bd2e253",
+            "start": 225,
+            "end": 289,
             "quote": " Der beste Beweis, dass große Tomaten auch gut schmecken können."
           },
           "origin": "description_rule",
@@ -51959,7 +51959,7 @@
           "semantic_status": "rule_checked"
         },
         {
-          "fact_id": "1bf23c8f33c03d067ac01e49e9f64eae609ea0d0126b0b6204ebe2c55a3c77ff",
+          "fact_id": "5d25c02482502238c07a5d491ef71043e2e661946f34892dac92021f1fb52ccd",
           "plant_id": "848bdb367f53",
           "property_id": "fruit.small",
           "value": "unparsed or qualified",
@@ -51968,9 +51968,9 @@
           "value_max": null,
           "source": {
             "field": "Beschreibung",
-            "field_hash": "917c6ac8dcf53a73ac7bffa1271a53891bd3d75f6946ab4096400f58b04f306f",
-            "start": 264,
-            "end": 328,
+            "field_hash": "e2b8cd89004d644d02402aaa8556bf135bcd392fd5f55c28c0588cba2bd2e253",
+            "start": 225,
+            "end": 289,
             "quote": " Der beste Beweis, dass große Tomaten auch gut schmecken können."
           },
           "origin": "description_rule",
@@ -51978,7 +51978,7 @@
           "semantic_status": "ambiguous"
         },
         {
-          "fact_id": "1c01d67673d952f52d087a439ae021985580dc926c9c19f3f4f2f4843e022300",
+          "fact_id": "50f778db4d5d4a446e4f9deb0176f4b6a302bad705a234290b38c1b89153aa3b",
           "plant_id": "848bdb367f53",
           "property_id": "site.uncovered",
           "value": false,
@@ -51987,9 +51987,9 @@
           "value_max": null,
           "source": {
             "field": "Beschreibung",
-            "field_hash": "917c6ac8dcf53a73ac7bffa1271a53891bd3d75f6946ab4096400f58b04f306f",
-            "start": 328,
-            "end": 364,
+            "field_hash": "e2b8cd89004d644d02402aaa8556bf135bcd392fd5f55c28c0588cba2bd2e253",
+            "start": 289,
+            "end": 325,
             "quote": " Regenschutz erforderlich, ausgeizen"
           },
           "origin": "description_rule",
@@ -51997,7 +51997,7 @@
           "semantic_status": "rule_checked"
         },
         {
-          "fact_id": "62c4976730513f4a0fbbdfa345c8d8e89dc8f24bc19e4a82da41865c2bbc0705",
+          "fact_id": "1954a375d0b9ea4d13d3060736002bf1ffeefed0ac8484cf3edd319792a8819b",
           "plant_id": "848bdb367f53",
           "property_id": "care.no_pruning",
           "value": "unparsed or qualified",
@@ -52006,9 +52006,9 @@
           "value_max": null,
           "source": {
             "field": "Beschreibung",
-            "field_hash": "917c6ac8dcf53a73ac7bffa1271a53891bd3d75f6946ab4096400f58b04f306f",
-            "start": 328,
-            "end": 364,
+            "field_hash": "e2b8cd89004d644d02402aaa8556bf135bcd392fd5f55c28c0588cba2bd2e253",
+            "start": 289,
+            "end": 325,
             "quote": " Regenschutz erforderlich, ausgeizen"
           },
           "origin": "description_rule",
@@ -52016,7 +52016,7 @@
           "semantic_status": "ambiguous"
         },
         {
-          "fact_id": "004b5407e0b1be72350f6d75fa36ca5fdea69dddea9eca3631609cee633f1bb6",
+          "fact_id": "78821b0a24ce0ac7df72eba2aa1f51908f0458e9d43c5e1086d803f86f8ba820",
           "plant_id": "848bdb367f53",
           "property_id": "site.protected",
           "value": true,
@@ -52025,9 +52025,9 @@
           "value_max": null,
           "source": {
             "field": "Beschreibung",
-            "field_hash": "917c6ac8dcf53a73ac7bffa1271a53891bd3d75f6946ab4096400f58b04f306f",
-            "start": 328,
-            "end": 364,
+            "field_hash": "e2b8cd89004d644d02402aaa8556bf135bcd392fd5f55c28c0588cba2bd2e253",
+            "start": 289,
+            "end": 325,
             "quote": " Regenschutz erforderlich, ausgeizen"
           },
           "origin": "description_rule",
@@ -52649,7 +52649,7 @@
     },
     {
       "plant_id": "9a0b8f00e52a",
-      "content_hash": "fc353d5b8387195314b1e3da81c3fd564fcd1a2fa8fc50626bf22bbb16083662",
+      "content_hash": "ee26806eb96c1deee859c61d4b51a69dbcf2bced000b48d79ec2eed3797eb1a8",
       "facts": [
         {
           "fact_id": "50e9fe9d1ca6998fb1330f902e3317fc02e90a56b398e5870528b73a07be52e3",
@@ -52879,7 +52879,7 @@
     },
     {
       "plant_id": "56e8c27a6e09",
-      "content_hash": "1956aadd182a702619589fa7822d333bfcb19572d400b3aa4f6099f990a235c2",
+      "content_hash": "bba63e6a3600675d148dd132cde06c0ba550402bf578c92ff324fdd2f5cd587c",
       "facts": [
         {
           "fact_id": "f1a0023830970c121f34649eee033212c4d5f8859f057c6bb4df5d0cd219c2fc",
@@ -53127,7 +53127,7 @@
     },
     {
       "plant_id": "3e7dc6286811",
-      "content_hash": "490a12ce6d6bd17bc986572b19d68bdd06595ddf722a83ed7820440095363304",
+      "content_hash": "db7fe5c9c54bb390d6372dae83b74bdf51fee0811ca3ac83e7bac64dc0026760",
       "facts": [
         {
           "fact_id": "f87dea09f95f818e1453c4f165e9b710f52d51d3f085ee0c24c704bf3ef39798",
@@ -53597,7 +53597,7 @@
     },
     {
       "plant_id": "9fc3c0059a84",
-      "content_hash": "42bac884fea6c854ab7b833ef80d20710b0358688a570df9f65f450d5e7a2d10",
+      "content_hash": "71a376ab89603ac7e989261bcbd5217cbf8d3b121c872822ec4d2ee263054409",
       "facts": [
         {
           "fact_id": "f39d8706381b75188e45f642a62146809a9704c78596358e10f55e2d0cbe3738",

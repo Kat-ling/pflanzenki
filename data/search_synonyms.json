@@ -1,0 +1,19 @@
+{
+  "_hinweis": "Gruppen gleichbedeutender Suchwörter, klein geschrieben. Sie helfen nur beim Finden und belegen keine Eigenschaft. Neue Gruppen brauchen keine Codeänderung.",
+  "groups": [
+    ["aubergine", "melanzani", "eierfrucht", "eierpflanze"],
+    ["tomate", "paradeiser", "paradeis", "paradiesapfel"],
+    ["peperoni", "pepperoni", "pfefferoni"],
+    ["chili", "chilli", "tschili"],
+    ["zucchini", "zucchetti", "zucchino"],
+    ["kürbis", "kuerbis"],
+    ["rucola", "rauke"],
+    ["radi", "rettich", "radieschen"],
+    ["lauchzwiebel", "frühlingszwiebel", "fruehlingszwiebel"],
+    ["brokkoli", "broccoli"],
+    ["weißkohl", "weisskohl", "weißkraut", "weisskraut"],
+    ["rotkohl", "blaukraut", "rotkraut"],
+    ["wirsing", "wirz"],
+    ["cocktail", "cherry", "kirsch", "klein"]
+  ]
+}

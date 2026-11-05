@@ -1,4 +1,14 @@
-# Architektur v0.5 – lokaler Auswahlpfad
+# Architektur
+
+Aktiver Antwortweg seit v0.6: `/api/ask` → `app/ai/catalogue_answer.py` → lokale Suche in
+`app/advisor/retrieval.py` → ein Modellaufruf → Prüfung der Quellenkennungen.
+Einstellungen stehen in `app/config.py`, der Schutz für den Webbetrieb in `app/security.py`,
+die Oberfläche in `static/`, der Katalogimport in `app/importer/update.py`.
+
+Der folgende Abschnitt beschreibt den lokalen Auswahlpfad aus v0.5. Er ist weiterhin
+im Code vorhanden und erreichbar über `/api/interpret`, beantwortet aber keine Beratungsfragen.
+
+# Lokaler Auswahlpfad v0.5
 
 FastAPI, lokaler Notion-Import und Pflanzenkarten bleiben bestehen. Der
 OpenAI-Pfad ersetzt die Beschränkung auf feste Merkmale durch freie Kriterien.
@@ -44,7 +54,8 @@ echten Modell abgenommen. Strukturierte Fakten allein sind keine fachliche Freig
 | app/advisor/local_selection.py | Dreiwertlogik, Zahlen, Quellenprüfung und lokaler Cache |
 | app/models/catalogue_facts.py | Registry, Fakten, Originalquellen und Revisionen |
 | app/importer/text_facts.py | Konservative Textregeln mit Quellen und Mehrdeutigkeitsmarkierung |
-| app/main.py | Endpunkte, Gesprächsoberfläche, vollständige Karten |
+| app/main.py | Endpunkte |
+| static/ | Gesprächsoberfläche, vollständige Karten |
 | app/importer/ | Notion-ZIP/CSV, Originalfelder und Bildzuordnung |
 | app/advisor/engine.py | Bestehender Fake-/Kompatibilitätspfad |
 
