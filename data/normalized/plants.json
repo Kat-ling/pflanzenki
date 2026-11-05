@@ -12486,9 +12486,7 @@
     "name": "Porthos",
     "category": "Sellerie",
     "description": "Ein schossfester, mittelhoch sitzender Sellerie mit runder, glatter heller Knolle. Der konzentrierte Wurzelansatz erleichtert die ernte. Für Lagerung Anbau im Mai/Juni. Aromatisch-würziger Geschmack. Knollensellerie nicht zu tief pflanzen, sonst bilden sich viele seitliche Wurzeln!",
-    "image_filenames": [
-      ""
-    ],
+    "image_filenames": [],
     "raw_fields": {
       "Name": "Porthos",
       "Name_für_Katalog": "Knollensellerie \"Porthos\"",

@@ -32,6 +32,16 @@ def test_local_rules_replace_text_in_every_field():
     assert row == {"Name": "Tomate", "Name_für_Katalog": "Die Tomate"}
 
 
+@pytest.mark.parametrize("value, expected", [
+    ("https://cloud.example/ordner/gesperrt.jpg", ""),
+    ("gesperrt.jpg", ""),
+    ("a.jpg, https://cloud.example/ordner/gesperrt.jpg", "a.jpg"),
+])
+def test_blocked_image_stays_out_even_when_linked(value, expected):
+    row = sanitize_row({"Name": "A", "Bild": value}, [{"find": "gesperrt.jpg", "replace": ""}])
+    assert row["Bild"] == expected
+
+
 def test_missing_rules_file_means_no_rules(tmp_path):
     assert load_privacy_rules(tmp_path / "fehlt.json") == []
 

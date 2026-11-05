@@ -33,16 +33,22 @@ def load_privacy_rules(path: str | Path) -> list[dict[str, str]]:
     return json.loads(path.read_text(encoding="utf-8"))["replacements"]
 
 
+def image_names(value: str) -> str:
+    # Links point into private storage; only the file name is needed.
+    return ", ".join(split_image_names(value))
+
+
 def sanitize_row(row: dict, rules: list[dict[str, str]]) -> dict:
     cleaned = {}
     for key, value in row.items():
         if isinstance(value, str):
+            if key == "Bild":
+                value = image_names(value)
             for rule in rules:
                 value = value.replace(rule["find"], rule["replace"])
+            if key == "Bild":
+                value = image_names(value)
         cleaned[key] = value
-    if cleaned.get("Bild"):
-        # Links point into private storage; only the file name is needed.
-        cleaned["Bild"] = ", ".join(split_image_names(cleaned["Bild"]))
     return cleaned
 
 

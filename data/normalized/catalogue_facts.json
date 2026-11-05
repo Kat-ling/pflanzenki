@@ -2,7 +2,7 @@
   "schema_version": "2",
   "extractor_version": "4",
   "registry_hash": "98e0e35b558f9fdd6a5e27cdc6d148c6540a12a53442e5cad049c7b40749cff1",
-  "catalogue_revision": "a77fb320af499c3b0a91820de00f8782e56c4b9cb4fd45f8335507a5d110ca12",
+  "catalogue_revision": "f050bcb98a6f769b41f124229f4f8e9309787dec2fc6ef0153bd697ef036c233",
   "registry": [
     {
       "property_id": "site.outdoor",
@@ -25508,7 +25508,7 @@
     },
     {
       "plant_id": "feff18a4a8be",
-      "content_hash": "548c68f727db95d44b2d9b1cb9cbd7816e85b54ab0e74d420aeb5117743f9454",
+      "content_hash": "a94f3618c801bcbf999c616c92449dd316e3397b3ca7088a9181f6f3e3d369e0",
       "facts": [
         {
           "fact_id": "2ca69cfd99bea266d04d23f7a3a08d07db8a1abccc7448861fe21e41e0731582",
@@ -25666,7 +25666,6 @@
         "Kategorie": "Sellerie",
         "Beschreibung": "Ein schossfester, mittelhoch sitzender Sellerie mit runder, glatter heller Knolle. Der konzentrierte Wurzelansatz erleichtert die ernte. Für Lagerung Anbau im Mai/Juni. Aromatisch-würziger Geschmack. Knollensellerie nicht zu tief pflanzen, sonst bilden sich viele seitliche Wurzeln!",
         "Besonderheiten": "aromatisch",
-        "Bild": "",
         "Botanischer_Name": "Apium graveolens",
         "Ernte_von_Monat": "5",
         "Ernte_bis_Monat": "6",
