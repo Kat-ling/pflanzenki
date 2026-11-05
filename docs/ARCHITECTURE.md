@@ -1,7 +1,19 @@
 # Architektur
 
 Aktiver Antwortweg seit v0.6: `/api/ask` → `app/ai/catalogue_answer.py` → lokale Suche in
-`app/advisor/retrieval.py` → ein Modellaufruf → Prüfung der Quellenkennungen.
+`app/advisor/retrieval.py` → ein Modellaufruf → Prüfung der Quellenkennungen →
+Gegenprüfung in `app/advisor/answer_check.py` gegen `catalogue_facts.json`.
+Die Gegenprüfung nutzt die Dreiwertlogik aus `local_selection.py`. Ein NO bei einer
+Pflichtbedingung verhindert eine Empfehlung. UNKNOWN verhindert sie in der Regel nicht, weil
+die Regeln weniger wissen als die Beschreibungen, die das Modell gelesen hat. Ausnahme sind
+Standorteigenschaften (`site.*`) ohne jeden Beleg: Im echten Test leitete das Modell die
+Balkoneignung aus der Wuchshöhe ab, obwohl der Katalog keine belegte Paprika enthielt.
+Solche Sorten gelten deshalb als unsicher. Lässt das Modell eine Standortbedingung offen
+(`unresolved`), ordnet `pin_site` sie anhand ihres Textes lokal der Eigenschaft zu, denn das
+kam im zweiten Echttest trotz klarer Anweisung vor. Grenzen: Andere Aussagen ohne passende Fakten bleiben
+ungeprüft, das Modell könnte Bedingungen auslassen oder als Wunsch einstufen, und der Wortlaut
+der Erklärung wird nicht inhaltlich verglichen.
+
 Einstellungen stehen in `app/config.py`, der Schutz für den Webbetrieb in `app/security.py`,
 die Oberfläche in `static/`, der Katalogimport in `app/importer/update.py`.
 

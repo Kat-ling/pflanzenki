@@ -67,6 +67,22 @@ def test_more_results_are_not_the_ones_already_shown():
     assert categories("Gibt es noch weitere?", history, visible).most_common(1)[0][0] == "Tomate"
 
 
+def test_more_results_stay_with_the_latest_topic():
+    # Live test: after tomatoes, then peppers, "weitere" jumped back to tomatoes.
+    history = [SimpleNamespace(role="user", content="Ich möchte eine Cocktailtomate ohne Regenschutz anbauen."),
+               SimpleNamespace(role="assistant", content="Antwort"),
+               SimpleNamespace(role="user", content="Welche Paprika ist nicht scharf?"),
+               SimpleNamespace(role="assistant", content="Antwort")]
+    found = categories("Gibt es noch weitere?", history)
+    assert found["Paprika"] == COUNTS["Paprika"]
+    assert found["Tomate"] == 0
+
+
+def test_explicit_topic_change_beats_the_history():
+    history = [SimpleNamespace(role="user", content="Welche Paprika ist nicht scharf?")]
+    assert categories("Und bei Zucchini?", history).most_common(1)[0][0] == "Zucchini"
+
+
 def test_comparing_shown_varieties_keeps_them():
     first = retrieve(PLANTS, "Zucchini gelb", [])[:2]
     visible = [{"plant_id": c["plant_id"], "name": ""} for c in first]

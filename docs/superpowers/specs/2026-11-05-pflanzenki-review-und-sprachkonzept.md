@@ -1,7 +1,8 @@
 # PflanzenKI: Review und Konzept für die Spracheingabe
 
 Stand: 5. November 2026. Status: Konzept. Die Spracheingabe ist bewusst noch nicht umgesetzt.
-Die Befunde B3 und B4 sowie die Web-Vorbereitung wurden in v0.6 teilweise erledigt; siehe `docs/CHANGELOG.md`.
+Die Befunde B3 und B4 sowie die Web-Vorbereitung wurden in v0.6 teilweise erledigt, die Faktenprüfung
+zu B1 und B2 danach ebenfalls; siehe `docs/CHANGELOG.md`.
 Methodik: `obra/superpowers`, gelesen aus dem lokalen Ordner und von Hand angewendet
 (`brainstorming`, `systematic-debugging`, `test-driven-development`,
 `verification-before-completion`, `writing-plans`, `requesting-code-review`).

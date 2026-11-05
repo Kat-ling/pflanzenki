@@ -50,6 +50,15 @@ class Criterion(StrictModel):
     expression: Expression
 
 
+def require_bounded(criteria):
+    def measure(node, depth=1):
+        if depth > 6:
+            raise ValueError("Suchauftrag zu tief verschachtelt. Bitte vereinfachen.")
+        return (1 if not node.children else 0) + sum(measure(c, depth + 1) for c in node.children)
+    if sum(measure(c.expression) for c in criteria) > 20:
+        raise ValueError("Mehr als 20 Einzelbedingungen. Bitte vereinfachen.")
+
+
 class DialoguePlan(StrictModel):
     intent: Literal["recommendation", "information", "comparison", "catalog"]
     categories: list[str]
@@ -60,12 +69,7 @@ class DialoguePlan(StrictModel):
 
     @model_validator(mode="after")
     def bounded_expression(self):
-        def measure(node, depth=1):
-            if depth > 6:
-                raise ValueError("Suchauftrag zu tief verschachtelt. Bitte vereinfachen.")
-            return (1 if not node.children else 0) + sum(measure(c, depth + 1) for c in node.children)
-        if sum(measure(c.expression) for c in self.criteria) > 20:
-            raise ValueError("Mehr als 20 Einzelbedingungen. Bitte vereinfachen.")
+        require_bounded(self.criteria)
         return self
 
 

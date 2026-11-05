@@ -99,7 +99,17 @@ def index(serialized):
 def retrieve(plants, question, history, visible=(), limit=24, budget=28000):
     rows, documents, frequencies, heads = index(json.dumps(records(plants), ensure_ascii=False))
     current = terms(question, heads)
-    prior = terms(" ".join(m.content for m in history if m.role == "user"), heads)
+    questions = [m.content for m in history if m.role == "user"]
+    prior = terms(" ".join(questions), heads)
+    latest = terms(questions[-1], heads) if questions else set()
+    categories = {term for row in rows for term in terms(row["fields"]["Kategorie"])}
+    # A follow-up continues the most recent topic, not everything said so far.
+    topic = set()
+    if not current & categories:
+        topic_question = next((q for q in reversed(questions) if terms(q, heads) & categories), None)
+        if topic_question:
+            prior = terms(topic_question, heads)
+            topic = prior & categories
     visible_ids = {p["plant_id"] for p in visible}
     asked_categories = current - compound_modifiers(question, heads)
     wants_more = bool(MORE_RESULTS.search(question))
@@ -111,14 +121,14 @@ def retrieve(plants, question, history, visible=(), limit=24, budget=28000):
     for row, document in zip(rows, documents):
         if wants_more and row["plant_id"] in visible_ids:
             continue
-        score = sum((3 if t in current else .3) * math.log(1 + len(rows) / frequencies[t])
+        score = sum((3 if t in current else 1.5 if t in latest else .3) * math.log(1 + len(rows) / frequencies[t])
                     for t in document & (current | prior))
         name = row["fields"]["Name"].casefold()
         category = terms(row["fields"]["Kategorie"])
         if category & asked_categories:
             score += 20
-        elif category & prior:
-            score += 6
+        elif category & topic:
+            score += 25
         if " ".join(re.findall(r"\w+", name)) in normalized_question:
             score += 100
         if height_query:

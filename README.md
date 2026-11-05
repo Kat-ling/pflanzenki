@@ -95,6 +95,14 @@ und sichtbare Sorten. Bilder bleiben lokal. Es gibt keine Notion-Liveabfrage.
 Die Modellantwort verwendet Quellenkennungen, die Python prüft und den
 Originalfeldern zuordnet. Die Oberfläche zeigt keine technischen Quellenkürzel.
 
+Das Modell nennt zusätzlich die aktuellen Bedingungen als prüfbare Ausdrücke. Python hält
+jede genannte Sorte dagegen: Widerlegt der Katalog eine Pflichtbedingung, erscheint die Sorte
+nicht als Empfehlung, sondern mit Gegenbeleg unter „widersprechende Angaben“. Name oder
+Kategorie allein belegen keine Bedingung. Sortennamen ohne Karte werden aus dem Antworttext
+entfernt. Standorte wie Balkon, Gewächshaus oder „ohne Regenschutz“ müssen im Katalog belegt
+sein, sonst gilt die Sorte als unsicher. Fehlt bei anderen Eigenschaften ein passender Fakt,
+bleibt die Empfehlung bestehen und diese Aussage ungeprüft.
+
 Für `gpt-5-mini` und den Snapshot `gpt-5-mini-2025-08-07` wird minimaler
 Denkaufwand angefordert. Es gelten 4.000 Output-Tokens, 30 Sekunden
 Transport-Timeout und keine automatischen Wiederholungen. Die Kandidatendaten

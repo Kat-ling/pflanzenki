@@ -1,11 +1,21 @@
 """One source-grounded answer over a bounded local candidate selection."""
-from pydantic import Field
+import json
 from typing import Literal
 
+from pydantic import Field, model_validator
+
+from app.advisor.answer_check import (
+    checkable, contradictions, identity_only, names_any, readable, unproven_sites,
+)
+from app.advisor.local_selection import prepare_catalogue
 from app.advisor.retrieval import retrieve
-from app.ai.catalogue_dialogue import make_card, request_structured
-from app.ai.dialogue_models import StrictModel
+from app.ai.catalogue_dialogue import EXPRESSION_RULES, make_card, request_structured
+from app.ai.dialogue_models import Criterion, StrictModel, require_bounded
 from app.ai.query_interpreter import QueryInterpreterError
+
+NEUTRAL_ANSWER = "Das sind die Sorten, die nach den Katalogangaben infrage kommen."
+NO_ANSWER = "Für diese Anfrage kann ich keine belegte Sorte empfehlen."
+IDENTITY_REASON = "Name oder Kategorie allein belegen diese Bedingung nicht."
 
 
 class AnswerPlant(StrictModel):
@@ -20,6 +30,12 @@ class CatalogueAnswer(StrictModel):
     answer: str
     plants: list[AnswerPlant] = Field(max_length=4)
     follow_up_question: str
+    conditions: list[Criterion] = Field(max_length=20)
+
+    @model_validator(mode="after")
+    def bounded_conditions(self):
+        require_bounded(self.conditions)
+        return self
 
 
 INSTRUCTIONS = """
@@ -65,7 +81,22 @@ bisherige Frage beziehen, nicht durch eine allgemeine Sortenbeschreibung ersetze
 Keine ungefragte Liste fehlender Eigenschaften. Bei uncertain in answer nicht
 behaupten, die Pflanze passe. Fehlendes Wissen gezielt benennen.
 Einschränkungen exakt erhalten: 'erforderlich' darf nicht zu 'empfohlen' werden.
-""".strip()
+
+conditions enthält alle aktuell gültigen Auswahlbedingungen dieses Gesprächs für
+eine lokale Gegenprüfung, unabhängig von den genannten Sorten. Jede Bedingung hat
+text, importance, kind und expression. Ausdrücklich verlangte Eigenschaften sind
+required; nur 'gern', 'idealerweise', 'wenn möglich' ergeben preferred.
+kind=condition für Auswahlbedingungen, kind=information für reine Sachfragen.
+Bei einer reinen Sortenbeschreibung oder Bestandsfrage bleibt conditions leer.
+Die Kategorie selbst ist keine Bedingung. Balkon, Topf und Kübel sind site.container.
+Jeder ausdrücklich genannte Standort ist required und immer ein predicate, nie unresolved
+und auch keine Alternative mit unresolved. Eignung für einen Standort nie aus
+Wuchshöhe, Wuchsform, Fruchtgröße oder Verwendung ableiten: Sie muss in den Quellen stehen.
+Fehlt sie, ist die Sorte uncertain oder bleibt weg. Gibt es keine belegte Sorte, sage das.
+Bedingungstexte in natürlicher Sprache, ohne property_id oder technische Klammern.
+Eine Nachfrage wie 'weitere' bezieht sich nur auf die letzte Frage, nicht auf frühere Themen.
+{expression_rules}
+""".strip().replace("{expression_rules}", EXPRESSION_RULES)
 
 
 def consult(interpreter, plants, question, history, previous_plan=None, visible_plants=None):
@@ -77,17 +108,24 @@ def consult(interpreter, plants, question, history, previous_plan=None, visible_
     if not candidates:
         result["answer"] = "Ich finde zu dieser Formulierung keine geeigneten Katalogquellen. Nenne bitte eine Pflanze oder eine konkrete Eigenschaft."
         return result
+    bundle = prepare_catalogue(plants)
     source_maps = {p["plant_id"]: {f"s{i}": {"field": key, "text": value}
                    for i, (key, value) in enumerate(p["fields"].items())} for p in candidates}
     payload = {"question": question, "history": [m.model_dump() for m in history],
-               "visible_plants": visible_plants or [], "candidates": [
+               "visible_plants": visible_plants or [],
+               "available_properties": [{"property_id": d.property_id, "type": d.value_type,
+                                         "meaning": d.semantics, "unit": d.unit} for d in bundle.registry],
+               "candidates": [
                    {"plant_id": p["plant_id"], "sources": source_maps[p["plant_id"]]} for p in candidates]}
-    import json
     if len(json.dumps(payload, ensure_ascii=False)) > 60000:
         raise QueryInterpreterError("Das Gespräch ist für eine sparsame Anfrage zu lang. Bitte eine neue Beratung beginnen.")
     answer = request_structured(interpreter, INSTRUCTIONS, payload, CatalogueAnswer)
     originals = {p.id: p for p in plants}
-    seen = set()
+    prepared = {p.plant_id: p for p in bundle.plants}
+    registry = {d.property_id: d for d in bundle.registry}
+    conditions, skipped = checkable(answer.conditions, registry)
+    selecting = any(c.kind == "condition" for c in answer.conditions)
+    seen, unproven = set(), 0
     for item in answer.plants:
         sources = source_maps.get(item.plant_id)
         if sources is None or item.plant_id in seen or any(
@@ -96,12 +134,41 @@ def consult(interpreter, plants, question, history, previous_plan=None, visible_
             raise QueryInterpreterError("Die Antwort enthält eine ungültige Quellenzuordnung. Bitte erneut versuchen.")
         seen.add(item.plant_id)
         card = make_card(originals[item.plant_id], [])
+        vetoes = contradictions(conditions, prepared[item.plant_id], registry)
+        if vetoes:
+            card["checks"] = vetoes
+            result["excluded"].append(card)
+            continue
+        cited = [sources[key] for key in dict.fromkeys(item.source_ids)]
+        missing = unproven_sites(conditions, prepared[item.plant_id], registry)
+        reason = ""
+        if item.suitability == "matches" and missing:
+            reason = "Im Katalog nicht belegt: " + "; ".join(map(readable, missing))
+        elif item.suitability == "matches" and selecting and identity_only(cited):
+            reason = IDENTITY_REASON
+        unproven += bool(reason)
+        uncertain = item.suitability == "uncertain" or bool(reason)
         card["checks"] = [{"criterion": item.explanation, "importance": "required",
-                           "kind": "information", "status": "unknown" if item.suitability == "uncertain" else "yes",
-                           "sources": [sources[key] for key in dict.fromkeys(item.source_ids)]}]
-        result["unknown" if item.suitability == "uncertain" else "recommendations"].append(card)
-    result.update(answer=answer.answer, understood_request=answer.understood_request,
-                  follow_up_question=answer.follow_up_question, total_matches=len(result["recommendations"]))
+                           "kind": "information", "status": "unknown" if uncertain else "yes",
+                           "reason": reason, "sources": cited}]
+        result["unknown" if uncertain else "recommendations"].append(card)
+    shown = {card["plant_id"] for card in result["recommendations"] + result["unknown"]}
+    unshown = [p.name for p in plants if p.id not in shown]
+    text = answer.answer
+    if names_any(text, unshown):
+        text = NEUTRAL_ANSWER if result["recommendations"] else NO_ANSWER
+    elif (result["excluded"] or unproven) and not result["recommendations"]:
+        text = NO_ANSWER
+    if result["excluded"]:
+        count = len(result["excluded"])
+        text += f" {count} {'Sorte habe' if count == 1 else 'Sorten habe'} ich nach der Katalogprüfung aussortiert."
+    if unproven:
+        text += f" {'1 Sorte ist' if unproven == 1 else f'{unproven} Sorten sind'} nicht eindeutig belegt."
+    if skipped:
+        result["warnings"].append("Eine Bedingung konnte nicht lokal geprüft werden.")
+    result.update(answer=text, understood_request=answer.understood_request,
+                  follow_up_question=answer.follow_up_question, total_matches=len(result["recommendations"]),
+                  criteria=[{**c.model_dump(), "text": readable(c.text)} for c in answer.conditions])
     if answer.follow_up_question:
         result["answer"] += " " + answer.follow_up_question
     return result
