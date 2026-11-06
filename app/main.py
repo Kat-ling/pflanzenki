@@ -8,6 +8,7 @@ from fastapi.staticfiles import StaticFiles
 from pydantic import BaseModel, Field, model_validator
 
 from app.advisor.engine import advise
+from app.advisor.name_match import check_names, name_question
 from app.config import Settings, load_settings
 from app.repository import load_plants
 from app.security import install_guards
@@ -25,6 +26,7 @@ class AskRequest(BaseModel):
     history: list[ChatMessage] = Field(default_factory=list, max_length=40)
     previous_plan: DialoguePlan | None = None
     visible_plant_ids: list[str] = Field(default_factory=list, max_length=1000)
+    names_checked: bool = False
 
     @model_validator(mode="after")
     def check_history_size(self):
@@ -57,20 +59,30 @@ def health() -> dict[str, str]:
 
 @router.post("/api/ask")
 def ask(payload: AskRequest):
+    if payload.names_checked:
+        return advise_on(payload, payload.question)
+    check = check_names(payload.question, load_plants())
+    if check.choices:
+        return name_question(payload.question, check)
+    result = advise_on(payload, check.text)
+    return {**result, "understood_as": check.text} if check.changed else result
+
+
+def advise_on(payload: AskRequest, question: str):
     try:
         interpreter = create_query_interpreter()
         from app.ai.interpreters.openai_interpreter import OpenAIQueryInterpreter
         if isinstance(interpreter, OpenAIQueryInterpreter):
             from app.ai.catalogue_answer import consult
             plants = load_plants()
-            return consult(interpreter, plants, payload.question, payload.history,
+            return consult(interpreter, plants, question, payload.history,
                            payload.previous_plan, visible_plants(payload, plants))
         if payload.history:
             raise ValueError(
                 "Der lokale Fake-Interpreter unterstützt keine Gespräche. "
                 "Bitte QUERY_INTERPRETER_PROVIDER=openai verwenden oder eine neue Beratung beginnen."
             )
-        parsed_query = interpreter.interpret(payload.question)
+        parsed_query = interpreter.interpret(question)
 
         result = advise(
             plants=load_plants(),

@@ -26,6 +26,42 @@ function showMessage(role, text) {
 }
 
 
+function showNote(text) {
+    const note = document.createElement("p");
+    note.className = "understood";
+    note.textContent = text;
+    conversationOutput.appendChild(note);
+}
+
+
+function showNameChoices(data, question) {
+    const box = document.createElement("div");
+    box.className = "name-check";
+    const prompt = document.createElement("p");
+    prompt.textContent = data.answer;
+    box.appendChild(prompt);
+    for (const choice of data.name_choices) {
+        const button = document.createElement("button");
+        button.type = "button";
+        button.textContent = choice.label;
+        button.addEventListener("click", () => {
+            questionInput.value = choice.question;
+            askQuestion();
+        });
+        box.appendChild(button);
+    }
+    const keep = document.createElement("button");
+    keep.type = "button";
+    keep.textContent = "Nein, so senden";
+    keep.addEventListener("click", () => {
+        questionInput.value = question;
+        askQuestion(true);
+    });
+    box.appendChild(keep);
+    statusOutput.replaceChildren(box);
+}
+
+
 function sourceLabel(evidence) {
     if (evidence.source === "description") {
         return "Beschreibung";
@@ -259,7 +295,7 @@ function renderCards(items, target, pageSize, trackNames) {
 }
 
 
-async function askQuestion() {
+async function askQuestion(namesChecked = false) {
     if (askButton.disabled) return;
     const question = questionInput.value.trim();
 
@@ -297,7 +333,8 @@ async function askQuestion() {
                 question: question,
                 history: requestHistory,
                 previous_plan: previousPlan,
-                visible_plant_ids: shownIds
+                visible_plant_ids: shownIds,
+                names_checked: namesChecked
             })
         });
 
@@ -315,16 +352,21 @@ async function askQuestion() {
         }
 
         const data = await response.json();
+        statusOutput.textContent = "";
+        if (data.intent === "name_check") {
+            showNameChoices(data, question);
+            return;
+        }
         previousPlan = data.plan ?? null;
 
-        statusOutput.textContent = "";
         history = requestHistory;
-        history.push({role: "user", content: question});
+        history.push({role: "user", content: data.understood_as ?? question});
         const criteriaText = data.criteria?.length
             ? " Aktuelle Kriterien: " + data.criteria.map(c => c.text).join("; ") : "";
         lastReply = data.answer + criteriaText;
         history.push({role: "assistant", content: lastReply});
         showMessage("user", question);
+        if (data.understood_as) showNote("Verstanden als: " + data.understood_as);
         showMessage("assistant", data.answer);
         renderResult(data);
         questionInput.value = "";
@@ -363,7 +405,7 @@ async function askQuestion() {
 
 askButton.addEventListener(
     "click",
-    askQuestion
+    () => askQuestion()
 );
 
 resetButton.addEventListener("click", () => {

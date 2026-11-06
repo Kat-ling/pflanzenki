@@ -103,6 +103,11 @@ entfernt. Standorte wie Balkon, Gewächshaus oder „ohne Regenschutz“ müssen
 sein, sonst gilt die Sorte als unsicher. Fehlt bei anderen Eigenschaften ein passender Fakt,
 bleibt die Empfehlung bestehen und diese Aussage ungeprüft.
 
+Sortennamen werden vor dem Modellaufruf lokal abgeglichen, nach Schreibweise und Klang. Ein
+klarer Treffer wird übernommen und als „Verstanden als …“ angezeigt. Bei einem unsicheren
+Treffer fragt die App kostenfrei „Meintest du …?“, und ohne passenden Namen bleibt die Eingabe
+unverändert. Das hilft bei Tippfehlern und ist die Grundlage für die spätere Spracheingabe.
+
 Für `gpt-5-mini` und den Snapshot `gpt-5-mini-2025-08-07` wird minimaler
 Denkaufwand angefordert. Es gelten 4.000 Output-Tokens, 30 Sekunden
 Transport-Timeout und keine automatischen Wiederholungen. Die Kandidatendaten
