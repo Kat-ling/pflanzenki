@@ -1,6 +1,10 @@
 # PflanzenKI: Review und Konzept für die Spracheingabe
 
 Stand: 5. November 2026. Status: Konzept. Die Spracheingabe ist bewusst noch nicht umgesetzt.
+
+Nachtrag 6. November 2026: Faktenprüfung und Namensabgleich sind umgesetzt. Eine Probe mit 14 Aufnahmen
+einer Stimme bestätigte `gpt-transcribe` mit `keywords`: 7 von 12 Namen stimmten direkt, keine erfundenen
+Namen, jeder gesuchte Name lag nach dem Abgleich auf Platz 1. Einsatz vorerst am eigenen Rechner.
 Die Befunde B3 und B4 sowie die Web-Vorbereitung wurden in v0.6 teilweise erledigt, die Faktenprüfung
 zu B1 und B2 danach ebenfalls; siehe `docs/CHANGELOG.md`.
 Methodik: `obra/superpowers`, gelesen aus dem lokalen Ordner und von Hand angewendet

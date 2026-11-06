@@ -84,10 +84,35 @@ class Element {
     assert.deepEqual(requests[3].history, []);
     assert.equal(requests[3].previous_plan, null);
     assert.deepEqual(requests[3].visible_plant_ids, []);
+    const asked = requests.length;
+    const turns = run('history.length');
+    response = {body: {intent: 'name_check', answer: 'Meintest du Cesky Rany?', recommendations: [],
+        name_choices: [{label: 'Cesky Rany', question: 'Wann ernte ich Cesky Rany?'}]}};
+    await ask('Wann ernte ich Chesky Reni?');
+    assert.equal(run('history.length'), turns);
+    assert.equal(el('question').value, 'Wann ernte ich Chesky Reni?');
+    const offered = el('status').children[0].children.filter(node => node.tag === 'button');
+    assert.deepEqual(offered.map(node => node.textContent), ['Cesky Rany', 'Nein, so senden']);
+    response = {body: {intent: 'recommendation', answer: 'Antwort', recommendations: [],
+        understood_as: 'Wann ernte ich Cesky Rany?'}};
+    await offered[0].handlers.click();
+    await new Promise(resolve => setTimeout(resolve));
+    assert.equal(requests[asked + 1].question, 'Wann ernte ich Cesky Rany?');
+    assert.equal(requests[asked + 1].names_checked, false);
+    assert.equal(run('history[history.length - 2].content'), 'Wann ernte ich Cesky Rany?');
+    assert.match(el('conversation').children.at(-2).textContent, /Verstanden als: Wann ernte ich Cesky Rany/);
+    response = {body: {intent: 'name_check', answer: 'Meintest du Cesky Rany?', recommendations: [],
+        name_choices: [{label: 'Cesky Rany', question: 'x'}]}};
+    await ask('Chesky Reni');
+    response = {body: {intent: 'recommendation', answer: 'Antwort', recommendations: []}};
+    el('status').children[0].children.at(-1).handlers.click();
+    await new Promise(resolve => setTimeout(resolve));
+    assert.equal(requests.at(-1).question, 'Chesky Reni');
+    assert.equal(requests.at(-1).names_checked, true);
     run('history = Array(40).fill({role: "user", content: "x"})');
     const before = requests.length;
     await ask('Noch eine Frage');
     assert.equal(requests.length, before);
     assert.match(el('status').textContent, /kein Verlauf.*abgeschnitten/);
-    console.log('UI contract passed: follow-up, complete context, original text, pagination, failure recovery, reset, history limit.');
+    console.log('UI contract passed: follow-up, complete context, original text, pagination, failure recovery, reset, name questions, history limit.');
 })().catch(error => {console.error(error); process.exitCode = 1;});

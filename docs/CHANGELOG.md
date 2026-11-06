@@ -8,6 +8,8 @@
 - Antworttext nennt keine Sorten mehr, die keine Karte haben
 - Standorteignung muss im Katalog belegt sein, sonst gilt die Sorte als unsicher, auch wenn das Modell die Bedingung offen lässt
 - Nachfragen wie „weitere“ bleiben beim letzten Thema des Gesprächs
+- Lokaler Namensabgleich nach Schreibweise und Klang: klare Treffer werden übernommen, unsichere kostenfrei rückgefragt
+- Sortennamen zählen in der Suche nur noch als ganze Wörter, Klammerzusätze gehören nicht zum Namen
 
 ## v0.6.0
 

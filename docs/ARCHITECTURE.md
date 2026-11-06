@@ -88,3 +88,23 @@ Keine vollständigen Katalogfelder oder Bilder. Ausgabelimit 4.000 Tokens,
 30 Sekunden Transport-Timeout, keine SDK-Retries; keine harte Gesamtfrist.
 Bereinigte Metadaten und Nutzungszähler erscheinen im Uvicorn-Serverlog.
 Grundlage: [Structured Outputs](https://developers.openai.com/api/docs/guides/structured-outputs).
+
+## Namensabgleich
+
+`app/advisor/name_match.py` prüft jede Frage vor `/api/ask`, ohne Modellaufruf. Verglichen
+werden Wortfolgen aus bis zu fünf Wörtern mit den Sortennamen, zu 60 % nach Schreibweise und
+zu 40 % nach Kölner Phonetik. Klammerzusätze im Katalog zählen nicht zum Namen.
+
+| Bewertung | Verhalten |
+| --- | --- |
+| Ab 0,90, mit mindestens 0,15 Abstand zum Zweitbesten und mindestens 6 Buchstaben | Name wird übernommen, die Oberfläche zeigt „Verstanden als …“ |
+| Ab 0,75 | Rückfrage mit Knöpfen, kein Modellaufruf. „Nein, so senden“ setzt `names_checked` |
+| Darunter | Kein Eingriff |
+
+Geprüft werden nur Wortfolgen mit mindestens einem Wort, das nicht im Katalogtext vorkommt.
+So brauchen neue Arten keine eigene Wortliste. Namen unter 5 Buchstaben zählen nur als exakte
+Treffer, weil zu viele Alltagswörter ihnen ähneln.
+
+Die Schwellen sind vorläufig. Sie stammen aus 14 Aufnahmen einer Stimme und 50 selbst
+geschriebenen Alltagsfragen. Der Abstand ist knapp: „Chesky Reni“ für Cesky Rany erreicht 0,76,
+das Alltagswort „Zitronenaroma“ 0,72. Festlegen lassen sie sich erst mit dem Referenzsatz.

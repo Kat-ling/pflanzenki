@@ -34,6 +34,11 @@ def answer_fields(original):
     return fields
 
 
+def base_name(name):
+    """Notes in brackets belong to the catalogue, not to the variety's name."""
+    return re.sub(r"\s*\([^()]*\)", "", name).strip() or name.strip()
+
+
 @lru_cache(maxsize=1)
 def synonym_groups():
     if not SYNONYMS.exists():
@@ -123,13 +128,13 @@ def retrieve(plants, question, history, visible=(), limit=24, budget=28000):
             continue
         score = sum((3 if t in current else 1.5 if t in latest else .3) * math.log(1 + len(rows) / frequencies[t])
                     for t in document & (current | prior))
-        name = row["fields"]["Name"].casefold()
+        name = base_name(row["fields"]["Name"]).casefold()
         category = terms(row["fields"]["Kategorie"])
         if category & asked_categories:
             score += 20
         elif category & topic:
             score += 25
-        if " ".join(re.findall(r"\w+", name)) in normalized_question:
+        if f' {" ".join(re.findall(r"\w+", name))} ' in f" {normalized_question} ":
             score += 100
         if height_query:
             description = row["fields"]["Beschreibung"]
