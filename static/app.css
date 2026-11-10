@@ -198,6 +198,11 @@ summary {
     margin-top: 12px;
 }
 
+#privacy-note {
+    color: #555;
+    font-size: 0.9rem;
+}
+
 .name-check button {
     margin: 0 8px 8px 0;
 }

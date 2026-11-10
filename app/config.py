@@ -16,6 +16,8 @@ class Settings:
     port: int = 8000
     access_password: str = ""
     requests_per_minute: int = 20
+    requests_per_day: int = 300
+    trusted_proxies: str = ""
 
     @property
     def production(self) -> bool:
@@ -37,4 +39,6 @@ def load_settings() -> Settings:
         port=int(os.getenv("PORT") or 8000),
         access_password=os.getenv("APP_ACCESS_PASSWORD", ""),
         requests_per_minute=int(os.getenv("APP_REQUESTS_PER_MINUTE") or 20),
+        requests_per_day=int(os.getenv("APP_REQUESTS_PER_DAY") or 300),
+        trusted_proxies=os.getenv("APP_TRUSTED_PROXIES", "").strip(),
     )

@@ -5,3 +5,4 @@
 !requirements.txt
 **/__pycache__
 data/*.local.json
+data/input

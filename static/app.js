@@ -17,6 +17,8 @@ let shownNames = [];
 let lastReply = "";
 let previousPlan = null;
 let shownIds = [];
+const HISTORY_LIMIT = 12;
+let shorteningNoted = false;
 
 function showMessage(role, text) {
     const message = document.createElement("div");
@@ -306,18 +308,16 @@ async function askQuestion(namesChecked = false) {
         return;
     }
 
-    if (history.length >= 40) {
-        statusOutput.textContent = "Dieses Gespräch ist voll. Bitte mit ‚Neue Beratung‘ neu beginnen; es wird kein Verlauf stillschweigend abgeschnitten.";
-        return;
-    }
-
     askButton.disabled = true;
     resetButton.disabled = true;
     questionInput.disabled = true;
     statusOutput.textContent =
         "Katalog und Kombination werden geprüft. Das kann einen Moment dauern …";
 
-    const requestHistory = history.map(message => ({...message}));
+    // Each reply repeats the current criteria, so the latest turns carry the
+    // conversation. Older ones only made every question slower and dearer.
+    const shortened = history.length > HISTORY_LIMIT;
+    const requestHistory = history.slice(-HISTORY_LIMIT).map(message => ({...message}));
     if (requestHistory.length && shownNames.length) {
         requestHistory[requestHistory.length - 1].content =
             lastReply + " Angezeigte passende Sorten in Reihenfolge: " + shownNames.join(", ");
@@ -365,6 +365,11 @@ async function askQuestion(namesChecked = false) {
             ? " Aktuelle Kriterien: " + data.criteria.map(c => c.text).join("; ") : "";
         lastReply = data.answer + criteriaText;
         history.push({role: "assistant", content: lastReply});
+        if (shortened && !shorteningNoted) {
+            shorteningNoted = true;
+            showNote("Hinweis: Ab hier berücksichtige ich nur noch die letzten sechs Fragen und " +
+                "Antworten. Für ein neues Thema am besten ‚Neue Beratung‘ wählen.");
+        }
         showMessage("user", question);
         if (data.understood_as) showNote("Verstanden als: " + data.understood_as);
         showMessage("assistant", data.answer);
@@ -414,6 +419,7 @@ resetButton.addEventListener("click", () => {
     lastReply = "";
     previousPlan = null;
     shownIds = [];
+    shorteningNoted = false;
     conversationOutput.replaceChildren();
     resultOutput.replaceChildren();
     statusOutput.replaceChildren();

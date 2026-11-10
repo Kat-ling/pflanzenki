@@ -12,6 +12,7 @@ from difflib import SequenceMatcher
 from functools import lru_cache
 
 from app.advisor.retrieval import STOP, base_name
+from app.repository import remember_last
 
 CLEAR = .9
 CLEAR_LEAD = .15
@@ -84,6 +85,7 @@ def vocabulary(joined_names, catalogue_text):
             {letters(word.group()) for word in WORD.finditer(catalogue_text)} | {letters(w) for w in STOP})
 
 
+@remember_last
 def catalogue_vocabulary(plants):
     names = "\n".join(sorted({base_name(p.name) for p in plants if p.name.strip()}))
     # Ordinary words come from the catalogue itself, so a new species brings its own terms.

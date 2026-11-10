@@ -75,14 +75,26 @@ Derselbe Code läuft später als Webdienst. Der Umstieg geschieht nur über Eins
 | `APP_ENV=production` | Aktiviert Anmeldung, Anfragelimit und schaltet `/docs` ab |
 | `APP_ACCESS_PASSWORD` | Pflicht im Webbetrieb, sonst startet die App nicht |
 | `APP_REQUESTS_PER_MINUTE` | Grenze für API-Aufrufe je Client, Standard 20 |
+| `APP_REQUESTS_PER_DAY` | Grenze für API-Aufrufe aller Clients zusammen pro Tag, Standard 300 |
+| `APP_TRUSTED_PROXIES` | Adresse des vorgeschalteten Proxys, damit das Limit je Besucher zählt |
 | `HOST`, `PORT` | Im Webbetrieb standardmäßig `0.0.0.0` und `8000` |
 | `OPENAI_API_KEY` | Im Hosting als Geheimnis hinterlegen, nie im Repo |
 
 Das `Dockerfile` startet die App in diesem Modus. `/healthz` dient als Statusprüfung.
 HTTPS muss das Hosting bereitstellen; ohne HTTPS gäbe es auch kein Mikrofon im Browser.
 Die Anmeldung ist bewusst einfach gehalten: ein gemeinsames Passwort für alle. Für
-einzelne Konten wäre eine Erweiterung nötig. Das Limit gilt pro Prozess; bei mehreren
-Instanzen müsste es in einen gemeinsamen Speicher wandern.
+einzelne Konten wäre eine Erweiterung nötig. Die Limits gelten pro Prozess; bei mehreren
+Instanzen müssten sie in einen gemeinsamen Speicher wandern.
+
+Weil alle dasselbe Passwort nutzen, begrenzt erst das Tageslimit die Kosten. Es zählt im
+Arbeitsspeicher und beginnt nach einem Neustart neu. Die verlässliche Obergrenze ist deshalb
+zusätzlich ein Budgetlimit im OpenAI-Projekt. Falsche Passwörter zählen getrennt und
+verbrauchen keine Anfragen angemeldeter Besucher.
+
+Hinter einem Proxy sieht die App ohne `APP_TRUSTED_PROXIES` nur dessen Adresse, alle Besucher
+teilen sich dann ein Minutenlimit. Einzutragen ist die Adresse des Proxys, oder `*`, wenn der
+Container ausschließlich über den Proxy des Hostings erreichbar ist. `/api/interpret` gibt es
+im Webbetrieb nicht.
 
 Die Spracheingabe ist vorbereitet, aber nicht umgesetzt: Sie kommt als eigener Endpunkt
 vor `/api/ask` dazu. Der Plan steht in `docs/superpowers/specs/`.
@@ -118,9 +130,11 @@ Die Wortsuche kann passende Sorten übersehen; Ergebnisse sind keine vollständi
 Trefferliste. Eine korrekte Quellenkennung garantiert noch keine korrekte
 Interpretation. Fehlende Angaben dürfen nicht als belegte Eigenschaften gelten.
 Eine neue Beratung oder Neuladen der Seite löscht den lokalen Gesprächsverlauf.
+Mitgeschickt werden nur die letzten zwölf Nachrichten; die Oberfläche weist einmal darauf hin.
+Jede Antwort wiederholt die aktuellen Kriterien, sodass diese dabei erhalten bleiben.
+Die Seite nennt OpenAI als Empfänger von Frage und Verlauf.
 
 Spracheingabe ist ein späterer Ausbauschritt und noch nicht implementiert.
-Die App ist für lokalen Betrieb gedacht; sie enthält keine Benutzeranmeldung.
 
 ## Entwicklung und Tests
 
@@ -139,7 +153,8 @@ manuell und nach ausdrücklicher Budgetfreigabe zu verwenden.
 Der aktive Antwortpfad liegt in `app/ai/catalogue_answer.py`, die Suche in
 `app/advisor/retrieval.py`, die Oberfläche in `static/`.
 Frühere Regelmodelle und `/api/interpret` bleiben für Entwicklung und Regressionen
-vorhanden; sie sind nicht die aktuelle freie Beratung unter `/api/ask`.
+vorhanden, `/api/interpret` nur lokal; sie sind nicht die aktuelle freie Beratung unter `/api/ask`.
+Abhängigkeiten sind exakt festgelegt; GitHub prüft jeden Push mit denselben Tests.
 Ältere Dokumente unter `docs/` und `UPDATE_v0.5.md` dokumentieren frühere Stände.
 
 Katalogdaten und Bilder sind Bestandteil dieses Projektstands. Eine pauschale

@@ -9,6 +9,7 @@ from app.importer.catalogue_facts import (
     DEFAULT_REGISTRY, SCHEMA_VERSION, EXTRACTOR_VERSION, build_bundle, digest, source_is_valid,
 )
 from app.models.catalogue_facts import FactBundle
+from app.repository import file_state, remember_last
 
 SIDECAR = Path(__file__).resolve().parents[2] / "data/normalized/catalogue_facts.json"
 REASONS = {
@@ -161,13 +162,18 @@ def _prepared_catalogue(serialized, sidecar_bytes):
     return build_bundle(plants)
 
 
-def prepare_catalogue(plants):
+@remember_last
+def _catalogue_for(plants, sidecar, sidecar_state):
     serialized = json.dumps([p.model_dump(mode="json") for p in plants], ensure_ascii=False, sort_keys=True)
     try:
-        data = SIDECAR.read_bytes()
+        data = sidecar.read_bytes()
     except OSError:
         data = b""
     return _prepared_catalogue(serialized, data)
+
+
+def prepare_catalogue(plants):
+    return _catalogue_for(plants, SIDECAR, file_state(SIDECAR))
 
 
 def local_checks(prepared, criteria, registry):

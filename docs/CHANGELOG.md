@@ -10,6 +10,14 @@
 - Nachfragen wie „weitere“ bleiben beim letzten Thema des Gesprächs
 - Lokaler Namensabgleich nach Schreibweise und Klang: klare Treffer werden übernommen, unsichere kostenfrei rückgefragt
 - Sortennamen zählen in der Suche nur noch als ganze Wörter, Klammerzusätze gehören nicht zum Namen
+- Webbetrieb: Tageslimit für alle Clients zusammen (`APP_REQUESTS_PER_DAY`), Besucheradresse hinter
+  einem Proxy (`APP_TRUSTED_PROXIES`), falsche Passwörter zählen getrennt, `/api/interpret` nur noch lokal
+- Oberfläche nennt OpenAI als Empfänger von Frage und Verlauf
+- Lange Gespräche laufen weiter: mitgeschickt werden die letzten zwölf Nachrichten, mit einmaligem Hinweis
+- Unveränderlicher Teil der Modellanfrage steht vorn, damit der Anbieter ihn zwischenspeichern kann
+- Abgeleitete Katalogdaten werden nicht mehr bei jeder Anfrage neu serialisiert
+- Bilder dürfen einen Tag im Browser bleiben; Rohdaten aus `data/input` fehlen im Docker-Image
+- Abhängigkeiten exakt festgelegt, Tests bei jedem Push, monatliche Dependabot-Prüfung
 
 ## v0.6.0
 

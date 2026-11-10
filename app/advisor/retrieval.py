@@ -6,6 +6,8 @@ from collections import Counter
 from functools import lru_cache
 from pathlib import Path
 
+from app.repository import remember_last
+
 STOP = set("""ich du mir mich wir uns welche welchen welcher welches gibt ist sind haben hat suche
 bitte und oder mit ohne der die das ein eine einer einen für fürs von in im auf den dem es nun doch
 lieber als nach was wie wann wo kann könnte soll sollte passt noch mehr nicht sehr auch etwas gern
@@ -101,8 +103,13 @@ def index(serialized):
     return rows, documents, frequencies, heads
 
 
+@remember_last
+def catalogue_index(plants):
+    return index(json.dumps(records(plants), ensure_ascii=False))
+
+
 def retrieve(plants, question, history, visible=(), limit=24, budget=28000):
-    rows, documents, frequencies, heads = index(json.dumps(records(plants), ensure_ascii=False))
+    rows, documents, frequencies, heads = catalogue_index(plants)
     current = terms(question, heads)
     questions = [m.content for m in history if m.role == "user"]
     prior = terms(" ".join(questions), heads)

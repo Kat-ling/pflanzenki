@@ -27,6 +27,34 @@ def load_plants(path: str | Path = DEFAULT_DATA) -> list[Plant]:
     return list(_parsed_plants(str(path), status.st_mtime_ns, status.st_size))
 
 
+def remember_last(build):
+    """Reuse the last result while the very same plant objects come back.
+
+    load_plants hands out the same objects until the file changes, so the
+    catalogue need not be serialized on every request just to notice that.
+    """
+    last = [None]
+
+    def cached(plants, *state):
+        entry = last[0]
+        if (entry and entry[1] == state and len(entry[0]) == len(plants)
+                and all(a is b for a, b in zip(entry[0], plants))):
+            return entry[2]
+        result = build(plants, *state)
+        last[0] = (tuple(plants), state, result)
+        return result
+
+    return cached
+
+
+def file_state(path: Path) -> tuple[int, int] | None:
+    try:
+        status = path.stat()
+    except OSError:
+        return None
+    return status.st_mtime_ns, status.st_size
+
+
 def load_categories(path: str | Path = DEFAULT_CATEGORIES) -> list[str]:
     category_path = Path(path)
     if category_path.exists():

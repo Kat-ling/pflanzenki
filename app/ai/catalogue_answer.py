@@ -111,12 +111,14 @@ def consult(interpreter, plants, question, history, previous_plan=None, visible_
     bundle = prepare_catalogue(plants)
     source_maps = {p["plant_id"]: {f"s{i}": {"field": key, "text": value}
                    for i, (key, value) in enumerate(p["fields"].items())} for p in candidates}
-    payload = {"question": question, "history": [m.model_dump() for m in history],
-               "visible_plants": visible_plants or [],
-               "available_properties": [{"property_id": d.property_id, "type": d.value_type,
+    # The unchanging part comes first: the provider caches a request by its
+    # identical beginning, and question and history differ every time.
+    payload = {"available_properties": [{"property_id": d.property_id, "type": d.value_type,
                                          "meaning": d.semantics, "unit": d.unit} for d in bundle.registry],
                "candidates": [
-                   {"plant_id": p["plant_id"], "sources": source_maps[p["plant_id"]]} for p in candidates]}
+                   {"plant_id": p["plant_id"], "sources": source_maps[p["plant_id"]]} for p in candidates],
+               "visible_plants": visible_plants or [],
+               "history": [m.model_dump() for m in history], "question": question}
     if len(json.dumps(payload, ensure_ascii=False)) > 60000:
         raise QueryInterpreterError("Das Gespräch ist für eine sparsame Anfrage zu lang. Bitte eine neue Beratung beginnen.")
     answer = request_structured(interpreter, INSTRUCTIONS, payload, CatalogueAnswer)

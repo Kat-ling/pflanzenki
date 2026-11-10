@@ -112,7 +112,13 @@ class Element {
     run('history = Array(40).fill({role: "user", content: "x"})');
     const before = requests.length;
     await ask('Noch eine Frage');
-    assert.equal(requests.length, before);
-    assert.match(el('status').textContent, /kein Verlauf.*abgeschnitten/);
+    assert.equal(requests.length, before + 1);
+    assert.equal(requests.at(-1).history.length, 12);
+    assert.equal(run('history.length'), 14);
+    const notes = () => el('conversation').children.filter(node => /letzten sechs Fragen/.test(node.textContent));
+    assert.equal(notes().length, 1);
+    await ask('Und noch eine');
+    assert.equal(requests.at(-1).history.length, 12);
+    assert.equal(notes().length, 1);
     console.log('UI contract passed: follow-up, complete context, original text, pagination, failure recovery, reset, name questions, history limit.');
 })().catch(error => {console.error(error); process.exitCode = 1;});

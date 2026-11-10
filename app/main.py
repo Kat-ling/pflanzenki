@@ -19,6 +19,9 @@ from app.ai.dialogue_models import ChatMessage, DialoguePlan
 
 STATIC_DIR = Path(__file__).resolve().parents[1] / "static"
 router = APIRouter()
+# Earlier interpretation path for development and regressions; the page never
+# calls it, so on the web it would only be a second way to spend money.
+development_router = APIRouter()
 
 
 class AskRequest(BaseModel):
@@ -106,7 +109,7 @@ def advise_on(payload: AskRequest, question: str):
         ) from exc
 
 
-@router.post(
+@development_router.post(
     "/api/interpret",
 )
 def interpret_question(
@@ -145,6 +148,8 @@ def create_app(settings: Settings | None = None) -> FastAPI:
     application = FastAPI(title="KI-Sister", version="0.6.0", **documentation)
     install_guards(application, settings)
     application.include_router(router)
+    if not settings.production:
+        application.include_router(development_router)
     application.mount("/static", StaticFiles(directory=STATIC_DIR), name="static")
     return application
 

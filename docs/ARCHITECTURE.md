@@ -18,7 +18,8 @@ Einstellungen stehen in `app/config.py`, der Schutz für den Webbetrieb in `app/
 die Oberfläche in `static/`, der Katalogimport in `app/importer/update.py`.
 
 Der folgende Abschnitt beschreibt den lokalen Auswahlpfad aus v0.5. Er ist weiterhin
-im Code vorhanden und erreichbar über `/api/interpret`, beantwortet aber keine Beratungsfragen.
+im Code vorhanden und lokal erreichbar über `/api/interpret` (im Webbetrieb abgeschaltet),
+beantwortet aber keine Beratungsfragen.
 
 # Lokaler Auswahlpfad v0.5
 
