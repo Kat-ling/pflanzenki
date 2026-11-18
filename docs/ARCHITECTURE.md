@@ -108,3 +108,17 @@ Treffer, weil zu viele Alltagswörter ihnen ähneln.
 Die Schwellen sind vorläufig. Sie stammen aus 14 Aufnahmen einer Stimme und 50 selbst
 geschriebenen Alltagsfragen. Der Abstand ist knapp: „Chesky Reni“ für Cesky Rany erreicht 0,76,
 das Alltagswort „Zitronenaroma“ 0,72. Festlegen lassen sie sich erst mit dem Referenzsatz.
+
+## Spracheingabe
+
+Sprache ist eine Stufe vor dem normalen Weg: `static/app.js` nimmt mit `MediaRecorder` auf,
+`POST /api/transcribe` liefert Text, und dieser Text landet im Eingabefeld. Gesendet wird von
+Hand über `/api/ask`, also gelten Namensabgleich und Faktenprüfung unverändert.
+
+`app/ai/transcription.py` ruft `gpt-transcribe` mit `languages: ["de"]` und allen Sortennamen
+als `keywords` auf, ohne automatische Wiederholung. Die Größe ist auf 5 MB begrenzt, zu große
+Anfragen weist `security.py` schon vor dem Einlesen ab. Das Log enthält nur Dauer, Größe und
+Fehlerklasse, nie den Text. Die 30 Sekunden Aufnahmedauer begrenzt nur der Browser.
+
+Die im Konzept vorgesehene Pegelanzeige ist nicht umgesetzt: Die Taste zeigt den Aufnahmezustand,
+und eine stumme Aufnahme endet mit „Ich habe nichts verstanden“.

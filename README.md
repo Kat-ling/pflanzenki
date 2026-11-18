@@ -106,7 +106,25 @@ bleibt die Empfehlung bestehen und diese Aussage ungeprüft.
 Sortennamen werden vor dem Modellaufruf lokal abgeglichen, nach Schreibweise und Klang. Ein
 klarer Treffer wird übernommen und als „Verstanden als …“ angezeigt. Bei einem unsicheren
 Treffer fragt die App kostenfrei „Meintest du …?“, und ohne passenden Namen bleibt die Eingabe
-unverändert. Das hilft bei Tippfehlern und ist die Grundlage für die spätere Spracheingabe.
+unverändert. Das hilft bei Tippfehlern und bei der Spracheingabe.
+
+## Spracheingabe
+
+Die Taste „Zum Sprechen halten“ nimmt bis zu 30 Sekunden auf. Der erkannte Text landet im
+Eingabefeld, du prüfst ihn und sendest selbst ab. Danach läuft alles wie beim Tippen.
+
+- Das Mikrofon funktioniert nur über `localhost` oder HTTPS. Im Browser ohne Unterstützung
+  bleibt die Taste verborgen.
+- Die Aufnahme geht zur Erkennung an OpenAI und wird von der App nicht gespeichert. Der Text
+  kommt nicht ins Log. Stimme ist personenbezogen: Vor einer Nutzung durch andere braucht es
+  einen sichtbaren Hinweis und eine rechtliche Prüfung.
+- Das Modell lässt sich mit `OPENAI_TRANSCRIBE_MODEL` ändern, Standard ist `gpt-transcribe`.
+
+Nach einem Update fehlende Pakete nachinstallieren:
+
+```bash
+.venv/Scripts/python.exe -m pip install -r requirements.txt
+```
 
 Für `gpt-5-mini` und den Snapshot `gpt-5-mini-2025-08-07` wird minimaler
 Denkaufwand angefordert. Es gelten 4.000 Output-Tokens, 30 Sekunden

@@ -8,7 +8,8 @@ class Element {
     constructor(tag) {
         this.tag = tag; this.children = []; this.handlers = {};
         this.textContent = ''; this.value = ''; this.disabled = false;
-        this.className = ''; this.classList = {add: name => {this.className += ' ' + name;}};
+        this.className = ''; this.classList = {add: name => {this.className += ' ' + name;},
+            remove: name => {this.className = this.className.replace(' ' + name, '');}};
     }
     append(...nodes) {for (const node of nodes) this.appendChild(node);}
     appendChild(node) {this.children.push(node); node.parent = this; return node;}
@@ -31,9 +32,25 @@ class Element {
     };
     const requests = [];
     let response;
+    const speech = {stopped: 0, refused: false};
+    class FakeRecorder {
+        constructor(stream, options) {this.options = options; this.state = 'inactive'; this.listeners = {};}
+        static isTypeSupported(type) {return type === 'audio/webm';}
+        addEventListener(name, fn) {this.listeners[name] = fn;}
+        start() {this.state = 'recording';}
+        stop() {this.state = 'inactive'; this.listeners.dataavailable({data: 'ton'}); this.listeners.stop();}
+    }
+    let clock = 1000;
     const context = vm.createContext({document, console: {error() {}},
+        Date: {now: () => clock}, setTimeout, clearTimeout, MediaRecorder: FakeRecorder,
+        Blob: class {constructor(parts, options) {this.parts = parts; this.type = options.type;}},
+        FormData: class {append(key, value) {this[key] = value;}},
+        navigator: {mediaDevices: {getUserMedia: async () => {
+            if (speech.refused) throw new Error('verweigert');
+            return {getTracks: () => [{stop: () => {speech.stopped += 1;}}]};
+        }}},
         fetch: async (url, request) => {
-            requests.push(JSON.parse(request.body));
+            requests.push(url === '/api/transcribe' ? request.body : JSON.parse(request.body));
             return {ok: response.ok !== false, status: response.ok === false ? 502 : 200,
                     json: async () => response.body};
         }
@@ -114,5 +131,46 @@ class Element {
     await ask('Noch eine Frage');
     assert.equal(requests.length, before);
     assert.match(el('status').textContent, /kein Verlauf.*abgeschnitten/);
-    console.log('UI contract passed: follow-up, complete context, original text, pagination, failure recovery, reset, name questions, history limit.');
+    run('history = []');
+    const button = el('record-button');
+    assert.equal(button.hidden, false);
+    const tick = () => new Promise(resolve => setTimeout(resolve));
+    el('question').value = '';
+    const voice = requests.length;
+    response = {body: {text: 'Wie groß wird Yesil Tatli?'}};
+    await button.handlers.pointerdown();
+    assert.equal(button.textContent, 'Ich höre zu …');
+    clock += 3000;
+    button.handlers.pointerup();
+    await tick();
+    assert.equal(requests[voice].audio.type, 'audio/webm');
+    assert.equal(speech.stopped, 1);
+    assert.equal(el('question').value, 'Wie groß wird Yesil Tatli?');
+    assert.equal(run('history.length'), 0);
+    assert.equal(requests.length, voice + 1);
+    assert.equal(button.disabled, false);
+    await button.handlers.pointerdown();
+    clock += 100;
+    button.handlers.pointerup();
+    await tick();
+    assert.equal(requests.length, voice + 1);
+    assert.match(el('status').textContent, /Taste beim Sprechen halten/);
+    response = {body: {text: ''}};
+    el('question').value = 'Getippt';
+    await button.handlers.pointerdown();
+    clock += 1000;
+    button.handlers.pointerup();
+    await tick();
+    assert.equal(el('question').value, 'Getippt');
+    assert.match(el('status').textContent, /nichts verstanden/);
+    response = {ok: false, body: {detail: 'Spracherkennung gestört'}};
+    await button.handlers.pointerdown();
+    clock += 1000;
+    button.handlers.pointerup();
+    await tick();
+    assert.match(el('status').children[0].textContent, /Spracherkennung gestört/);
+    speech.refused = true;
+    await button.handlers.pointerdown();
+    assert.match(el('status').children[0].textContent, /Mikrofon ist nicht verfügbar/);
+    console.log('UI contract passed: follow-up, complete context, original text, pagination, failure recovery, reset, name questions, history limit, voice recording.');
 })().catch(error => {console.error(error); process.exitCode = 1;});

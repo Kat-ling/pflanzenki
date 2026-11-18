@@ -17,6 +17,17 @@ let shownNames = [];
 let lastReply = "";
 let previousPlan = null;
 let shownIds = [];
+const recordButton = document.getElementById("record-button");
+const MAX_RECORDING_MS = 30000;
+const MIN_RECORDING_MS = 400;
+const microphone = globalThis.navigator?.mediaDevices;
+const audioType = ["audio/webm", "audio/mp4"].find(
+    type => globalThis.MediaRecorder?.isTypeSupported(type));
+let recorder = null;
+let holding = false;
+let recordingStarted = 0;
+let recordingLimit = null;
+let transcribing = false;
 
 function showMessage(role, text) {
     const message = document.createElement("div");
@@ -407,6 +418,110 @@ askButton.addEventListener(
     "click",
     () => askQuestion()
 );
+
+
+function showVoiceError(text) {
+    const errorBox = document.createElement("div");
+    errorBox.className = "error";
+    errorBox.textContent = text;
+    statusOutput.replaceChildren(errorBox);
+}
+
+
+async function sendRecording(audio) {
+    transcribing = true;
+    recordButton.disabled = true;
+    askButton.disabled = true;
+    statusOutput.textContent = "Aufnahme wird in Text umgewandelt …";
+    const form = new FormData();
+    form.append("audio", audio, "aufnahme");
+    try {
+        const response = await fetch("/api/transcribe", {method: "POST", body: form});
+        const data = await response.json().catch(() => ({}));
+        if (!response.ok) {
+            throw new Error(typeof data.detail === "string"
+                ? data.detail : "Die Aufnahme konnte nicht verarbeitet werden.");
+        }
+        if (!data.text) {
+            statusOutput.textContent = "Ich habe nichts verstanden. Bitte noch einmal sprechen.";
+            return;
+        }
+        const typed = questionInput.value.trim();
+        questionInput.value = typed ? typed + " " + data.text : data.text;
+        statusOutput.textContent = "Bitte prüfe den Text und sende ihn dann ab.";
+        questionInput.focus();
+    } catch (error) {
+        console.error("Fehler bei der Spracherkennung:", error);
+        showVoiceError(error.message);
+    } finally {
+        transcribing = false;
+        recordButton.disabled = false;
+        askButton.disabled = false;
+    }
+}
+
+
+async function startRecording() {
+    if (holding || recorder || transcribing || askButton.disabled) return;
+    holding = true;
+    let stream;
+    try {
+        stream = await microphone.getUserMedia({audio: true});
+    } catch (error) {
+        holding = false;
+        showVoiceError("Das Mikrofon ist nicht verfügbar. Bitte die Freigabe im Browser prüfen.");
+        return;
+    }
+    if (!holding) {
+        // The permission prompt took the press with it.
+        stream.getTracks().forEach(track => track.stop());
+        statusOutput.textContent = "Das Mikrofon ist bereit. Bitte die Taste beim Sprechen halten.";
+        return;
+    }
+    const chunks = [];
+    recorder = new MediaRecorder(stream, {mimeType: audioType});
+    recorder.addEventListener("dataavailable", event => chunks.push(event.data));
+    recorder.addEventListener("stop", () => {
+        stream.getTracks().forEach(track => track.stop());
+        recorder = null;
+        recordButton.classList.remove("recording");
+        recordButton.textContent = "Zum Sprechen halten";
+        if (Date.now() - recordingStarted < MIN_RECORDING_MS) {
+            statusOutput.textContent = "Bitte die Taste beim Sprechen halten.";
+            return;
+        }
+        sendRecording(new Blob(chunks, {type: audioType}));
+    });
+    recordingStarted = Date.now();
+    recorder.start();
+    recordingLimit = setTimeout(stopRecording, MAX_RECORDING_MS);
+    recordButton.classList.add("recording");
+    recordButton.textContent = "Ich höre zu …";
+    statusOutput.textContent = "Zum Beenden loslassen, höchstens 30 Sekunden.";
+}
+
+
+function stopRecording() {
+    holding = false;
+    clearTimeout(recordingLimit);
+    if (recorder?.state === "recording") recorder.stop();
+}
+
+
+if (microphone && audioType) {
+    recordButton.hidden = false;
+    recordButton.addEventListener("pointerdown", startRecording);
+    for (const name of ["pointerup", "pointerleave", "pointercancel"]) {
+        recordButton.addEventListener(name, stopRecording);
+    }
+    recordButton.addEventListener("keydown", event => {
+        if ((event.key === " " || event.key === "Enter") && !event.repeat) {
+            event.preventDefault();
+            startRecording();
+        }
+    });
+    recordButton.addEventListener("keyup", stopRecording);
+}
 
 resetButton.addEventListener("click", () => {
     history = [];

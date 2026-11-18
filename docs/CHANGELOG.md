@@ -10,6 +10,7 @@
 - Nachfragen wie „weitere“ bleiben beim letzten Thema des Gesprächs
 - Lokaler Namensabgleich nach Schreibweise und Klang: klare Treffer werden übernommen, unsichere kostenfrei rückgefragt
 - Sortennamen zählen in der Suche nur noch als ganze Wörter, Klammerzusätze gehören nicht zum Namen
+- Spracheingabe: Aufnahme-Taste und `/api/transcribe`, der Text wird vor dem Absenden geprüft
 
 ## v0.6.0
 

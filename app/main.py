@@ -2,7 +2,7 @@ from __future__ import annotations
 
 from pathlib import Path
 
-from fastapi import APIRouter, FastAPI, HTTPException
+from fastapi import APIRouter, FastAPI, File, HTTPException, UploadFile
 from fastapi.responses import FileResponse
 from fastapi.staticfiles import StaticFiles
 from pydantic import BaseModel, Field, model_validator
@@ -16,6 +16,7 @@ from app.security import install_guards
 from app.ai.interpreter_factory import create_query_interpreter
 from app.ai.query_interpreter import QueryInterpreterError
 from app.ai.dialogue_models import ChatMessage, DialoguePlan
+from app.ai.transcription import MAX_AUDIO_BYTES, transcribe
 
 STATIC_DIR = Path(__file__).resolve().parents[1] / "static"
 router = APIRouter()
@@ -104,6 +105,19 @@ def advise_on(payload: AskRequest, question: str):
             status_code=502,
             detail=str(exc),
         ) from exc
+
+
+@router.post("/api/transcribe")
+def transcribe_audio(audio: UploadFile = File()):
+    recording = audio.file.read(MAX_AUDIO_BYTES + 1)
+    if len(recording) > MAX_AUDIO_BYTES:
+        raise HTTPException(status_code=413, detail="Die Aufnahme ist zu lang.")
+    try:
+        return {"text": transcribe(recording, audio.content_type, load_plants())}
+    except ValueError as exc:
+        raise HTTPException(status_code=400, detail=str(exc)) from exc
+    except QueryInterpreterError as exc:
+        raise HTTPException(status_code=502, detail=str(exc)) from exc
 
 
 @router.post(

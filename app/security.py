@@ -10,6 +10,7 @@ from time import monotonic
 from fastapi import FastAPI, Request
 from fastapi.responses import JSONResponse, Response
 
+from app.ai.transcription import MAX_AUDIO_BYTES
 from app.config import Settings
 
 PUBLIC_PATHS = {"/healthz"}
@@ -17,7 +18,7 @@ DOCUMENTATION_PATHS = ("/docs", "/redoc")
 HEADERS = {
     "X-Content-Type-Options": "nosniff",
     "Referrer-Policy": "same-origin",
-    # Prepared for the planned voice input; only this application may ask.
+    # Voice input: only this application may ask for the microphone.
     "Permissions-Policy": "microphone=(self)",
 }
 CONTENT_POLICY = ("default-src 'self'; base-uri 'none'; form-action 'self'; "
@@ -40,6 +41,14 @@ class RateLimiter:
             return False
         calls.append(now)
         return True
+
+
+def too_large(request: Request) -> bool:
+    """Stops an oversized upload before the form parser spools it to disk."""
+    length = request.headers.get("content-length", "")
+    # 1 KB leaves room for the form boundary around the recording.
+    return (request.url.path == "/api/transcribe" and length.isdigit()
+            and int(length) > MAX_AUDIO_BYTES + 1024)
 
 
 def password_matches(header: str | None, password: str) -> bool:
@@ -71,9 +80,14 @@ def install_guards(app: FastAPI, settings: Settings) -> None:
             return too_many
         return None
 
+    def rejected(request: Request) -> Response | None:
+        if too_large(request):
+            return JSONResponse({"detail": "Die Aufnahme ist zu lang."}, status_code=413)
+        return refused(request)
+
     @app.middleware("http")
     async def guard(request: Request, call_next):
-        response = refused(request) or await call_next(request)
+        response = rejected(request) or await call_next(request)
         response.headers.update(HEADERS)
         if not request.url.path.startswith(DOCUMENTATION_PATHS):
             response.headers["Content-Security-Policy"] = CONTENT_POLICY

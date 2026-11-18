@@ -201,3 +201,14 @@ summary {
 .name-check button {
     margin: 0 8px 8px 0;
 }
+
+#record-button {
+    touch-action: none;
+    user-select: none;
+}
+
+#record-button.recording {
+    background: #a33a2c;
+    border-color: #a33a2c;
+    color: #fff;
+}
