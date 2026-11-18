@@ -40,3 +40,6 @@ docs/CATALOGUE_ACCEPTANCE_RESULTS.json
 
 # Lokale Datenschutzregeln enthalten selbst personenbezogene Begriffe
 *.local.json
+
+# Stimmaufnahmen sind personenbezogen und bleiben lokal
+sprachprobe/
